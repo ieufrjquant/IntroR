@@ -1,0 +1,3 @@
+# Instalação
+
+Nessa parte, você irá aprender como baixar e instalar o R e o RStudio, além da composição de *layout* de ambos. Construímos cada seção de instalação como um guia do tipo *passo a passo*, de maneira que você precisa apenas seguí-los de forma direta. Neste capítulo, é importante que você já comece a explorar um pouco a interface dos ambientes de programação que te mostraremos.

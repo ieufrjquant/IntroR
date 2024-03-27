@@ -1,0 +1,143 @@
+```{r, echo=FALSE}
+pacman::p_load(tidyverse, openxlsx)
+options(max.print=30)
+```
+
+# Importando dados
+
+Imagine que você compre um computador produzido *fora* do Brasil. Nesse caso, dizemos que você *importou* o computador de determinado país que o produziu, não é? Inclusive, segundo a Oxford Languages, o verbo *importar* pode ser definido como
+
+> trazer de outro país, estado ou município.
+
+No campo da programação, *importar* mantém signifcado semelhante: trazer dados externos para nosso ambiente, de forma que possamos manipulá-los com a linguagem. Aplicando à nossa realidade, queremos trazer tabelas de dados para a memória do R, na aba Environment, de forma que possamos manipulá-las posteriormente!
+
+## Definindo o diretório de trabalho
+
+Antes de importar, é interessante definirmos nosso *diretório de trabalho*, que corresponde ao caminho para a pasta fixa que iremos utilizar para criar ou armazenar arquivos. Pense no diretório como a pasta do seu computador que servirá como local de armazenamento de todos os arquivos relacionados ao trabalho/projeto que você estiver executando naquele momento – sejam scripts, planilhas, etc.
+
+Para configurar determinada pasta como diretório de trabalho, aperte `Ctrl + Shift + H` e, na sequência, selecione a pasta que desejar. Perceba que esse comando rodará a função `setwd()` no Console, cujo argumento é o caminho para a pasta. Você também pode selecionar o diretório de trabalho desta maneira direta.
+
+```{r}
+#| eval: false
+
+setwd("caminho_para_pasta")
+```
+
+Note que, no RStudio, o caminho para o diretório atual aparece na parte superior do painel de Console, ao lado do número da versão do R que você estiver utilizando no momento. Ao mesmo tempo, você pode retornar o diretório atual de trabalho apenas rodando a função `getwd()`, sem nenhum argumento.
+
+## Funções mais utilizadas para importação
+
+Com o propósito de importar dados para o RStudio, iremos aprender a utilizar algumas funções específicas. Repare que estamos falando de *funções*, ou seja, existe mais de uma função que busca permitir com que o RStudio seja capaz de ler e armazenar dados internamente em sua memória, para posterior manipulação. Isso acontece pois não existe um único tipo de arquivo capaz de armazenar dados.
+
+Dois pacotes serão utilizados: `readr`, que faz parte do *tidyverse*, e `openxlsx`. Portanto, é necessário que você os instale, caso ainda não tenha feito e, na sequência, carrege os pacotes.
+
+```{r, eval=FALSE}
+install.packages("readr")
+install.packages("openxlsx")
+
+library(readr)
+library(openxlsx)
+```
+
+### O pacote readr – lendo arquivos delimitados
+
+O pacote `readr` é utilizado principalmente para ler arquivos delimitados por algum caractere específico. *'Como assim, arquivos delimitados por caractere?'* Em muitos casos, as tabelas de dados são tão grandes – ou seja, várias observações (linhas) e variáveis (colunas) – que será necessário reduzir seu tamanho com intuito de facilitar o compartilhamento com terceiros. Uma saída é comprimir todas as variáveis em uma única coluna, em que os dados são *separados por algum caractere especial*, mantendo o mesmo número de observações anterior. Cada linha continua representando uma observação de determinada unidade. Passamos de *n* observações e *m* colunas para *n* observações e 1 coluna.
+
+#### `read_csv()`
+
+Para começar, vamos nos concentrar no tipo de arquivo de dados retangular mais comum: CSV, que é a abreviação de *Comma Separeted Values* (valores separados por vírgula, em português). Abaixo, temos a aparência de um arquivo CSV simples, contendo informações de estudantes. A primeira linha, comumente chamada de *cabeçalho*, fornece os nomes das colunas, e as cinco linhas seguintes fornecem os dados.
+
+```{r}
+#| echo: false
+#| message: true
+#| comment: ""
+
+read_lines("dados/estudantes.csv") |> cat(sep = "\n")
+```
+
+A @tbl-students-table mostra uma representação dos mesmos dados em uma tabela.
+
+```{r}
+#| label: tbl-students-table
+#| echo: false
+#| message: false
+#| tbl-cap: Dados do arquivo estudantes.csv como tabela.
+
+read_csv("dados/estudantes.csv") |>
+  knitr::kable(align = "c")
+```
+
+Quando temos um arquivo do tipo `csv`, podemos importá-lo para o R usando a função `read_csv()`. O primeiro argumento é o mais importante: o *caminho* para o arquivo. Você pode pensar no caminho como o *endereço* do arquivo, ou seja, é o local em que ele está armazenado.
+
+Se o arquivo estiver no seu computador, é necessário escrever o caminho em termos de diretório e pastas, além do nome do arquivo e sua extensão. Lembre-se que já fixamos nosso diretório de trabalho. Basta então escrever o restante do caminho, considerando que o arquivo está na pasta `dados`[^importando-1] e se chama `estudantes.csv`!
+
+[^importando-1]: A pasta `dados` foi criada com intuito de aprimorar a organização do diretório de trabalho. Você **não** precisa tê-la em seu computador. Se você já fixou o diretório base, pode importar arquivos apenas com `read_csv("nome_do_arquivo.csv")`.
+
+```{r}
+#| message: true
+#| collapse: true
+
+estudantes <- read_csv("dados/estudantes.csv")
+```
+
+Por outro lado, você pode baixar o arquivo diretamente de algum *link* hospedado na internet! A vantagem dessa alternativa consiste no fato de quê você não precisará realizar novamente o *download* do arquivo no seu computador em caso de atualização do arquivo original – além, é claro, de tornar seu diretório de trabalho mais limpo.
+
+```{r}
+#| message: true
+#| collapse: true
+
+estudantes <- read_csv("https://raw.githubusercontent.com/ieufrjquant/intror/master/dados/estudantes.csv")
+```
+
+Independente da forma com que você especifique o caminho para o arquivo ao executar a função `read_csv()`, note que ela exibe uma mensagem informando o número de linhas e colunas de dados, o delimitador que foi usado e as especificações das colunas (nomes das colunas organizadas pelo tipo de dados que a coluna contém).
+
+Observe também que, em ambos os casos, atribuimos a tabela de dados ao objeto `estudantes`, ficando disponível para visualização no painel Environment. Quando for importar alguma tabela para o R, é importante que você atribua os dados a um objeto – cujo nome, como sabemos, é de livre escolha. Caso contrário, o arquivo será apenas lido no Console, ao invés de ficar efetivamente armazenado para manipulação[^importando-2]. Por fim, importante observar que o objeto criado terá estrutura de *data frame*.
+
+[^importando-2]: É exatamente a mesma lógica de armazenamento vista no capítulo sobre objetos.
+
+::: {.callout-tip collapse="true"}
+## Funções para outros tipos de arquivo delimitados (Opcional)
+
+Depois de dominar `read_csv()`, usar as outras funções do readr é simples; é apenas uma questão de saber qual função buscar:
+
+-   `read_csv2()` lê arquivos separados por ponto e vírgula. Eles usam `;` em vez de `,` para separar campos e são comuns em países que usam `,` como marcador decimal.
+
+-   `read_tsv()` lê arquivos delimitados por tabulações.
+
+-   `read_delim()` lê arquivos com qualquer delimitador, tentando adivinhar automaticamente o delimitador se você não especificá-lo.
+
+-   `read_fwf()` lê arquivos de largura fixa. Você pode especificar campos por suas larguras com `fwf_widths()` ou por suas posições com `fwf_positions()`.
+
+-   `read_table()` lê uma variação comum de arquivos de largura fixa onde as colunas são separadas por espaços em branco.
+:::
+
+### O pacote readxl – lendo planilhas
+
+Nesta seção, iremos nos concentrar em importar dados de *planilhas*, especificamente os que foram agrupados em planilhas de *Excel*. Veremos como importar todos os dados de uma planilha com apenas uma única aba, assim como de uma aba específica, caso exista mais de uma.
+
+#### `read.xlsx()`
+
+A maioria dos arquivos escritos em Excel hoje possui uma extensão do tipo `.xlsx`. Portanto, vamos focar na função do pacote `openxlsx` que melhor lide com planilhas desse tipo: `read.xlsx()`. Como no caso anterior, note que o objeto criado terá estrutura de um *data frame*.
+
+##### Planilha
+
+Esse caso se aplica quando você desejar importar *todos* os dados que estão na *primeira* *e única* aba de uma planilha. O procedimento é muito parecido com o que fizemos no caso de arquivos delimitados: precisaremos do endereço para o arquivo que desejamos importar, que pode ser um caminho de pastas no seu computador ou um *link* externo.
+
+```{r}
+estudantes <- read.xlsx("dados/estudantes.xlsx")
+estudantes
+```
+
+##### Aba específica
+
+Para importar dados de uma aba específica de determinada planilha é necessário especificar, além do endereço do arquivo, o nome ou o índice da aba que você deseja. No exemplo abaixo, importamos os dados completos do *Maddison Project Database 2020*, que estão contidos na terceira aba da planilha disponibilizada pelos organizadores*.*
+
+```{r}
+dados <- read.xlsx("https://www.rug.nl/ggdc/historicaldevelopment/maddison/data/mpd2020.xlsx", 
+                   sheet = "Full data")
+
+dados <- read.xlsx("https://www.rug.nl/ggdc/historicaldevelopment/maddison/data/mpd2020.xlsx", 
+                   sheet = 3)
+
+dados
+```

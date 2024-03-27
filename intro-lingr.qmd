@@ -1,0 +1,11 @@
+# Programando em R
+
+Nessa parte do material, você aprenderá a programar na prática. O capítulo inicial terá como objetivo estimular que a escrita de suas primeiras linhas de código; será composto de tarefas *super* simples, mas suficientes para proporcionar uma primeira eperiência à quem nunca programou. Nos dois capítulos seguintes, te guiaremos no entendimento sobre os dois conceitos mais importantes da linguagem: *objetos* e *funções*. Segundo John Chambers, um dos desenvolvedores do R,
+
+> *to understand computations in R, two slogans are helpful:*
+>
+> -   *Everything that exists is an object.*
+>
+> -   *Everything that happens is a function call.*
+
+O último capítulo, por sua vez, te ensinará a como armazenar informações externas no R. É importante que você saiba esse tópico pois, em algumas matérias, seu professor lhe entregará arquivos com informações nos quais algumas tarefas deverão ser executadas com auxílio da linguagem.

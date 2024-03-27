@@ -1,0 +1,53 @@
+---
+engine: knitr
+---
+
+# Prefácio {#sec-preface .unnumbered}
+
+## O que você vai aprender
+
+Pretendemos que você domine o *mínimo* necessário de programação em R para executar as tarefas que podem ser requisitadas pelo seu professor, independentemente do curso da área quantitativa em que estiver. Em outras palavras, se te pedirem algo que deva ser elaborado com auxílio de programação em R, você será capaz de fazê-lo após ler este material[^index-1].
+
+[^index-1]: Esperamos que os empecilhos que apareçam não sejam por conta de alguma dificuldade no ato de programar em si, mas por dúvidas com relação à matéria propriamente dita. De qualquer forma, fique tranquilo: se você não entendeu alguma parte do material, estaremos **sempre** abertos a te ajudar!
+
+Na prática, o quê significa *dominar o mínimo necessário de programação em R?* Inclui entender alguns *conceitos* básicos – para quê serve a programação em nosso contexto, o que é a linguagem de programação R, o que é o RStudio, entre outros – assim como a *sintaxe* da linguagem – ou seja, o ato de escrever um código interpretável propriamente dito.
+
+## O que você **não** vai aprender
+
+Não estamos em um curso de Ciência da Computação: você não irá aprender terminologias difíceis e/ou como a programação, de modo geral, funciona nos *detalhes*. Em outras palavras, vamos nos concentrar apenas em entender o necessário para construir e executar *códigos* em R (não se preocupe, ainda explicaremos o que é um *código em R*) a partir das tarefas que seu professor poderá pedir.
+
+Além disso, o material não te dará proficiência em R. O que queremos dizer com isso? Bom, queremos dizer que você não será uma pessoa que dominará o R de forma *avançada*. Novamente: aqui, te ensinaremos apenas o necessário para que consiga concluir os cursos da área quantitativa. Mas, se você realmente quiser alcançar níveis mais altos, alguns livros podem te ajudar:
+
+-   [R for Data Science (2ª edição)](https://r4ds.hadley.nz/)
+
+-   [Ciência de Dados em R](https://livro.curso-r.com/index.html)
+
+-   [Data Science for Psychologists](https://bookdown.org/hneth/ds4psy/)
+
+-   [An Introduction to R for Research](https://bookdown.org/rwnahhas/IntroToR/)
+
+## Preciso saber alguma coisa de forma antecipada?
+
+**Não**. Você não precisa saber absolutamente *nada* de programação em R -- não precisa nem mesmo saber o que o termo *programação* significa. O intuito do material é justamente te introduzir aos conceitos mais básicos!
+
+**A única coisa que você precisará será de acesso à um computador com internet**. Utilizar um computador é necessário pois é nele onde ocorre o ato de programar; ter internet é importante porquê, ao longo dos captíulos, precisaremos que você realize o *download* de certos arquivos – seja para instalar o R e o RStudio ou para *importar* algum arquivo diretamente para este último (não se preocupe, ainda explicaremos o que *importação* de um arquivo significa).
+
+## Como o material está organizado
+
+O material está organizado em sete capítulos: o primeiro, que te mostra a motivação para programar, além de outros seis que buscam, em primeiro lugar, te guiar na instalação do R e RStudio e, na sequência, ensinar comandos e conceitos básicos que serão necessários ao longo dos cursos. Com intuito de facilitar o aprendizado, cada capítulo foi repartido em um certo número de seções (e subseções, quando necessário).
+
+A lista de capítulos pode ser observada no menu à *esquerda*. Por sua vez, a lista de seções do capítulo em que você estiver pode ser observada no menu à *direita*. Perceba que, para ser direcionado a um determinado capítulo/seção, basta clicar em seu nome.
+
+![](images/clipboard-250739170.png){fig-align="center" width="541"}
+
+*"Caramba, queria tanto acessar uma parte específica do material que não lembro muito bem onde está... E agora?"* Sem problemas: você pode pesquisar partes do texto ou palavras-chave no campo em branco logo acima do Prefácio!
+
+![](images/clipboard-2391069838.png){fig-align="center" width="261"}
+
+## Dúvidas e sugestões: com quem falar?
+
+*"Ué, no meu computador não aparece isso!"\
+"Caramba, achei aquele trechinho ali meio confuso... podia melhorar..."\
+"Nossa, que material show!"*
+
+Surgiu alguma dúvida ou então quer dar alguma sugestão de melhoria? Estamos totalmente abertos à qualquer tipo de crítica! Envie uma mensagem para [pedro.hemsley\@ie.ufrj.br](pedro.hemsley@ie.ufrj.br).
