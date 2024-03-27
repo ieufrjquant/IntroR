@@ -19,15 +19,15 @@ book:
     - index.qmd
     - intro.qmd
     
-    - part: intro-instalacao.qmd
-      chapters:
-        - instalando-r.qmd
-        - instalando-rstudio.qmd
+    #- part: intro-instalacao.qmd
+  #chapters:
+    - instalando-r.qmd
+    - instalando-rstudio.qmd
         
-    - part: intro-lingr.qmd
-      chapters:
-        - prim-passos.qmd
-        - objetos.qmd
+    #- part: intro-lingr.qmd
+      #chapters:
+        #- prim-passos.qmd
+        #- objetos.qmd
         #- funcoes-e-pacotes.qmd
         #- importando.qmd
     
