@@ -85,6 +85,7 @@ Por outro lado, você pode baixar o arquivo diretamente de algum *link* hospedad
 ```{r}
 #| message: true
 #| collapse: true
+#| eval: false
 
 estudantes <- read_csv("https://raw.githubusercontent.com/ieufrjquant/intror/master/dados/estudantes.csv")
 ```
