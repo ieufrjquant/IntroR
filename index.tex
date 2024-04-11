@@ -118,6 +118,20 @@
 \def\fps@figure{htbp}
 \makeatother
 
+\usepackage{booktabs}
+\usepackage{longtable}
+\usepackage{array}
+\usepackage{multirow}
+\usepackage{wrapfig}
+\usepackage{float}
+\usepackage{colortbl}
+\usepackage{pdflscape}
+\usepackage{tabu}
+\usepackage{threeparttable}
+\usepackage{threeparttablex}
+\usepackage[normalem]{ulem}
+\usepackage{makecell}
+\usepackage{xcolor}
 \KOMAoption{captions}{tableheading}
 \makeatletter
 \@ifpackageloaded{tcolorbox}{}{\usepackage[skins,breakable]{tcolorbox}}
@@ -216,7 +230,7 @@
 \subtitle{Material de Apoio para Cursos Quantitativos do Instituto de
 Economia da Universidade Federal do Rio de Janeiro (IE/UFRJ)}
 \author{GPEQ/UFRJ}
-\date{2024-03-26}
+\date{2024-03-27}
 
 \begin{document}
 \maketitle
@@ -434,7 +448,698 @@ No restante do material, aprenderemos a programar utilizando a
 que a máquina seja capaz de interpretar e executar o que queremos como
 resultado.
 
-\bookmarksetup{startatroot}
+\part{Instalação}
+
+Nessa parte, você irá aprender como baixar e instalar o R e o RStudio,
+além da composição de \emph{layout} de ambos. Construímos cada seção de
+instalação como um guia do tipo \emph{passo a passo}, de maneira que
+você precisa apenas seguí-los de forma direta. Neste capítulo, é
+importante que você já comece a explorar um pouco a interface dos
+ambientes de programação que te mostraremos.
+
+\chapter{Instalando o R}\label{instalando-o-r}
+
+Nesse capítulo, iremos aprender como baixar e instalar o R para
+Windows\footnote{Você pode realizar procedimento equivalente para
+  sistemas operacionais Linux, apenas alterando a opção de
+  \emph{download} quando necessário -- isto é, selecionando as opções em
+  que esteja escrito `Linux', ao invés de `Windows'.}! Optamos por
+dividir o passo a passo em 7 etapas -- mas fique tranquilo, não são
+passos grandes, apenas fizemos dessa forma para que o conteúdo fique bem
+\emph{mastigado}, fácil de entender.
+
+\begin{tcolorbox}[enhanced jigsaw, leftrule=.75mm, left=2mm, arc=.35mm, breakable, bottomtitle=1mm, coltitle=black, titlerule=0mm, opacityback=0, toptitle=1mm, bottomrule=.15mm, opacitybacktitle=0.6, colbacktitle=quarto-callout-tip-color!10!white, toprule=.15mm, colframe=quarto-callout-tip-color-frame, colback=white, rightrule=.15mm, title=\textcolor{quarto-callout-tip-color}{\faLightbulb}\hspace{0.5em}{Alguns conceitos iniciais (Opcional)}]
+
+Antes de começar, vamos entender alguns conceitos. A ideia aqui é te
+ensinar o que significam algumas nomenclaturas e siglas que aparecem ao
+longo do processo de instalação, em especial \emph{R Foundation} e
+\emph{CRAN}. Essa parte é totalmente \emph{opcional} e você pode pular
+direto para o passo a passo caso esteja sem tempo -- ou até mesmo
+interesse.
+
+\begin{itemize}
+\item
+  \textbf{R Foundation}: é uma empresa sem fins lucrativos, criada pelos
+  principais desenvolvedores da linguagem. Quais são seus objetivos?
+  Basicamente três: (i) administrar os direitos autorais da linguagem --
+  e, por consequência, manter seu uso como livre; (ii) apoiar o
+  desenvolvimento do R como um todo, isto é, fornecer informações e
+  criar novos usos básicos, elaborar conferências, guias, entre outros;
+  (iii) servir como ponto focal para todos os usuários da linguagem que
+  desejem interagir com a comunidade de desenvolvedores. De forma
+  resumida, a R Foundation é como se fosse a instituição provedora do
+  básico da linguagem, que busca sempre atualizar e mantê-lo de pé. Se
+  você instala o R e, logo em seguida, percebe que alguma de suas
+  atribuições não está em perfeito funcionamento, provavelmente terá que
+  comunicar à essas pessoas. Grosso modo, exerce um papel próximo ao da
+  Microsoft com o Excel, por exemplo. Uma observação (importante): como
+  o R é um software livre, qualquer pessoa pode desenvolver novas
+  funções ou recursos a partir da linguagem. Por esse motivo, para
+  recursos que estejam além da \emph{base do R}, você deve recorrer à
+  quem os criou! Por exemplo, com relação ao RStudio (que conheceremos
+  mais à frente), devemos nos reportar à empresa Posit, sua
+  desenvolvedora. Na prática, raramente (para não dizer nunca) iremos
+  reportar alguma coisa à R Foundation, mas sim aos desenvolvedores
+  daquele pacote/extensão específico (fique tranquilo, explicaremos mais
+  à frente o conceito de \emph{pacote} para a linguagem).
+\item
+  \textbf{CRAN} (Comprehensive R Archive Network): segundo o própio, é
+  ``\emph{uma coleção de sites que carrega material idêntico,
+  consistindo nas distribuições do R, extensões contriubídas,
+  documentação e arquivos binários de R}''. \emph{`Meu Deus, o que isso
+  significa?'} Simples: apenas uma coleção de endereços da internet em
+  que podemos baixar a versão mais recente do R, assim como pacotes.
+  Quem mantém o CRAN? Instituições voluntárias; em seus sites, a parte
+  onde é possível baixar arquivos relacionados ao R é chamada de
+  \emph{mirror}. E com quais recursos o CRAN se mantém? Com os da
+  própria instituição participante (principalmente em termos de
+  colaboradores) e, também, da R Foundation!
+\end{itemize}
+
+Essa história toda para dizer: \textbf{o arquivo básico que iremos
+baixar para instalar o R será obtido através de algum \emph{mirror} do
+CRAN, isto é, a parte do site de alguma instituição voluntária em
+colaboração com a R Foundation.}
+
+\end{tcolorbox}
+
+\section{Sete passos}\label{sete-passos}
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\item
+  O primeiro passo consiste em escolher um repositório (\emph{mirror)}
+  para baixar o R. No endereço
+  \url{https://cran.r-project.org/mirrors.html} encontramos todas as
+  opções disponíveis, por país e em ordem alfabética. No seu computador,
+  deverá aparecer a seguinte tela:
+
+  \begin{center}
+  \includegraphics{images/clipboard-3074288328.png}
+  \end{center}
+\item
+  Por questões de rapidez/latência, o ideal é escolher o repositório
+  mais próximo de você. Considerando que todos estejam no Rio de
+  Janeiro, vamos então utilizar o \emph{mirror} da Fiocruz.
+
+  \begin{center}
+  \includegraphics{images/clipboard-283220567.png}
+  \end{center}
+\item
+  Como essa apostila foca na instalação para sistemas operacionais do
+  tipo Windows, vamos clicar então em \emph{Download R for Windows}, na
+  parte superior da página.
+
+  \begin{center}
+  \includegraphics{images/clipboard-1477947543.png}
+  \end{center}
+\item
+  Na página seguinte, clique em `base'. Grosso modo, como o nome já
+  indica, iremos baixar os aquivos \emph{base} do R -- ou seja, o mínimo
+  necessário que você precisará para poder executar algum código.
+
+  \begin{center}
+  \includegraphics{images/clipboard-959933518.png}
+  \end{center}
+\item
+  Na nova página, clique em `\emph{Download R x.x.x for Windows}', sendo
+  `x.x.x' o número da versão que será baixada. No momento da elaboração
+  deste tutorial, a versão mais recente do R é a 4.3.3.
+
+  \begin{center}
+  \includegraphics{images/clipboard-3581535596.png}
+  \end{center}
+
+  Se você tiver algum problema com o \emph{download}, tente escolher
+  outro servidor no passo 2 -- por exemplo, um dos servidores da
+  Universidade de São Paulo.
+\end{enumerate}
+
+\begin{tcolorbox}[enhanced jigsaw, leftrule=.75mm, left=2mm, arc=.35mm, breakable, bottomtitle=1mm, coltitle=black, titlerule=0mm, opacityback=0, toptitle=1mm, bottomrule=.15mm, opacitybacktitle=0.6, colbacktitle=quarto-callout-note-color!10!white, toprule=.15mm, colframe=quarto-callout-note-color-frame, colback=white, rightrule=.15mm, title=\textcolor{quarto-callout-note-color}{\faInfo}\hspace{0.5em}{Encontrando o caminho!}]
+
+Abaixo, os passos 1-5 para realizar o \emph{donwload}.
+
+\begin{center}
+\includegraphics{images/instalacao_r.gif}
+\end{center}
+
+\end{tcolorbox}
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\setcounter{enumi}{5}
+\item
+  Você receberá um aviso, que varia conforme o navegador em uso, de que
+  o arquivo está sendo baixado. Abaixo, um exemplo no Microsoft Edge:
+
+  \begin{center}
+  \includegraphics[width=3.96875in,height=\textheight]{images/clipboard-2313357345.png}
+  \end{center}
+
+  No Windows, o arquivo será armazenado na pasta `Downloads' do seu
+  computador (ou na pasta que você previamente configurou como destino
+  para os arquivos baixados).
+\item
+  Feito o download, clique duas vezes no arquivo baixado e siga as
+  instruções para instalação. Na prática, basta clicar em `Avançar' até
+  o fim.
+
+  \begin{center}
+  \includegraphics{images/clipboard-1694765597.png}
+  \end{center}
+\end{enumerate}
+
+Após o final da instalação, você deverá ser capaz de encontrar e abrir
+no seu computador o \textbf{R Graphical User Interface} ou, como
+popularmente é conhecido, \textbf{RGui}. Ele estará na pasta em que você
+destinou para instalação; no Windows, algo próximo de:
+
+\texttt{C:\textbackslash{}ProgramData\textbackslash{}Microsoft\textbackslash{}Windows\textbackslash{}Start\ Menu\textbackslash{}Programs\textbackslash{}R}
+
+\begin{center}
+\includegraphics{images/clipboard-2094164095.png}
+\end{center}
+
+\section{Conhecendo o RGui}\label{conhecendo-o-rgui}
+
+De forma geral, um GUI permite com que o usuário utilize a linguagem de
+forma interativa através de botões e dispositivos visuais. Observe que,
+na parte superior, temos oito botões principais, representados por
+pequenas imagens.
+
+\begin{center}
+\includegraphics[width=3.125in,height=\textheight]{images/clipboard-3228534230.png}
+\end{center}
+
+Cada botão executa uma tarefa específica. Os três primeiros, da esquerda
+para direita, são os mais relevantes:
+
+\begin{itemize}
+\item
+  `Abrir script': permite com que você carregue, no Editor de Código, um
+  arquivo que contém linhas de código (script). Arquivos desse tipo,
+  cuja extensão é \texttt{.R}, serão os mais importantes da linguagem.
+\item
+  `Carregar área de trabalho': \emph{importa} objetos que foram salvos
+  anteriormente em um arquivo do tipo \texttt{.RData}.
+\item
+  `Salvar área de trabalho': salva objetos criados em um arquivo do tipo
+  \texttt{.RData}.
+\end{itemize}
+
+Os botões restantes, em ordem, executam as seguintes tarefas: `Copiar',
+`Colar', `Copiar e colar', `Parar computação atual' e `Imprimir'. Nesse
+momento, não se preocupe em saber o que significa \emph{importar} ou o
+que é um arquivo do tipo \emph{.RData}.
+
+Por outro lado, vamos procurar entender melhor o que são o
+\textbf{Console} e o \textbf{Editor de Código}. O primeiro corresponde à
+janela de nome \emph{R Console,} no canto esquerdo da sua tela. Este
+último, por sua vez, não abre instantâneamente no momento em que você
+acessa o RGui, mas podemos abrí-lo manualmente através de `Arquivo'
+\textgreater{} `Novo script' -- ou, então, carregando um script já
+existente através do botão `Abrir script', que vimos anteriormente.
+Posicionando o Editor de Código ao lado do Console, teremos a seguinte
+imagem:
+
+\begin{center}
+\includegraphics{images/clipboard-1401293353.png}
+\end{center}
+
+Por quê esses espaços terão relevância para nós?
+
+\begin{itemize}
+\item
+  O Editor de Código é o local em que você escreve os comandos que
+  deseja executar no R, além de comentários que busquem registrar o
+  porquê de você ter escrito determinada parte do seu código. Na
+  prática, um \emph{comentário} é uma linha que não será interpretada --
+  e consequentemente executada -- como parte da linguagem. Para
+  registrar um comentário, basta escrever o símbolo `\#' antes do que
+  você deseja escrever naquela linha\footnote{Note que, se o seu
+    comentário for longo demais, de tal forma que você queira quebrá-lo
+    em duas ou mais linhas, será necessário novamente escrever `\#' na
+    próxima linha}. Um ponto importante: o Editor permite com que
+  salvemos o script que criamos em um arquivo do tipo \texttt{.R}.
+  Lembre-se: esse é o principal tipo de arquivo da linguagem.
+\item
+  O Console, por sua vez, é o local em que a parte interpretável de
+  código em R (ou seja, tudo exceto comentários) será
+  \emph{efetivamente} executada e os respectivos resultados serão
+  mostrados. É aqui que a mágica efetivamente ocorre! Você também pode
+  executar partes do seu código diretamente no Console, porém os
+  comandos não ficam salvos, são apenas temporários.
+\end{itemize}
+
+Simplificando: \textbf{o Editor é o espaço em que você realmente
+escreverá os códigos em R}. Ele atua como rascunho do seu script,
+permitindo com que você posteriormente salve o que foi escrito e,
+consequentemente, volte a executar o mesmo código. Já \textbf{o Console
+é o espaço em que o código é processado, retornando com o resultado dos
+comandos que você escreveu}.
+
+\textbf{Entretanto, não iremos utilizá-los através do RGui.} No capítulo
+seguinte, instalaremos e conheceremos um pouco mais sobre outro
+ambiente, bem mais completo, para se programar em R. \emph{``Meu Deus,
+aprendi todos esses conceitos à toa?''}, você deve estar se perguntando.
+Não! Muito do que aprendemos nessa seção voltará a aparecer no capítulo
+seguinte.
+
+\begin{tcolorbox}[enhanced jigsaw, leftrule=.75mm, left=2mm, arc=.35mm, breakable, bottomtitle=1mm, coltitle=black, titlerule=0mm, opacityback=0, toptitle=1mm, bottomrule=.15mm, opacitybacktitle=0.6, colbacktitle=quarto-callout-tip-color!10!white, toprule=.15mm, colframe=quarto-callout-tip-color-frame, colback=white, rightrule=.15mm, title=\textcolor{quarto-callout-tip-color}{\faLightbulb}\hspace{0.5em}{Executando um simples código no RGui (Opcional)}]
+
+Beleza, não tocaremos no RGui. Mas é interessante compreender que já é
+possível executar -- ou \emph{rodar,} no jargão de programação -- algum
+pedaço de código -- ou \emph{chunk} -- escrito em R. Para isso, basta
+escrevê-lo após o símbolo de `maior que' (\textgreater) no Console.
+
+Vamos entender com um rápido exemplo. No GIF abaixo, atribuimos à
+variável de nome \texttt{x} o valor númerico \texttt{2}. Em seguida,
+escrevemos o nome novamente para retornar seu valor. Fique tranquilo:
+ainda iremos ver melhor o que significam termos como \emph{atribuir um
+valor à determinada variável}. O objetivo deste \emph{box} foi apenas te
+mostrar que já estamos aptos a programar em R!
+
+\begin{center}
+\includegraphics{images/rgui_exemplo.gif}
+\end{center}
+
+\end{tcolorbox}
+
+\chapter{Instalando o RStudio}\label{instalando-o-rstudio}
+
+\textbf{Acontece que o RGui não é tão prático de se usar}. Pensando
+nisso, a empresa \href{https://posit.co/}{Posit} criou um Ambiente de
+Desenvolvimento Integrado (\emph{Integrated Development Environment},
+IDE) chamado \textbf{RStudio}. Em nosso contexto, tanto GUI quanto IDE
+são ferramentas que permitem a utilização da linguagem. A diferença é
+que a IDE tem atributos com a finalidade de facilitar o desenvolvimento
+dos códigos. Grosso modo, toda IDE é uma GUI mas o inverso não é
+verdadeiro (nem toda GUI é uma IDE).
+
+Em resumo: \textbf{é muito mais fácil utilizar o R através do RStudio e,
+por este motivo, vamos baixá-lo na sua versão gratuita} (que já é
+suficiente para os cursos que serão ministrados no Instituto).
+
+\section{Três passos}\label{truxeas-passos}
+
+Para instalar o RStudio no Windows, novamente iremos seguir alguns
+passos -- nesse caso, apenas 3:
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\item
+  Acesse a página de downloads da RStudio:
+  \url{https://posit.co/download/rstudio-desktop/\#download}. Se você
+  tiver acesso de administrador, basta clicar em \emph{`Download RStudio
+  Desktop for Windows'}.
+
+  \begin{center}
+  \includegraphics[width=3.32292in,height=\textheight]{images/clipboard-2426047081.png}
+  \end{center}
+\item
+  De forma análoga ao \emph{download} do R, você receberá um aviso de
+  que o arquivo está sendo baixado (na sua pasta de `Downloads' ou
+  similar).
+
+  \begin{center}
+  \includegraphics[width=3.85417in,height=\textheight]{images/clipboard-3795362132.png}
+  \end{center}
+\item
+  Clique duas vezes no arquivo que você baixou e siga as instruções
+  recomendadas de instalação, cuja tela inicial está na imagem abaixo.
+
+  \begin{center}
+  \includegraphics{images/clipboard-987499479.png}
+  \end{center}
+\end{enumerate}
+
+Ao final da instalação, você deverá ser capaz de abrir o RStudio no seu
+computador, resultando em algo similar à imagem abaixo. No Windows,
+provavelmente você o encontrará no caminho:
+
+\texttt{C:\textbackslash{}ProgramData\textbackslash{}Microsoft\textbackslash{}Windows\textbackslash{}Start\ Menu\textbackslash{}Programs\textbackslash{}RStudio}
+
+\begin{center}
+\includegraphics{images/clipboard-1128946571.png}
+\end{center}
+
+\textbf{Feito? Então estamos prontos para utilizar o R através do
+RStudio!}
+
+\section{Conhecendo o RStudio}\label{conhecendo-o-rstudio}
+
+\begin{tcolorbox}[enhanced jigsaw, leftrule=.75mm, left=2mm, arc=.35mm, breakable, bottomtitle=1mm, coltitle=black, titlerule=0mm, opacityback=0, toptitle=1mm, bottomrule=.15mm, opacitybacktitle=0.6, colbacktitle=quarto-callout-note-color!10!white, toprule=.15mm, colframe=quarto-callout-note-color-frame, colback=white, rightrule=.15mm, title=\textcolor{quarto-callout-note-color}{\faInfo}\hspace{0.5em}{Nota}]
+
+A seção 3.2 `Conhecendo o RStudio' é baseada na seção
+\href{https://livro.curso-r.com/2-1-telas.html}{2.1 `Telas'} do livro
+\emph{Ciência de Dados em R}, feito pelo Curso-R. De qualquer modo,
+eventuais erros são inteiramente de nossa responsabilidade.
+
+\end{tcolorbox}
+
+O RStudio será o ambiente no qual iremos trabalhar com a linguagem. Por
+essa razão, é \emph{muito} importante que você se sinta confortável com
+o que verá no seu computador após abrí-lo. Nessa seção, iremos
+compreender melhor o \emph{layout} do RStudio, além das utilidades que
+ele nos proporciona ao longo do processo de escrita dos códigos.
+
+Ao abrir o RStudio pela primeira vez (como na imagem anterior), você
+verá inicialmente 3 quadrantes. Um deles, preenchendo a parte esquerda
+da tela, já conhecemos: é o \textbf{Console}, que cumpre o mesmo papel
+explicado no capítulo anterior. Ao mesmo tempo, o quadrante que mais
+utilizaremos não aparece inicialmente: é o \textbf{Editor de Código},
+outro velho conhecido que também possui a mesma atribuição anterior. Tal
+como no caso do RGui, o Editor não abre automaticamente pois o RStudio
+não é capaz de saber se o usuário tem o desejo de construir um código do
+zero -- ou seja, criar um novo arquivo com extensão \emph{.R} -- ou
+apenas dar continuidade à algum em que já estava trabalhando.
+
+No fim das contas, teremos 4 quadrantes:
+
+\includegraphics{images/clipboard-1486032127.png}
+
+\begin{tcolorbox}[enhanced jigsaw, leftrule=.75mm, left=2mm, arc=.35mm, bottomrule=.15mm, breakable, toprule=.15mm, colframe=quarto-callout-note-color-frame, colback=white, opacityback=0, rightrule=.15mm]
+\begin{minipage}[t]{5.5mm}
+\textcolor{quarto-callout-note-color}{\faInfo}
+\end{minipage}%
+\begin{minipage}[t]{\textwidth - 5.5mm}
+
+Por padrão, os quadrantes estarão dispostos na sua tela da forma como
+mostramos na imagem acima, mas você pode organizá-los da forma que
+preferir acessando a seção \emph{Pane Layout} da opção
+\texttt{Global\ options...} no menu \texttt{Tools}.
+
+\end{minipage}%
+\end{tcolorbox}
+
+É importante que você entenda que o Editor e o Console são os dois
+principais quadrantes do RStudio. Passaremos a maior parte do tempo
+neles. Como não custa nada, vamos relembrar suas respectivas serventias:
+
+\begin{itemize}
+\item
+  \textbf{Editor de Código}: é local em que escreveremos/editaremos
+  nossos códigos, salvando posteriormente em um arquivo do tipo
+  \texttt{.R}. Conforme formos avançando, você acabará reparando que
+  temos algumas melhorias em relação ao RGui:
+
+  \begin{enumerate}
+  \def\labelenumi{\arabic{enumi}.}
+  \tightlist
+  \item
+    O RStudio colore algumas palavras e símbolos para \emph{facilitar} a
+    leitura do código. Por exemplo, tudo o que for comentário será de
+    uma determinada cor, assim como tudo que você escrever entre aspas
+    -- considerado texto passível de ser executado como parte de um
+    código -- será de outra.
+  \item
+    Outra funcionalidade interessante do Editor no RStudio é a
+    capacidade de você poder buscar e substituir determinadas
+    palavras/expressões que estejam presentes no código, poupando tempo
+    e evitando erros caso o fizessemos de forma maunal; para tal, basta
+    clicar no símbolo da lupa logo acima da primeira linha.
+  \item
+    Além disso, o RStudio possui o recurso de autocompletar partes de um
+    código! Caso você esteja escrevendo o nome de um \emph{objeto} que
+    ele consiga identificar, receberá automaticamente uma sugestão para
+    completar a escrita, bastando apertar a tecla \texttt{Tab} para
+    aceitá-la.
+  \end{enumerate}
+\item
+  \textbf{Console}: é local em que o código é executado e recebemos as
+  saídas. Nele, temos também o recurso de autocompletar nomes de
+  objetos. Para \emph{limpar} o Console, isto é, excluir o registro do
+  que já foi executado pelo R, basta clicar no símbolo de vassoura, no
+  canto direito superior do quadrante, ou então utilizar o atalho
+  \texttt{Ctrl\ +\ L}.
+\end{itemize}
+
+Os demais quadrantes do lado \emph{direito} contém painéis auxiliares. O
+objetivo deles é facilitar pequenas tarefas que fazem parte tanto da
+programação quanto da análise de dados como, por exemplo, olhar a
+documentação de funções, analisar os objetos criados em uma sessão do R,
+procurar e organizar os arquivos que compõem a nossa análise, armazenar
+e analisar os gráficos criados e muito mais.
+
+No quadrante \emph{superior}, temos
+
+\begin{itemize}
+\item
+  \textbf{Environment}: painel com todos os objetos criados na sessão.
+  Será bastante útil como referência para avaliar os objetos que criamos
+  ou deixamos de criar com determinado comando.
+\item
+  \textbf{History}: painel com um histórico dos comandos rodados.
+\end{itemize}
+
+Já no quadrante \emph{inferior}, temos
+
+\begin{itemize}
+\item
+  \textbf{Files}: mostra os arquivos no diretório de trabalho. Nele, é
+  possível navegar entre as pastas do seu computador! Você pode, por
+  exemplo, abrir um arquivo do tipo \texttt{.R} sem necessariamente ter
+  que passar pela janela de busca do seu sistema operacional.
+\item
+  \textbf{Plots}: painel onde os gráficos serão apresentados, caso você
+  crie um código que os produza.
+\item
+  \textbf{Packages}: apresenta todos os pacotes instalados e carregados.
+\item
+  \textbf{Help}: janela onde as documentações de funções serão
+  apresentadas.
+\item
+  \textbf{Viewer}: painel onde relatórios e dashboards serão
+  apresentados.
+\end{itemize}
+
+Além do Console e do Editor, dê atenção especial aos painéis
+Environment, Help e Plots, nesta ordem.
+
+\part{Programando em R}
+
+Nessa parte do material, você aprenderá a programar na prática. O
+capítulo inicial terá como objetivo estimular que a escrita de suas
+primeiras linhas de código; será composto de tarefas \emph{super}
+simples, mas suficientes para proporcionar uma primeira eperiência à
+quem nunca programou. Nos dois capítulos seguintes, te guiaremos no
+entendimento sobre os dois conceitos mais importantes da linguagem:
+\emph{objetos} e \emph{funções}. Segundo John Chambers, um dos
+desenvolvedores do R,
+
+\begin{quote}
+\emph{to understand computations in R, two slogans are helpful:}
+
+\begin{itemize}
+\item
+  \emph{Everything that exists is an object.}
+\item
+  \emph{Everything that happens is a function call.}
+\end{itemize}
+\end{quote}
+
+O último capítulo, por sua vez, te ensinará a como armazenar informações
+externas no R. É importante que você saiba esse tópico pois, em algumas
+matérias, seu professor lhe entregará arquivos com informações nos quais
+algumas tarefas deverão ser executadas com auxílio da linguagem.
+
+\chapter{Primeiros passos}\label{primeiros-passos}
+
+\begin{tcolorbox}[enhanced jigsaw, leftrule=.75mm, left=2mm, arc=.35mm, bottomrule=.15mm, breakable, toprule=.15mm, colframe=quarto-callout-note-color-frame, colback=white, opacityback=0, rightrule=.15mm]
+
+Partes deste capítulo são baseadas na seção
+\href{https://livro.curso-r.com/3-2-r-como-calculadora.html}{3.2 `R como
+calculadora'} do livro \emph{Ciência de Dados em R}, feito pelo Curso-R.
+De qualquer modo, eventuais erros são inteiramente de nossa
+responsabilidade.
+
+\end{tcolorbox}
+
+Como vimos nos capítulos anteriores, o papel do \textbf{Console} no R é
+interpretar os nossos comandos à luz da linguagem. Ele avalia o código
+que o passamos e devolve a saída correspondente --- se tudo der certo
+--- ou uma mensagem de erro --- se o seu código tiver algum problema.
+Essa operação é chamada de \textbf{avaliar}, \textbf{executar} ou
+\textbf{rodar} o código. Para que seu código seja executado diretamente
+no Console, escreva-o e, na sequência, aperte \texttt{Enter}. A outra
+forma de executar uma expressão é escrever o código em um \emph{script}
+no \textbf{Editor}, deixar o cursor em cima da linha e usar o atalho
+\texttt{Ctrl\ +\ Enter}. Assim, o comando é enviado para o Console, onde
+é diretamente executado.
+
+Nesse capítulo, você \emph{rodará} suas primeiras linhas de código com
+intuito de realizar operações aritméticas como \emph{adição},
+\emph{subtração}, \emph{multiplicação} e \emph{divisão}, além de
+comparações lógicas simples. O objetivo aqui não é te ensinar matemática
+básica, mas te preparar para a execução de linhas de código mais
+avançadas. É a forma mais fácil de um iniciante ganhar familiaridade e
+experiência prática com o R.
+
+\section{Operadores Aritméticos}\label{operadores-aritmuxe9ticos}
+
+De agora em diante, cada região sombreada de cinza representa código, ao
+passo que seu resultado estará exposto logo na sequência. Vamos começar
+com um exemplo simples:
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\DecValTok{1} \SpecialCharTok{+} \DecValTok{1}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+[1] 2
+\end{verbatim}
+
+Nesse caso, o nosso comando foi o código \texttt{1\ +\ 1} e a saída foi
+o valor \texttt{2}. Como você pode reproduzir esse comando no RStudio?
+Inicialmente, copie o que está escrito acima ao clicar no símbolo de
+prancheta no canto superior direito da região sombreada. Na sequência,
+cole no Editor de Código e aperte \texttt{Ctrl\ +\ Enter} (ou então no
+Console, pressionando apenas \texttt{Enter}). Observe abaixo!
+
+\begin{center}
+\includegraphics{images/1mais1.gif}
+\end{center}
+
+Tente agora jogar no Console a expressão:
+\texttt{2\ *\ 2\ -\ (4\ +\ 4)\ /\ 2}. Deu zero? Pronto! Você já é capaz
+de pedir ao R para fazer \emph{qualquer uma das quatro operações
+aritméticas básicas}. Repare que as operações e suas precedências são
+mantidas como na matemática, ou seja, divisão e multiplicação são
+calculadas antes da adição e subtração, além de os parênteses ditarem a
+ordem na qual serão realizadas. A seguir, apresentamos a
+Tabela~\ref{tbl-ope-mat} resumindo como fazer as principais operações no
+R.
+
+\begin{longtable}[]{@{}cccc@{}}
+
+\caption{\label{tbl-ope-mat}Operadores matemáticos do R}
+
+\tabularnewline
+
+\toprule\noalign{}
+Operação & Operador & Exemplo & Resultado \\
+\midrule\noalign{}
+\endhead
+\bottomrule\noalign{}
+\endlastfoot
+Adição & + & 1 + 1 & 2.00 \\
+Subtração & - & 4 - 2 & 2.00 \\
+Multiplicação & * & 2 * 3 & 6.00 \\
+Divisão & / & 5 / 3 & 1.67 \\
+Potenciação & \^{} & 4 \^{} 2 & 16.00 \\
+Resto da Divisão & \%\% & 5 \%\% 3 & 2.00 \\
+Parte Inteira da Divisão & \%/\% & 5 \%/\% 3 & 1.00 \\
+
+\end{longtable}
+
+\section{Operadores Lógicos}\label{operadores-luxf3gicos}
+
+O R permite também testar comparações lógicas. Os valores lógicos
+básicos em R são \texttt{TRUE} (ou apenas \texttt{T}) e \texttt{FALSE}
+(ou apenas \texttt{F}). Por exemplo, podemos pedir ao R que nos diga se
+é verdadeiro que 5 é menor do que 3. Como a resposta é obviamente
+negativa, ele retornará \texttt{FALSE}, nos dizendo que a proposição que
+fizemos é falsa.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\DecValTok{5} \SpecialCharTok{\textless{}} \DecValTok{3}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+[1] FALSE
+\end{verbatim}
+
+Abaixo, introduzimos a Tabela~\ref{tbl-ope-log} com outros operadores
+lógicos da linguagem.
+
+\begin{longtable}[]{@{}
+  >{\centering\arraybackslash}p{(\columnwidth - 6\tabcolsep) * \real{0.2151}}
+  >{\centering\arraybackslash}p{(\columnwidth - 6\tabcolsep) * \real{0.1075}}
+  >{\centering\arraybackslash}p{(\columnwidth - 6\tabcolsep) * \real{0.5591}}
+  >{\centering\arraybackslash}p{(\columnwidth - 6\tabcolsep) * \real{0.1183}}@{}}
+
+\caption{\label{tbl-ope-log}Operadores lógicos do R}
+
+\tabularnewline
+
+\toprule\noalign{}
+\begin{minipage}[b]{\linewidth}\centering
+Operação
+\end{minipage} & \begin{minipage}[b]{\linewidth}\centering
+Operador
+\end{minipage} & \begin{minipage}[b]{\linewidth}\centering
+Exemplo
+\end{minipage} & \begin{minipage}[b]{\linewidth}\centering
+Resultado
+\end{minipage} \\
+\midrule\noalign{}
+\endhead
+\bottomrule\noalign{}
+\endlastfoot
+Maior que & \textgreater{} & 2 \textgreater{} 1 & TRUE \\
+Maior ou igual que & \textgreater= & 2 \textgreater= 2 & TRUE \\
+Menor que & \textless{} & 2 \textless{} 3 & TRUE \\
+Menor ou igual que & \textless= & 5 =\textless{} 3 & FALSE \\
+Igual à & == & 4 == 4 & TRUE \\
+Diferente de & != & 5 != 3 & TRUE \\
+x \textbf{e} y & \& & x \textless- c(1, 4, NA, 8) x{[}!is.na(x) \& x
+\textgreater{} 5{]} & 8 \\
+x \textbf{ou} y & \textbar{} & x \textless- c(1, 4, NA, 8) x{[}!is.na(x)
+\textbar{} x \textgreater{} 5{]} & 1, 4, 8 \\
+
+\end{longtable}
+
+\section{Possíveis complicações}\label{possuxedveis-complicauxe7uxf5es}
+
+Se você digitar um comando incompleto, como \texttt{5\ +}, e apertar
+\texttt{Enter}, o R mostrará um \texttt{+}, o que não tem nada a ver com
+a adição da matemática. Isso significa que o R está esperando você
+enviar \textbf{mais} algum código para completar o seu comando. Termine
+o seu comando ou aperte \texttt{Esc} para recomeçar.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\DecValTok{5} \SpecialCharTok{{-}}
+\SpecialCharTok{+} 
+\SpecialCharTok{+} \DecValTok{5}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+[1] 0
+\end{verbatim}
+
+Se você digitar um comando que o R não reconhece, ele retornará uma
+mensagem de erro. \textbf{Não entre em pânico.} Ele só está te avisando
+que não conseguiu interpretar o comando.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\DecValTok{5}\NormalTok{ \% }\DecValTok{2}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+Error: <text>:1:3: unexpected input
+1: 5 % 2
+      ^
+\end{verbatim}
+
+Você pode digitar outro comando normalmente em seguida.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\DecValTok{5} \SpecialCharTok{\^{}} \DecValTok{2}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+[1] 25
+\end{verbatim}
 
 \chapter{Objetos}\label{objetos}
 
@@ -853,7 +1558,7 @@ segundo elemento do vetor \texttt{z} que acabamos de criar.
 [1] "texto"
 \end{verbatim}
 
-\begin{tcolorbox}[enhanced jigsaw, titlerule=0mm, colframe=quarto-callout-tip-color-frame, opacitybacktitle=0.6, left=2mm, bottomrule=.15mm, breakable, arc=.35mm, colback=white, title=\textcolor{quarto-callout-tip-color}{\faLightbulb}\hspace{0.5em}{Outras formas de criar vetores (Opcional)}, opacityback=0, bottomtitle=1mm, toptitle=1mm, rightrule=.15mm, colbacktitle=quarto-callout-tip-color!10!white, coltitle=black, leftrule=.75mm, toprule=.15mm]
+\begin{tcolorbox}[enhanced jigsaw, leftrule=.75mm, left=2mm, arc=.35mm, breakable, bottomtitle=1mm, coltitle=black, titlerule=0mm, opacityback=0, toptitle=1mm, bottomrule=.15mm, opacitybacktitle=0.6, colbacktitle=quarto-callout-tip-color!10!white, toprule=.15mm, colframe=quarto-callout-tip-color-frame, colback=white, rightrule=.15mm, title=\textcolor{quarto-callout-tip-color}{\faLightbulb}\hspace{0.5em}{Outras formas de criar vetores (Opcional)}]
 
 \begin{Shaded}
 \begin{Highlighting}[]
@@ -1250,6 +1955,912 @@ Listas são mais úteis do que você pode estar pensando nesse momento.
 Elas permitem que você agrupe objetos de um mesmo assunto, mas com
 diferentes estruturas, em um único objeto `central'. Em muitos casos,
 facilita a organização.
+
+\chapter{Funções e pacotes}\label{funuxe7uxf5es-e-pacotes}
+
+A segunda parte da citação dizia:
+
+\begin{quote}
+\textbf{\emph{Everything that happens is a function call.}}
+\end{quote}
+
+\textbf{Se algum objeto foi criado, armazenado ou transformado, tivemos
+a participação de uma \emph{função}.} Dessa forma, podemos dizer que o R
+é uma linguagem de programação \emph{funcional}, ou seja, ocorre através
+da execução de funções. Na prática, quase todos os comandos que iremos
+realizar tem como base uma função. Tenha em mente que uma função também
+é um objeto, assim como tudo que \emph{existe} no R. Nesse capítulo,
+iremos aprender o que são funções no contexto da linguagem R, além de
+suas utilidades, como escrevê-las e, por fim, como utilizá-las.
+
+\section{O que é uma função?}\label{o-que-uxe9-uma-funuxe7uxe3o}
+
+Antes, vamos pensar em funções no contexto matemático. Segundo Stewart
+(2015),
+
+\begin{quote}
+Uma função é uma regra que atribui, para cada elemento \(x\) em um
+conjunto \(A\), exatamente um elemento, chamado \(f(x)\), em um conjunto
+\(B\).
+\end{quote}
+
+Em que o conjunto \(A\) chamamos de \emph{domínio}, compreendendo todos
+os valores que a função pode \emph{aceitar}, ao passo que o conjunto
+\(B\) é conhecido como \emph{imagem}, compreendendo todos valores que a
+função consegue \emph{retornar}. Podemos representar uma função de
+quatro formas diferentes:
+
+\begin{itemize}
+\item
+  Verbalmente (através de palavras);
+\item
+  Numericamente (através uma tabela de dados);
+\item
+  Visualmente (através de um gráfico);
+\item
+  Algebricamente (através de uma fórmula)
+\end{itemize}
+
+Vamos deixar os conceitos mais claros. Imagine que te propronho a
+seguinte regra: dividirei o número 2 por todos os números
+\emph{possíveis}. Observe que, nesse exemplo, os números possíveis são
+todos \emph{exceto} zero -- afinal de contas, qualquer número dividido
+por zero resulta em uma indefinição matemática. Podemos dizer, portanto,
+que o domínio da nossa função é dado por \emph{todos os números reais
+exceto zero}. Ao mesmo tempo, quais valores podem surgir como resultado
+dessa nossa regrinha? Novamente, \emph{todos os reais exceto zero} --
+afinal, nenhum número que utilizemos será tão grande em valor absoluto
+tal que a divisão resulte em zero, ao passo que qualquer valor extremo
+(tanto negativo, quanto positivo) pode ser alcançado \emph{plugando} na
+função valores menores do que um em módulo\footnote{Pense em números
+  como \(0,01\), por exemplo. Inserindo na nossa função, teríamos então
+  \(f(x)=2/0,01=200\). Se inseríssemos \(0,001\), obteríamos
+  \(f(x)=2/0,001=2000\). O mesmo vale para valores negativos, apenas
+  alterando o sinal do resultado. Perceba que, sendo em módulo menor do
+  que um, quanto mais próximo de zero for o número, mais extremo será o
+  resultado da função.}! Portanto, nesse caso, a imagem da nossa função
+é idêntica ao domínio.
+
+Perceba que definimos a função acima de modo \emph{verbal}, ou seja, com
+palavras. Poderíamos também descrevê-la numericamente através de uma
+tabela ou, então, de forma visual com um gráfico (ambas abaixo). De todo
+modo, a forma mais comum de se descrever uma função é através de sua
+\emph{fórmula} que, no nosso exemplo, seria \(f(x)=2/x\).
+
+\begin{longtable}[]{@{}cc@{}}
+\toprule\noalign{}
+\(x\) & \(f(x)\) \\
+\midrule\noalign{}
+\endhead
+\bottomrule\noalign{}
+\endlastfoot
+-3 & -0.67 \\
+-2 & -1.00 \\
+-1 & -2.00 \\
+1 & 2.00 \\
+2 & 1.00 \\
+3 & 0.67 \\
+\end{longtable}
+
+\includegraphics{funcoes-e-pacotes_files/figure-pdf/unnamed-chunk-2-1.pdf}
+
+Não precisamos nos aprofundar nos conceitos. \textbf{O que você precisa
+guardar dessa seção é o fato de podermos pensar na função como uma
+\emph{caixa preta} que, ao receber elementos de} \(A\), \textbf{os
+transforma em um determinado valor \emph{(output)} presente em} \(B\).
+Como vimos, a forma pela qual essa `caixa preta' irá transformar \(x\)
+em \(f(x)\) é a nossa regra propriamente dita.
+
+\section{\texorpdfstring{O que é uma função \textbf{para o
+R}?}{O que é uma função para o R?}}\label{o-que-uxe9-uma-funuxe7uxe3o-para-o-r}
+
+E por quê essa historinha toda sobre funções matemáticas nos interessa?
+Simplesmente pois podemos traçar um paralelo com o conceito de função
+para a linguagem R! \textbf{No R, uma função é um objeto que recebe
+argumentos \emph{(inputs)} e executa uma ação sobre ou a partir deles,
+de acordo com o bloco de código nela embutido, te devolvendo um
+determinado resultado \emph{(output)}. A lógica é a mesma de uma função
+matemática!} O nome não é por acaso.
+
+\includegraphics[width=3.59in,height=2.27in]{funcoes-e-pacotes_files/figure-latex/mermaid-figure-1.png}
+
+De certa forma, continuamos a ter um domínio, pois cada função atende um
+número específico de estruturas de objeto e/ou tipos de variável --
+algumas funções podem aceitar apenas vetores como argumento, por
+exemplo, enquanto outras podem ser específicas para variavéis númericas.
+Ao mesmo tempo, continuamos a ter uma imagem, associada aos resultados
+possíveis. E qual é o equivalente à regra? É o \emph{bloco de código
+embutido na função!}
+
+\subsection{Vantagens}\label{vantagens}
+
+Nas seções anteriores, compreendemos um pouco melhor como funciona o
+mecanismo de uma função. Mas ainda pode haver dúvida do tipo:
+\emph{``Beleza, mas em qual contexto prático que ela será útil?''}
+
+O grande benefício de uma função se constitui no fato de seu bloco de
+código interior, condicionado ao valor dos argumentos, realizar sempre a
+mesma tarefa quando a rodamos! Isso significa que as funções permitem
+automatizar tarefas comuns de uma forma mais legível, evitando a prática
+de `copiar e colar' repetidamente as \emph{mesmas} linhas de código, que
+serão substituídas pelo nome da função e seus argumentos. Na prática,
+além da melhor compreensão do código, eliminamos a chance de cometer
+erros bobos ao copiar e colar (por exemplo, acabar atualizando o nome de
+uma variável em um lugar, mas não em outro) e tornamos mais fácil
+reutilizar o trabalho que foi escrito em outros projetos, aumentando a
+produtividade.
+
+\subsection{Criando}\label{criando}
+
+A \emph{sintaxe} para criar uma função é a seguinte:
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{nome\_da\_funcao }\OtherTok{\textless{}{-}} \ControlFlowTok{function}\NormalTok{(}\AttributeTok{arg1 =}\NormalTok{ default1, ..., }\AttributeTok{argn =}\NormalTok{ defaultn) \{}
+  \SpecialCharTok{\textgreater{}}\NormalTok{bloco de código}\SpecialCharTok{\textless{}}
+\NormalTok{\}}
+\end{Highlighting}
+\end{Shaded}
+
+Perceba que o uso o operador \texttt{\textless{}-} nos mostra que, ao
+criar uma função, estamos criando um \emph{objeto} -- que, nesse caso,
+não é designado especificamente a armazenar dados. Entre parentêses,
+definimos o nome dos argumentos e, caso necessário, seus respectivos
+valores de \emph{default}. Na sequência, entre chaves, escrevemos o
+bloco de código que rodará sobre os \emph{inputs}. Como exemplo, vamos
+criar a função \texttt{soma2}.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{soma2 }\OtherTok{\textless{}{-}} \ControlFlowTok{function}\NormalTok{(somando1, somando2) \{}
+\NormalTok{  (somando1 }\SpecialCharTok{+}\NormalTok{ somando2) }\SpecialCharTok{\^{}} \DecValTok{2}
+\NormalTok{\}}
+\end{Highlighting}
+\end{Shaded}
+
+O que ela faz? Soma dois números e eleva esse resultado intermediário ao
+quadrado. A função criada poderá ser vista no quadrante superior
+direito, no painel \textbf{Environment}.
+
+\subsection{Utilizando}\label{utilizando}
+
+Por sua vez, a \emph{sintaxe} para usar uma função é:
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{nome\_da\_funcao}\NormalTok{(arg1, ..., argn)}
+\end{Highlighting}
+\end{Shaded}
+
+Em primeiro lugar, é necessário escrever o nome da função no Editor de
+Código. Ao lado, entre parênteses, escreveremos seus argumentos -- no
+exemplo acima, \texttt{arg1}, \texttt{arg2} até \texttt{argn}; uma
+função pode ser construída de modo a ter qualquer número \texttt{n} de
+argumentos e eles serão sempre separados por vírgula. Esses argumentos
+são os nossos \emph{inputs}. Por fim, rodamos a linha em que a
+escrevemos, fazendo com que seja executada pelo R e seu resultado
+apareça no Console.
+
+\begin{tcolorbox}[enhanced jigsaw, leftrule=.75mm, left=2mm, arc=.35mm, breakable, bottomtitle=1mm, coltitle=black, titlerule=0mm, opacityback=0, toptitle=1mm, bottomrule=.15mm, opacitybacktitle=0.6, colbacktitle=quarto-callout-note-color!10!white, toprule=.15mm, colframe=quarto-callout-note-color-frame, colback=white, rightrule=.15mm, title=\textcolor{quarto-callout-note-color}{\faInfo}\hspace{0.5em}{Exemplo 1}]
+
+Vamos tomar como exemplo a função \texttt{sum()}. O que ela faz? Segundo
+sua \emph{documentação}:
+
+\begin{quote}
+\texttt{sum} retorna a soma de todos os valores presentes em seus
+argumentos
+\end{quote}
+
+Na prática, como o nome já nos indica, ela tem como serventia somar
+todos os números que lhe forem passados. Se quisessemos utilizá-la para
+obter o resultado da soma dos números 4, 7 e 9, como faríamos? Se você
+pensou em \texttt{sum(4,\ 7,\ 9)}, acertou!
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{sum}\NormalTok{(}\DecValTok{4}\NormalTok{, }\DecValTok{7}\NormalTok{, }\DecValTok{9}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+[1] 20
+\end{verbatim}
+
+Perceba que utilizamos três argumentos, um para cada número que somamos:
+4, 7 e 9 estão associados a \texttt{arg1}, \texttt{arg2} e
+\texttt{arg3}, respectivamente. No entanto, dado que a função
+\texttt{sum()} aceita objetos como \emph{vetores}, \emph{matrizes} e
+\emph{dataframes}, poderíamos ter utilizado apenas um único argumento!
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{sum}\NormalTok{(}\FunctionTok{c}\NormalTok{(}\DecValTok{4}\NormalTok{, }\DecValTok{7}\NormalTok{, }\DecValTok{9}\NormalTok{))}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+[1] 20
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{sum}\NormalTok{(}\FunctionTok{matrix}\NormalTok{(}\FunctionTok{c}\NormalTok{(}\DecValTok{4}\NormalTok{, }\DecValTok{7}\NormalTok{, }\DecValTok{9}\NormalTok{)))}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+[1] 20
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{sum}\NormalTok{(}\FunctionTok{data.frame}\NormalTok{(}\FunctionTok{c}\NormalTok{(}\DecValTok{4}\NormalTok{, }\DecValTok{7}\NormalTok{, }\DecValTok{9}\NormalTok{)))}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+[1] 20
+\end{verbatim}
+
+No \emph{chunk} acima, \texttt{c(4,\ 7,\ 9)},
+\texttt{matrix(c(4,\ 7,\ 9))} e \texttt{data.frame(c(4,\ 7,\ 9))} estão
+associados apenas ao \texttt{arg1}! Em muitos casos, entender os tipos
+de objetos aceitos pela função será importante para a \emph{eficiência}
+do código. Imagine que estivessemos com interesse de somar todos os
+valores de uma certa coluna em determinado dataframe. Como poderíamos
+realizar essa tarefa? Dado que cada coluna de um dataframe é
+simplesmente um vetor, poderíamos inserí-la diretamente na função, como
+um único argumento!
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{df1 }\OtherTok{=} \FunctionTok{data.frame}\NormalTok{(}\AttributeTok{x =} \FunctionTok{c}\NormalTok{(}\DecValTok{4}\NormalTok{, }\DecValTok{7}\NormalTok{, }\DecValTok{9}\NormalTok{))}
+\FunctionTok{sum}\NormalTok{(df1}\SpecialCharTok{$}\NormalTok{x)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+[1] 20
+\end{verbatim}
+
+Lembre-se de ficar atento com relação à estrutura e/ou tipo de variável
+que determinada função pode aceitar. Será que se trocassemos o número 4
+por ``4'', a função ainda rodaria? A respota é \textbf{não}, afinal de
+contas ``4'' é interpretado como texto, e não como número (e você não
+consegue somar textos)!
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{sum}\NormalTok{(}\FunctionTok{c}\NormalTok{(}\StringTok{"4"}\NormalTok{, }\DecValTok{7}\NormalTok{, }\DecValTok{9}\NormalTok{))}
+\NormalTok{Error }\ControlFlowTok{in} \FunctionTok{sum}\NormalTok{(df1}\SpecialCharTok{$}\NormalTok{x) }\SpecialCharTok{:} \StringTok{\textquotesingle{}type\textquotesingle{}}\NormalTok{ inválido (character) do argumento}
+\end{Highlighting}
+\end{Shaded}
+
+\end{tcolorbox}
+
+Em muitas situações, teremos argumentos \emph{nomeados}. Isto ocorre
+pois nem todo argumento será processado da mesma forma pelo código
+embutido na função. Também é muito comum que certos argumentos tenham um
+valor pré-determinado como \emph{default}, isto é, caso você não
+especifique algum valor para aquele argumento, o valor de \emph{default}
+será utilizado.
+
+\begin{tcolorbox}[enhanced jigsaw, leftrule=.75mm, left=2mm, arc=.35mm, breakable, bottomtitle=1mm, coltitle=black, titlerule=0mm, opacityback=0, toptitle=1mm, bottomrule=.15mm, opacitybacktitle=0.6, colbacktitle=quarto-callout-note-color!10!white, toprule=.15mm, colframe=quarto-callout-note-color-frame, colback=white, rightrule=.15mm, title=\textcolor{quarto-callout-note-color}{\faInfo}\hspace{0.5em}{Exemplo 2}]
+
+Nesse caso, vamos tomar como exemplo a função \texttt{paste()}. Qual seu
+papel?
+
+\begin{quote}
+Concatenar vetores após converter em caractere
+\end{quote}
+
+Portanto, a função \texttt{paste} irá transformar os vetores que
+introduzirmos em vetores com dados do tipo \emph{character} e, na
+sequência, irá juntá-los. Na prática, serve para juntar palavras e/ou
+caracteres que estão inicialmente separados em uma única variável do
+tipo texto. Por exemplo, podemos estar dispostos a juntar as palavras
+``Estou'', ``apredendendo'' e ``a usar o R'' em um único vetor.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{paste}\NormalTok{(}\StringTok{"Estou"}\NormalTok{, }\StringTok{"aprendendo"}\NormalTok{, }\StringTok{"a usar o R"}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+[1] "Estou aprendendo a usar o R"
+\end{verbatim}
+
+Note que o caractere \emph{default} (padrão) utilizado para separar as
+palavras é o espaço em branco! E se quisessemos separá-las por vírgula?
+Nesse caso, teríamos que especificar o argumento \texttt{sep} com esse
+delimitador!
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{paste}\NormalTok{(}\StringTok{"Estou"}\NormalTok{, }\StringTok{"aprendendo"}\NormalTok{, }\StringTok{"a usar o R"}\NormalTok{, }\AttributeTok{sep =} \StringTok{","}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+[1] "Estou,aprendendo,a usar o R"
+\end{verbatim}
+
+\end{tcolorbox}
+
+Por fim note que, mesmo sem você saber, já utilizamos funções nos
+últimos capítulos!
+
+\begin{itemize}
+\item
+  \texttt{c()}: função utilizada para criar um vetor;
+\item
+  \texttt{matrix()}: para criar uma matriz;
+\item
+  \texttt{data.frame()}: para criar um \emph{data frame};
+\item
+  \texttt{list()}: para criar uma lista.
+\end{itemize}
+
+Todas essas funções utilizavam como argumento principal os dados que
+tínhamos interesse e, através de seu código embutido, criavam e
+armazenavam o objeto na memória do R!
+
+\begin{tcolorbox}[enhanced jigsaw, leftrule=.75mm, left=2mm, arc=.35mm, breakable, bottomtitle=1mm, coltitle=black, titlerule=0mm, opacityback=0, toptitle=1mm, bottomrule=.15mm, opacitybacktitle=0.6, colbacktitle=quarto-callout-tip-color!10!white, toprule=.15mm, colframe=quarto-callout-tip-color-frame, colback=white, rightrule=.15mm, title=\textcolor{quarto-callout-tip-color}{\faLightbulb}\hspace{0.5em}{Operadores são funções! (Opcional)}]
+
+Sim, é isso mesmo que você leu! Lembre-se das nossas máximas: tudo que
+\emph{existe} no R é um \emph{objeto} e tudo que \emph{acontece} é uma
+execução de \emph{função}. É algo simples e direto ver que operadores
+como \texttt{+} , \texttt{:} e \texttt{\textless{}-} existem na
+linguagem -- não à toa estão sendo mencionados. Mas perceba que eles
+também criam, armazenam ou transformam objetos! Por exemplo, o operador
+\texttt{+} transforma \texttt{1+1} em \texttt{2}! Pense nos operadores
+como um tipo especial de função de dois argumentos, o primeiro
+posicionado à esquerda e o segundo à direita.
+
+\emph{``Mas uma função não deveria ser escrita como}
+\texttt{nome\_da\_funcao(arg1,\ ...,\ argn)}\emph{?{}``} Você pode
+escrevê-los dessa forma também! Só não será tão útil.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\StringTok{\textasciigrave{}}\AttributeTok{+}\StringTok{\textasciigrave{}}\NormalTok{(}\DecValTok{1}\NormalTok{, }\DecValTok{3}\NormalTok{)     }\CommentTok{\# O mesmo que 1 + 3}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+[1] 4
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\StringTok{\textasciigrave{}}\AttributeTok{:}\StringTok{\textasciigrave{}}\NormalTok{(}\DecValTok{1}\NormalTok{, }\DecValTok{10}\NormalTok{)    }\CommentTok{\# 1:10}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+ [1]  1  2  3  4  5  6  7  8  9 10
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\StringTok{\textasciigrave{}}\AttributeTok{\textless{}{-}}\StringTok{\textasciigrave{}}\NormalTok{(x, }\DecValTok{10}\NormalTok{)   }\CommentTok{\# x \textless{}{-} 10}
+\end{Highlighting}
+\end{Shaded}
+
+\end{tcolorbox}
+
+\begin{tcolorbox}[enhanced jigsaw, leftrule=.75mm, left=2mm, arc=.35mm, breakable, bottomtitle=1mm, coltitle=black, titlerule=0mm, opacityback=0, toptitle=1mm, bottomrule=.15mm, opacitybacktitle=0.6, colbacktitle=quarto-callout-tip-color!10!white, toprule=.15mm, colframe=quarto-callout-tip-color-frame, colback=white, rightrule=.15mm, title=\textcolor{quarto-callout-tip-color}{\faLightbulb}\hspace{0.5em}{Funções no Excel (Opcional)}]
+
+Se você já usou o Microsoft Excel em algum momento da sua vida, com
+certeza já teve contato com o alguma função! Por exemplo, lá temos a
+função \texttt{=SOMA()}, que realiza a mesma tarefa da função
+\texttt{sum()} no R! Inclusive, também é possível criar funções no Excel
+através de sua linguagem de programação própria, o \emph{Visual Basic
+for Applications} (VBA).
+
+\end{tcolorbox}
+
+\section{Pacotes}\label{pacotes}
+
+Chamamos de \emph{pacote} um conjunto de dados e/ou funções,
+acompanhadas de suas respectivas \emph{documentações}, que foram criadas
+e disponibilizadas por alguma pessoa. Existem pacotes padrão (ou
+básicos) que são considerados parte do código-fonte do R e estão
+automaticamente disponíveis como parte da instalação do R (ou seja,
+foram criados pelos desenvolvedores da linguagem). No entanto,
+definitivamente não são a maioria: o grosso dos pacotes disponíveis é de
+autoria dos membros da comunidade. Normalmente, as funções que integram
+um pacote estão relacionadas à determinado tema, ainda que isso não seja
+obrigatório.
+
+Por exemplo, suponha que criemos quatro funções que antes não existiam
+na linguagem: \texttt{soma()}, \texttt{subtração()},
+\texttt{multiplicacao()} e \texttt{divisao()}, representando as quatro
+operações aritméticas básicas. Como estão relacionadas à um mesmo tema,
+poderiamos agrupá-las em um pacote chamado \texttt{aritmetica} e, na
+sequência, disponibilizá-lo em algum \emph{repositório} para que outros
+usuários da linguagem pudessem baixá-lo. \textbf{As pessoas que
+instalassem e carregassem nosso pacote teriam acesso às quatro funções
+acima, sem necessidade de ter que criá-las do zero!} Ao mesmo tempo, o
+autor poderia adicionar um dataframe ao pacote, com intuito de
+possibilitar que você teste as funções que ele criou\footnote{Outra
+  possibilidade seria adicionar um dataframe simplesmente pelo interesse
+  em utilizar as informações que podem estar contidas nele. Por exemplo,
+  existem pacotes que contém apenas dataframes com informações de
+  tabelas de livros-texto específicos; com isso, os usuários ganham o
+  poder de replicar os resultados encontrados pelo autor, facilitando o
+  aprendizado. É importante ressaltar, contudo, que pacotes normalmente
+  são compostos apenas por funções.}.
+
+Perceba que, quando alguém cria uma função ou disponibiliza dados
+através de um pacote, fica complicado compreender inicialmente todas as
+características que esses objetos possuem. Por exemplo: ainda que os
+nomes sejam sugestivos, você saberia dizer com precisão o comportamento
+das quatro funções do pacote que criamos? Quais os tipos de objeto e
+variável que elas aceitam? Quais e quantos argumentos cada uma aceita?
+Provavelmente não. Para responder à todas essas perguntas, os autores
+disponibilizam uma \emph{documentação} para cada objeto do pacote! Para
+acessá-la, basta rodar o nome da função/conjunto de dados acrescido de
+\texttt{?} no início. O texto irá aparecer no quadrante inferior direito
+do RStudio, no painel \textbf{Help}\footnote{As documentações sempre
+  aparecerão escritas em inglês.}.
+
+\subsection{Instalando}\label{instalando}
+
+A maneira mais comum de se baixar e instalar um pacote é através do
+CRAN! O mesmo local em que baixamos o R também atua como um repositório
+centralizado de pacotes. Mas fique tranquilo: você não precisará acessar
+o site novamente! Para baixar e instalar um pacote que está no CRAN,
+utilizaremos a função \texttt{install.packages()}, pertencente ao pacote
+\texttt{utils} (que é um pacote básico). Basta rodar
+\texttt{install.packages("nome\_do\_pacote")}. No exemplo abaixo, a
+instalação do pacote \texttt{readr}.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{install.packages}\NormalTok{(}\StringTok{"readr"}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+Realizada a instalação com sucesso, já passa a ser possível utilizar
+suas funções/dados. \emph{Nesse momento}, você deverá escrever o nome do
+pacote acrescido de \texttt{::} e, na sequência, o nome da função/dado.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{readr}\SpecialCharTok{::}\FunctionTok{read\_csv}\NormalTok{(...)}
+\end{Highlighting}
+\end{Shaded}
+
+\subsection{Carregando}\label{carregando}
+
+\emph{``Mas será sempre necessário escrever o nome do pacote antes da
+função?''} \textbf{Não.} Perceba que os objetos oriundos de pacotes
+básicos podem ser executados diretamente. Isso ocorre pois eles são
+automaticamente \emph{carregados} na sua sessão atual.
+
+Resumindo: mesmo que você tenha instalado um pacote externo com sucesso,
+para usar seus objetos diretamente (sem precisar escrever seu nome
+antes) é necessário \emph{carregá-lo} na sessão atual\emph{.} Para
+carregar um pacote, rode a função \texttt{library()} acrescida do nome
+do pacote, \emph{sem} aspas.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{library}\NormalTok{(readr)}
+\end{Highlighting}
+\end{Shaded}
+
+Agora, é possível executar o objeto sem precisar escrever o nome do
+pacote antes.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{read\_csv}\NormalTok{(...)}
+\end{Highlighting}
+\end{Shaded}
+
+\textbf{A prática de carregar pacotes é a mais utilizada}. Em outras
+palavras: sempre que instalarmos algum pacote, na sequência iremos
+carregá-lo na sessão atual para que possamos utilizar seus objetos de
+forma direta.
+
+\section{\texorpdfstring{Operador Pipe
+\texttt{\%\textgreater{}\%}}{Operador Pipe \%\textgreater\%}}\label{operador-pipe}
+
+Nem sempre conseguiremos atingir o resultado que queremos utilizando
+apenas uma função. Por esse motivo, em muitas situações utilizaremos o
+\emph{resultado} de uma função como \emph{argumento} de \emph{outra}
+função.
+
+Por exemplo, suponha que você queira somar dois números e, na sequência,
+comparar este resultado intermediário com 5 e 9, de modo a retornar o
+valor máximo entre os três números. Observe que a função \texttt{sum()}
+não é suficiente para realizar tal tarefa de modo completo: você até
+conseguirá somar dois números quaisquer, mas não será capaz de
+posteriormente comparar o resultado com o restante para saber qual é o
+valor máximo entre eles. Nesse caso, poderíamos então utilizar o
+resultado da função \texttt{sum()} como \emph{argumento} da função
+\texttt{max()}!
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{max}\NormalTok{(}\FunctionTok{sum}\NormalTok{(}\DecValTok{4}\NormalTok{, }\DecValTok{3}\NormalTok{), }\DecValTok{5}\NormalTok{, }\DecValTok{9}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+[1] 9
+\end{verbatim}
+
+O R sempre executará as funções \emph{interiores} primeiro. Ou seja,
+primeiro executa \texttt{sum(4,3)}, retornando 7, e na sequência executa
+\texttt{max(7,\ 5,\ 9)}, cujo resultado será 9, dado que este é o maior
+dentre os três números utilizados como argumento.
+
+O problema com esse tipo de \emph{sintaxe} é que, conforme aproveitamos
+os resultados anteriores de outra função como argumento para as
+seguintes, mais confuso o código fica. Imagine se o número 4 também
+fosse resultado de alguma outra função: o código estaria bem mais
+difícil de entender!
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{max}\NormalTok{(}\FunctionTok{sum}\NormalTok{(}\FunctionTok{outra\_funcao}\NormalTok{(...), }\DecValTok{3}\NormalTok{), }\DecValTok{5}\NormalTok{, }\DecValTok{9}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+Com a finalidade de simplificar situações desse tipo, criou-se o
+operador Pipe, representado por \texttt{\%\textgreater{}\%}. Este
+operador permite com que o resultado da função anterior se torne,
+\emph{implicitamente,} o primeiro argumento da função seguinte!
+Poderíamos então reescrever nosso exemplo para:
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{sum}\NormalTok{(}\DecValTok{4}\NormalTok{,}\DecValTok{3}\NormalTok{) }\SpecialCharTok{\%\textgreater{}\%} \FunctionTok{max}\NormalTok{(}\DecValTok{5}\NormalTok{, }\DecValTok{9}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+[1] 9
+\end{verbatim}
+
+O que o código acima nos diz é que \texttt{sum(4,3)} será interpretado
+como o primeiro argumento da função \texttt{max()}; automaticamente, 5 e
+9 se tornam o segundo e o terceiro argumentos, respectivamente.
+
+Para utilizar o operador Pipe, antes é necessário instalar e carregar o
+pacote \texttt{magrittr}:
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{install.packages}\NormalTok{(}\StringTok{"magrittr"}\NormalTok{)}
+\FunctionTok{library}\NormalTok{(magrittr)}
+\end{Highlighting}
+\end{Shaded}
+
+Na sequência, aperte \texttt{Ctrl\ +\ Shift\ +\ M} no Editor ou Console.
+
+\subsection{Pipe nativo}\label{pipe-nativo}
+
+O uso do operador Pipe se tornou tão poopular que os desenvolvedores do
+R resolveram incorporar uma versão própria que já vem pré-instalada,
+conhecida como Pipe nativo \emph{(native Pipe)}. Ele exerce o mesmo
+papel principal (organização de código, como demonstrado na seção
+anterior) mas deixa a desejar em outras partes. A única vantagem é não
+precisar instalar e carregar um pacote. Portanto, recomendamos ainda o
+uso do Pipe `original'.
+
+De todo modo, caso você queira utilizá-lo, basta substituir
+\texttt{\%\textgreater{}\%} por \texttt{\textbar{}\textgreater{}}. Para
+continuar usando o atalho \texttt{Ctrl\ +\ Shift\ +\ M}, vá em
+\emph{Tools} \textgreater{} Global Options \textgreater{} \emph{Code} e
+marque \emph{Use native pipe operator}.
+
+\chapter{Importando dados}\label{importando-dados}
+
+Imagine que você compre um computador produzido \emph{fora} do Brasil.
+Nesse caso, dizemos que você \emph{importou} o computador de determinado
+país que o produziu, não é? Inclusive, segundo a Oxford Languages, o
+verbo \emph{importar} pode ser definido como
+
+\begin{quote}
+trazer de outro país, estado ou município.
+\end{quote}
+
+No campo da programação, \emph{importar} mantém signifcado semelhante:
+trazer dados externos para nosso ambiente, de forma que possamos
+manipulá-los com a linguagem. Aplicando à nossa realidade, queremos
+trazer tabelas de dados para a memória do R, na aba Environment, de
+forma que possamos manipulá-las posteriormente!
+
+\section{Definindo o diretório de
+trabalho}\label{definindo-o-diretuxf3rio-de-trabalho}
+
+Antes de importar, é interessante definirmos nosso \emph{diretório de
+trabalho}, que corresponde ao caminho para a pasta fixa que iremos
+utilizar para criar ou armazenar arquivos. Pense no diretório como a
+pasta do seu computador que servirá como local de armazenamento de todos
+os arquivos relacionados ao trabalho/projeto que você estiver executando
+naquele momento -- sejam scripts, planilhas, etc.
+
+Para configurar determinada pasta como diretório de trabalho, aperte
+\texttt{Ctrl\ +\ Shift\ +\ H} e, na sequência, selecione a pasta que
+desejar. Perceba que esse comando rodará a função \texttt{setwd()} no
+Console, cujo argumento é o caminho para a pasta. Você também pode
+selecionar o diretório de trabalho desta maneira direta.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{setwd}\NormalTok{(}\StringTok{"caminho\_para\_pasta"}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+Note que, no RStudio, o caminho para o diretório atual aparece na parte
+superior do painel de Console, ao lado do número da versão do R que você
+estiver utilizando no momento. Ao mesmo tempo, você pode retornar o
+diretório atual de trabalho apenas rodando a função \texttt{getwd()},
+sem nenhum argumento.
+
+\section{Funções mais utilizadas para
+importação}\label{funuxe7uxf5es-mais-utilizadas-para-importauxe7uxe3o}
+
+Com o propósito de importar dados para o RStudio, iremos aprender a
+utilizar algumas funções específicas. Repare que estamos falando de
+\emph{funções}, ou seja, existe mais de uma função que busca permitir
+com que o RStudio seja capaz de ler e armazenar dados internamente em
+sua memória, para posterior manipulação. Isso acontece pois não existe
+um único tipo de arquivo capaz de armazenar dados.
+
+Dois pacotes serão utilizados: \texttt{readr}, que faz parte do
+\emph{tidyverse}, e \texttt{openxlsx}. Portanto, é necessário que você
+os instale, caso ainda não tenha feito e, na sequência, carrege os
+pacotes.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{install.packages}\NormalTok{(}\StringTok{"readr"}\NormalTok{)}
+\FunctionTok{install.packages}\NormalTok{(}\StringTok{"openxlsx"}\NormalTok{)}
+
+\FunctionTok{library}\NormalTok{(readr)}
+\FunctionTok{library}\NormalTok{(openxlsx)}
+\end{Highlighting}
+\end{Shaded}
+
+\subsection{O pacote readr -- lendo arquivos
+delimitados}\label{o-pacote-readr-lendo-arquivos-delimitados}
+
+O pacote \texttt{readr} é utilizado principalmente para ler arquivos
+delimitados por algum caractere específico. \emph{`Como assim, arquivos
+delimitados por caractere?'} Em muitos casos, as tabelas de dados são
+tão grandes -- ou seja, várias observações (linhas) e variáveis
+(colunas) -- que será necessário reduzir seu tamanho com intuito de
+facilitar o compartilhamento com terceiros. Uma saída é comprimir todas
+as variáveis em uma única coluna, em que os dados são \emph{separados
+por algum caractere especial}, mantendo o mesmo número de observações
+anterior. Cada linha continua representando uma observação de
+determinada unidade. Passamos de \emph{n} observações e \emph{m} colunas
+para \emph{n} observações e 1 coluna.
+
+\subsubsection{\texorpdfstring{\texttt{read\_csv()}}{read\_csv()}}\label{read_csv}
+
+Para começar, vamos nos concentrar no tipo de arquivo de dados
+retangular mais comum: CSV, que é a abreviação de \emph{Comma Separeted
+Values} (valores separados por vírgula, em português). Abaixo, temos a
+aparência de um arquivo CSV simples, contendo informações de estudantes.
+A primeira linha, comumente chamada de \emph{cabeçalho}, fornece os
+nomes das colunas, e as cinco linhas seguintes fornecem os dados.
+
+\begin{verbatim}
+matrícula,Nome,comida.favorita,PlanoDeRefeição,IDADE,peso
+1,Jorge,Acarajé,Regime,18,76
+2,Laís,Macarrão,Livre,23,65
+3,Matheus,Carne,Regime,22,70
+4,Laura,Frango,Livre,21,68
+5,Nathália,Peixe,Regime,21,66
+\end{verbatim}
+
+A Tabela~\ref{tbl-students-table} mostra uma representação dos mesmos
+dados em uma tabela.
+
+\begin{longtable}[]{@{}
+  >{\centering\arraybackslash}p{(\columnwidth - 10\tabcolsep) * \real{0.1618}}
+  >{\centering\arraybackslash}p{(\columnwidth - 10\tabcolsep) * \real{0.1471}}
+  >{\centering\arraybackslash}p{(\columnwidth - 10\tabcolsep) * \real{0.2500}}
+  >{\centering\arraybackslash}p{(\columnwidth - 10\tabcolsep) * \real{0.2500}}
+  >{\centering\arraybackslash}p{(\columnwidth - 10\tabcolsep) * \real{0.1029}}
+  >{\centering\arraybackslash}p{(\columnwidth - 10\tabcolsep) * \real{0.0882}}@{}}
+
+\caption{\label{tbl-students-table}Dados do arquivo estudantes.csv como
+tabela.}
+
+\tabularnewline
+
+\toprule\noalign{}
+\begin{minipage}[b]{\linewidth}\centering
+matrícula
+\end{minipage} & \begin{minipage}[b]{\linewidth}\centering
+Nome
+\end{minipage} & \begin{minipage}[b]{\linewidth}\centering
+comida.favorita
+\end{minipage} & \begin{minipage}[b]{\linewidth}\centering
+PlanoDeRefeição
+\end{minipage} & \begin{minipage}[b]{\linewidth}\centering
+IDADE
+\end{minipage} & \begin{minipage}[b]{\linewidth}\centering
+peso
+\end{minipage} \\
+\midrule\noalign{}
+\endhead
+\bottomrule\noalign{}
+\endlastfoot
+1 & Jorge & Acarajé & Regime & 18 & 76 \\
+2 & Laís & Macarrão & Livre & 23 & 65 \\
+3 & Matheus & Carne & Regime & 22 & 70 \\
+4 & Laura & Frango & Livre & 21 & 68 \\
+5 & Nathália & Peixe & Regime & 21 & 66 \\
+
+\end{longtable}
+
+Quando temos um arquivo do tipo \texttt{csv}, podemos importá-lo para o
+R usando a função \texttt{read\_csv()}. O primeiro argumento é o mais
+importante: o \emph{caminho} para o arquivo. Você pode pensar no caminho
+como o \emph{endereço} do arquivo, ou seja, é o local em que ele está
+armazenado.
+
+Se o arquivo estiver no seu computador, é necessário escrever o caminho
+em termos de diretório e pastas, além do nome do arquivo e sua extensão.
+Lembre-se que já fixamos nosso diretório de trabalho. Basta então
+escrever o restante do caminho, considerando que o arquivo está na pasta
+\texttt{dados}\footnote{A pasta \texttt{dados} foi criada com intuito de
+  aprimorar a organização do diretório de trabalho. Você \textbf{não}
+  precisa tê-la em seu computador. Se você já fixou o diretório base,
+  pode importar arquivos apenas com
+  \texttt{read\_csv("nome\_do\_arquivo.csv")}.} e se chama
+\texttt{estudantes.csv}!
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{estudantes }\OtherTok{\textless{}{-}} \FunctionTok{read\_csv}\NormalTok{(}\StringTok{"dados/estudantes.csv"}\NormalTok{)}
+\DocumentationTok{\#\# Rows: 5 Columns: 6}
+\DocumentationTok{\#\# {-}{-} Column specification {-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}}
+\DocumentationTok{\#\# Delimiter: ","}
+\DocumentationTok{\#\# chr (3): Nome, comida.favorita, PlanoDeRefeição}
+\DocumentationTok{\#\# dbl (3): matrícula, IDADE, peso}
+\DocumentationTok{\#\# }
+\DocumentationTok{\#\# i Use \textasciigrave{}spec()\textasciigrave{} to retrieve the full column specification for this data.}
+\DocumentationTok{\#\# i Specify the column types or set \textasciigrave{}show\_col\_types = FALSE\textasciigrave{} to quiet this message.}
+\end{Highlighting}
+\end{Shaded}
+
+Por outro lado, você pode baixar o arquivo diretamente de algum
+\emph{link} hospedado na internet! A vantagem dessa alternativa consiste
+no fato de quê você não precisará realizar novamente o \emph{download}
+do arquivo no seu computador em caso de atualização do arquivo original
+-- além, é claro, de tornar seu diretório de trabalho mais limpo.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{estudantes }\OtherTok{\textless{}{-}} \FunctionTok{read\_csv}\NormalTok{(}\StringTok{"https://raw.githubusercontent.com/ieufrjquant/intror/master/dados/estudantes.csv"}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+Independente da forma com que você especifique o caminho para o arquivo
+ao executar a função \texttt{read\_csv()}, note que ela exibe uma
+mensagem informando o número de linhas e colunas de dados, o delimitador
+que foi usado e as especificações das colunas (nomes das colunas
+organizadas pelo tipo de dados que a coluna contém).
+
+Observe também que, em ambos os casos, atribuimos a tabela de dados ao
+objeto \texttt{estudantes}, ficando disponível para visualização no
+painel Environment. Quando for importar alguma tabela para o R, é
+importante que você atribua os dados a um objeto -- cujo nome, como
+sabemos, é de livre escolha. Caso contrário, o arquivo será apenas lido
+no Console, ao invés de ficar efetivamente armazenado para
+manipulação\footnote{É exatamente a mesma lógica de armazenamento vista
+  no capítulo sobre objetos.}. Por fim, importante observar que o objeto
+criado terá estrutura de \emph{data frame}.
+
+\begin{tcolorbox}[enhanced jigsaw, leftrule=.75mm, left=2mm, arc=.35mm, breakable, bottomtitle=1mm, coltitle=black, titlerule=0mm, opacityback=0, toptitle=1mm, bottomrule=.15mm, opacitybacktitle=0.6, colbacktitle=quarto-callout-tip-color!10!white, toprule=.15mm, colframe=quarto-callout-tip-color-frame, colback=white, rightrule=.15mm, title=\textcolor{quarto-callout-tip-color}{\faLightbulb}\hspace{0.5em}{Funções para outros tipos de arquivo delimitados (Opcional)}]
+
+Depois de dominar \texttt{read\_csv()}, usar as outras funções do readr
+é simples; é apenas uma questão de saber qual função buscar:
+
+\begin{itemize}
+\item
+  \texttt{read\_csv2()} lê arquivos separados por ponto e vírgula. Eles
+  usam \texttt{;} em vez de \texttt{,} para separar campos e são comuns
+  em países que usam \texttt{,} como marcador decimal.
+\item
+  \texttt{read\_tsv()} lê arquivos delimitados por tabulações.
+\item
+  \texttt{read\_delim()} lê arquivos com qualquer delimitador, tentando
+  adivinhar automaticamente o delimitador se você não especificá-lo.
+\item
+  \texttt{read\_fwf()} lê arquivos de largura fixa. Você pode
+  especificar campos por suas larguras com \texttt{fwf\_widths()} ou por
+  suas posições com \texttt{fwf\_positions()}.
+\item
+  \texttt{read\_table()} lê uma variação comum de arquivos de largura
+  fixa onde as colunas são separadas por espaços em branco.
+\end{itemize}
+
+\end{tcolorbox}
+
+\subsection{O pacote readxl -- lendo
+planilhas}\label{o-pacote-readxl-lendo-planilhas}
+
+Nesta seção, iremos nos concentrar em importar dados de
+\emph{planilhas}, especificamente os que foram agrupados em planilhas de
+\emph{Excel}. Veremos como importar todos os dados de uma planilha com
+apenas uma única aba, assim como de uma aba específica, caso exista mais
+de uma.
+
+\subsubsection{\texorpdfstring{\texttt{read.xlsx()}}{read.xlsx()}}\label{read.xlsx}
+
+A maioria dos arquivos escritos em Excel hoje possui uma extensão do
+tipo \texttt{.xlsx}. Portanto, vamos focar na função do pacote
+\texttt{openxlsx} que melhor lide com planilhas desse tipo:
+\texttt{read.xlsx()}. Como no caso anterior, note que o objeto criado
+terá estrutura de um \emph{data frame}.
+
+\paragraph{Planilha}\label{planilha}
+
+Esse caso se aplica quando você desejar importar \emph{todos} os dados
+que estão na \emph{primeira} \emph{e única} aba de uma planilha. O
+procedimento é muito parecido com o que fizemos no caso de arquivos
+delimitados: precisaremos do endereço para o arquivo que desejamos
+importar, que pode ser um caminho de pastas no seu computador ou um
+\emph{link} externo.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{estudantes }\OtherTok{\textless{}{-}} \FunctionTok{read.xlsx}\NormalTok{(}\StringTok{"dados/estudantes.xlsx"}\NormalTok{)}
+\NormalTok{estudantes}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+  matrícula     Nome comida.favorita PlanoDeRefeição IDADE peso
+1         1    Jorge         Acarajé          Regime    18   76
+2         2     Laís        Macarrão           Livre    23   65
+3         3  Matheus           Carne          Regime    22   70
+4         4    Laura          Frango           Livre    21   68
+5         5 Nathália           Peixe          Regime    21   66
+\end{verbatim}
+
+\paragraph{Aba específica}\label{aba-especuxedfica}
+
+Para importar dados de uma aba específica de determinada planilha é
+necessário especificar, além do endereço do arquivo, o nome ou o índice
+da aba que você deseja. No exemplo abaixo, importamos os dados completos
+do \emph{Maddison Project Database 2020}, que estão contidos na terceira
+aba da planilha disponibilizada pelos organizadores\emph{.}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{dados }\OtherTok{\textless{}{-}} \FunctionTok{read.xlsx}\NormalTok{(}\StringTok{"https://www.rug.nl/ggdc/historicaldevelopment/maddison/data/mpd2020.xlsx"}\NormalTok{, }
+                   \AttributeTok{sheet =} \StringTok{"Full data"}\NormalTok{)}
+
+\NormalTok{dados }\OtherTok{\textless{}{-}} \FunctionTok{read.xlsx}\NormalTok{(}\StringTok{"https://www.rug.nl/ggdc/historicaldevelopment/maddison/data/mpd2020.xlsx"}\NormalTok{, }
+                   \AttributeTok{sheet =} \DecValTok{3}\NormalTok{)}
+
+\NormalTok{dados}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+  countrycode     country year gdppc  pop
+1         AFG Afghanistan 1820    NA 3280
+2         AFG Afghanistan 1870    NA 4207
+3         AFG Afghanistan 1913    NA 5730
+4         AFG Afghanistan 1950  1156 8150
+5         AFG Afghanistan 1951  1170 8284
+6         AFG Afghanistan 1952  1189 8425
+ [ reached 'max' / getOption("max.print") -- omitted 21676 rows ]
+\end{verbatim}
 
 
 
