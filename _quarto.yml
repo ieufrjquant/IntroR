@@ -18,11 +18,12 @@ book:
   chapters:
     - index.qmd
     - intro.qmd
+    - objetos.qmd
     
     #- part: intro-instalacao.qmd
   #chapters:
-    - instalando-r.qmd
-    - instalando-rstudio.qmd
+    #- instalando-r.qmd
+    #- instalando-rstudio.qmd
         
     #- part: intro-lingr.qmd
       #chapters:

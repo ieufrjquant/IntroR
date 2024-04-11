@@ -52,6 +52,46 @@
   \renewcommand{\subparagraph}[1]{\oldsubparagraph{#1}\mbox{}}
 \fi
 
+\usepackage{color}
+\usepackage{fancyvrb}
+\newcommand{\VerbBar}{|}
+\newcommand{\VERB}{\Verb[commandchars=\\\{\}]}
+\DefineVerbatimEnvironment{Highlighting}{Verbatim}{commandchars=\\\{\}}
+% Add ',fontsize=\small' for more characters per line
+\usepackage{framed}
+\definecolor{shadecolor}{RGB}{241,243,245}
+\newenvironment{Shaded}{\begin{snugshade}}{\end{snugshade}}
+\newcommand{\AlertTok}[1]{\textcolor[rgb]{0.68,0.00,0.00}{#1}}
+\newcommand{\AnnotationTok}[1]{\textcolor[rgb]{0.37,0.37,0.37}{#1}}
+\newcommand{\AttributeTok}[1]{\textcolor[rgb]{0.40,0.45,0.13}{#1}}
+\newcommand{\BaseNTok}[1]{\textcolor[rgb]{0.68,0.00,0.00}{#1}}
+\newcommand{\BuiltInTok}[1]{\textcolor[rgb]{0.00,0.23,0.31}{#1}}
+\newcommand{\CharTok}[1]{\textcolor[rgb]{0.13,0.47,0.30}{#1}}
+\newcommand{\CommentTok}[1]{\textcolor[rgb]{0.37,0.37,0.37}{#1}}
+\newcommand{\CommentVarTok}[1]{\textcolor[rgb]{0.37,0.37,0.37}{\textit{#1}}}
+\newcommand{\ConstantTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{#1}}
+\newcommand{\ControlFlowTok}[1]{\textcolor[rgb]{0.00,0.23,0.31}{#1}}
+\newcommand{\DataTypeTok}[1]{\textcolor[rgb]{0.68,0.00,0.00}{#1}}
+\newcommand{\DecValTok}[1]{\textcolor[rgb]{0.68,0.00,0.00}{#1}}
+\newcommand{\DocumentationTok}[1]{\textcolor[rgb]{0.37,0.37,0.37}{\textit{#1}}}
+\newcommand{\ErrorTok}[1]{\textcolor[rgb]{0.68,0.00,0.00}{#1}}
+\newcommand{\ExtensionTok}[1]{\textcolor[rgb]{0.00,0.23,0.31}{#1}}
+\newcommand{\FloatTok}[1]{\textcolor[rgb]{0.68,0.00,0.00}{#1}}
+\newcommand{\FunctionTok}[1]{\textcolor[rgb]{0.28,0.35,0.67}{#1}}
+\newcommand{\ImportTok}[1]{\textcolor[rgb]{0.00,0.46,0.62}{#1}}
+\newcommand{\InformationTok}[1]{\textcolor[rgb]{0.37,0.37,0.37}{#1}}
+\newcommand{\KeywordTok}[1]{\textcolor[rgb]{0.00,0.23,0.31}{#1}}
+\newcommand{\NormalTok}[1]{\textcolor[rgb]{0.00,0.23,0.31}{#1}}
+\newcommand{\OperatorTok}[1]{\textcolor[rgb]{0.37,0.37,0.37}{#1}}
+\newcommand{\OtherTok}[1]{\textcolor[rgb]{0.00,0.23,0.31}{#1}}
+\newcommand{\PreprocessorTok}[1]{\textcolor[rgb]{0.68,0.00,0.00}{#1}}
+\newcommand{\RegionMarkerTok}[1]{\textcolor[rgb]{0.00,0.23,0.31}{#1}}
+\newcommand{\SpecialCharTok}[1]{\textcolor[rgb]{0.37,0.37,0.37}{#1}}
+\newcommand{\SpecialStringTok}[1]{\textcolor[rgb]{0.13,0.47,0.30}{#1}}
+\newcommand{\StringTok}[1]{\textcolor[rgb]{0.13,0.47,0.30}{#1}}
+\newcommand{\VariableTok}[1]{\textcolor[rgb]{0.07,0.07,0.07}{#1}}
+\newcommand{\VerbatimStringTok}[1]{\textcolor[rgb]{0.13,0.47,0.30}{#1}}
+\newcommand{\WarningTok}[1]{\textcolor[rgb]{0.37,0.37,0.37}{\textit{#1}}}
 
 \providecommand{\tightlist}{%
   \setlength{\itemsep}{0pt}\setlength{\parskip}{0pt}}\usepackage{longtable,booktabs,array}
@@ -396,466 +436,820 @@ resultado.
 
 \bookmarksetup{startatroot}
 
-\chapter{Instalando o R}\label{instalando-o-r}
+\chapter{Objetos}\label{objetos}
 
-Nesse capítulo, iremos aprender como baixar e instalar o R para
-Windows\footnote{Você pode realizar procedimento equivalente para
-  sistemas operacionais Linux, apenas alterando a opção de
-  \emph{download} quando necessário -- isto é, selecionando as opções em
-  que esteja escrito `Linux', ao invés de `Windows'.}! Optamos por
-dividir o passo a passo em 7 etapas -- mas fique tranquilo, não são
-passos grandes, apenas fizemos dessa forma para que o conteúdo fique bem
-\emph{mastigado}, fácil de entender.
+Na apresentação dessa parte do material, trouxemos uma citação que, em
+parte, dizia:
 
-\begin{tcolorbox}[enhanced jigsaw, opacityback=0, breakable, leftrule=.75mm, toprule=.15mm, colbacktitle=quarto-callout-tip-color!10!white, toptitle=1mm, colback=white, left=2mm, title=\textcolor{quarto-callout-tip-color}{\faLightbulb}\hspace{0.5em}{Alguns conceitos iniciais (Opcional)}, bottomtitle=1mm, titlerule=0mm, arc=.35mm, rightrule=.15mm, bottomrule=.15mm, opacitybacktitle=0.6, coltitle=black, colframe=quarto-callout-tip-color-frame]
+\begin{quote}
+\textbf{\emph{Everything that exists is an object.}}
+\end{quote}
 
-Antes de começar, vamos entender alguns conceitos. A ideia aqui é te
-ensinar o que significam algumas nomenclaturas e siglas que aparecem ao
-longo do processo de instalação, em especial \emph{R Foundation} e
-\emph{CRAN}. Essa parte é totalmente \emph{opcional} e você pode pular
-direto para o passo a passo caso esteja sem tempo -- ou até mesmo
-interesse.
+\textbf{Um objeto é simplesmente um nome que guarda um valor ou código.}
+Não há como ser mais direto: tudo que existe no R é um \emph{objeto,
+inclusive as funções que veremos no capítulo seguinte}. Nesse capítulo,
+veremos com detalhe os objetos que são designados à \emph{armazenar
+dados}. Antes, no entanto, vamos dar um passo para trás e explicar o que
+são dados.
 
-\begin{itemize}
-\item
-  \textbf{R Foundation}: é uma empresa sem fins lucrativos, criada pelos
-  principais desenvolvedores da linguagem. Quais são seus objetivos?
-  Basicamente três: (i) administrar os direitos autorais da linguagem --
-  e, por consequência, manter seu uso como livre; (ii) apoiar o
-  desenvolvimento do R como um todo, isto é, fornecer informações e
-  criar novos usos básicos, elaborar conferências, guias, entre outros;
-  (iii) servir como ponto focal para todos os usuários da linguagem que
-  desejem interagir com a comunidade de desenvolvedores. De forma
-  resumida, a R Foundation é como se fosse a instituição provedora do
-  básico da linguagem, que busca sempre atualizar e mantê-lo de pé. Se
-  você instala o R e, logo em seguida, percebe que alguma de suas
-  atribuições não está em perfeito funcionamento, provavelmente terá que
-  comunicar à essas pessoas. Grosso modo, exerce um papel próximo ao da
-  Microsoft com o Excel, por exemplo. Uma observação (importante): como
-  o R é um software livre, qualquer pessoa pode desenvolver novas
-  funções ou recursos a partir da linguagem. Por esse motivo, para
-  recursos que estejam além da \emph{base do R}, você deve recorrer à
-  quem os criou! Por exemplo, com relação ao RStudio (que conheceremos
-  mais à frente), devemos nos reportar à empresa Posit, sua
-  desenvolvedora. Na prática, raramente (para não dizer nunca) iremos
-  reportar alguma coisa à R Foundation, mas sim aos desenvolvedores
-  daquele pacote/extensão específico (fique tranquilo, explicaremos mais
-  à frente o conceito de \emph{pacote} para a linguagem).
-\item
-  \textbf{CRAN} (Comprehensive R Archive Network): segundo o própio, é
-  ``\emph{uma coleção de sites que carrega material idêntico,
-  consistindo nas distribuições do R, extensões contriubídas,
-  documentação e arquivos binários de R}''. \emph{`Meu Deus, o que isso
-  significa?'} Simples: apenas uma coleção de endereços da internet em
-  que podemos baixar a versão mais recente do R, assim como pacotes.
-  Quem mantém o CRAN? Instituições voluntárias; em seus sites, a parte
-  onde é possível baixar arquivos relacionados ao R é chamada de
-  \emph{mirror}. E com quais recursos o CRAN se mantém? Com os da
-  própria instituição participante (principalmente em termos de
-  colaboradores) e, também, da R Foundation!
-\end{itemize}
+\section{Dados}\label{dados}
 
-Essa história toda para dizer: \textbf{o arquivo básico que iremos
-baixar para instalar o R será obtido através de algum \emph{mirror} do
-CRAN, isto é, a parte do site de alguma instituição voluntária em
-colaboração com a R Foundation.}
+Segundo a Oxford Languages, dados são
 
-\end{tcolorbox}
+\begin{quote}
+fatos e estatísticas coletadas de forma conjunta para referência ou
+análise.
+\end{quote}
 
-\section{Sete passos}\label{sete-passos}
+\textbf{Na prática, dados nos mostram informações sobre determinado
+indivíduo ou situação que procuramos descrever, seja uma pessoa,
+instituição, comportamento, condição geográfica, etc.} O número de horas
+que você dormiu essa noite é um dado. A lista que relata quem é ou não
+calvo na sua família é uma \emph{coleção} de dados. A expectativa, hoje,
+de quanto será a inflação acumulada nos próximos 12 meses é um dado. A
+variação percentual do Produto Interno Bruto (PIB) real no último
+trimestre é um dado. A lista que mostra a sequência de variações do PIB
+real nos últimos dez trimestres é uma \emph{série temporal}, isto é,
+dados em sequência ao longo do tempo.
 
-\begin{enumerate}
-\def\labelenumi{\arabic{enumi}.}
-\item
-  O primeiro passo consiste em escolher um repositório (\emph{mirror)}
-  para baixar o R. No endereço
-  \url{https://cran.r-project.org/mirrors.html} encontramos todas as
-  opções disponíveis, por país e em ordem alfabética. No seu computador,
-  deverá aparecer a seguinte tela:
+\subsection{Tipo \& Forma}\label{tipo-forma}
 
-  \begin{center}
-  \includegraphics{images/clipboard-3074288328.png}
-  \end{center}
-\item
-  Por questões de rapidez/latência, o ideal é escolher o repositório
-  mais próximo de você. Considerando que todos estejam no Rio de
-  Janeiro, vamos então utilizar o \emph{mirror} da Fiocruz.
+Vamos nos aprofundar um pouco mais. Ao lidar formalmente com dados,
+\textbf{devemos ter mente que eles são compostos por uma ou mais
+variáveis e seus valores}. \emph{Uma variável é uma dimensão ou
+propriedade que descreve uma unidade de observação} (por exemplo, uma
+pessoa) e normalmente pode assumir valores diferentes. Por outro lado,
+os \emph{valores são as instâncias concretas que uma variável atribui a
+cada unidade de observação e são ainda caracterizados por seu intervalo}
+(por exemplo, valores categóricos versus valores contínuos) \emph{e seu
+tipo} (por exemplo, valores lógicos, numéricos ou de caracteres).
+Estaremos interessados no \emph{tipo} dos dados. A
+Tabela~\ref{tbl-data-types} apresenta os que podem aparecer com maior
+frequência.
 
-  \begin{center}
-  \includegraphics{images/clipboard-283220567.png}
-  \end{center}
-\item
-  Como essa apostila foca na instalação para sistemas operacionais do
-  tipo Windows, vamos clicar então em \emph{Download R for Windows}, na
-  parte superior da página.
+\begin{longtable}[]{@{}
+  >{\centering\arraybackslash}p{(\columnwidth - 4\tabcolsep) * \real{0.1935}}
+  >{\centering\arraybackslash}p{(\columnwidth - 4\tabcolsep) * \real{0.6129}}
+  >{\centering\arraybackslash}p{(\columnwidth - 4\tabcolsep) * \real{0.1935}}@{}}
 
-  \begin{center}
-  \includegraphics{images/clipboard-1477947543.png}
-  \end{center}
-\item
-  Na página seguinte, clique em `base'. Grosso modo, como o nome já
-  indica, iremos baixar os aquivos \emph{base} do R -- ou seja, o mínimo
-  necessário que você precisará para poder executar algum código.
+\caption{\label{tbl-data-types}Tipos mais comuns de dados}
 
-  \begin{center}
-  \includegraphics{images/clipboard-959933518.png}
-  \end{center}
-\item
-  Na nova página, clique em `\emph{Download R x.x.x for Windows}', sendo
-  `x.x.x' o número da versão que será baixada. No momento da elaboração
-  deste tutorial, a versão mais recente do R é a 4.3.3.
+\tabularnewline
 
-  \begin{center}
-  \includegraphics{images/clipboard-3581535596.png}
-  \end{center}
+\toprule\noalign{}
+\begin{minipage}[b]{\linewidth}\centering
+Tipo
+\end{minipage} & \begin{minipage}[b]{\linewidth}\centering
+Serve para representar\ldots{}
+\end{minipage} & \begin{minipage}[b]{\linewidth}\centering
+Exemplo
+\end{minipage} \\
+\midrule\noalign{}
+\endhead
+\bottomrule\noalign{}
+\endlastfoot
+Númerico & números do tipo \emph{integer} (inteiro) ou \emph{double}
+(reais) & 1, 3.2, 0.89 \\
+Texto \emph{(string)} & caracteres (letras, palavras ou setenças) &
+``Ana jogou bola'' \\
+Lógico & valores verdade do tipo lógico (valores booleanos) & TRUE,
+FALSE, NA \\
+Tempo & datas e horas & 14/04/1999 \\
 
-  Se você tiver algum problema com o \emph{download}, tente escolher
-  outro servidor no passo 2 -- por exemplo, um dos servidores da
-  Universidade de São Paulo.
-\end{enumerate}
+\end{longtable}
 
-\begin{tcolorbox}[enhanced jigsaw, opacityback=0, breakable, leftrule=.75mm, toprule=.15mm, colbacktitle=quarto-callout-note-color!10!white, toptitle=1mm, colback=white, left=2mm, title=\textcolor{quarto-callout-note-color}{\faInfo}\hspace{0.5em}{Encontrando o caminho!}, bottomtitle=1mm, titlerule=0mm, arc=.35mm, rightrule=.15mm, bottomrule=.15mm, opacitybacktitle=0.6, coltitle=black, colframe=quarto-callout-note-color-frame]
+Voltando ao primeiro exemplo, uma pessoa pode ser descrita pelas
+variáveis \emph{nome}, \emph{número de horas dormidas} e \emph{se dormiu
+ou não mais de oito horas}. Os valores correspondentes a essas variáveis
+seriam do tipo texto (por exemplo, ``Pedro''), numéricos (número de
+horas) e lógicos (\texttt{TRUE} ou \texttt{FALSE}, definido em função do
+tempo descansado\footnote{Se o número de horas que a pessoa descansou
+  for maior do que 8, então a variável deverá apresentar valor igual a
+  \texttt{TRUE} -- ou seja, é verdade que a pessoa dormiu mais de 8
+  horas. Caso contrário, \texttt{FALSE}.}). \textbf{Note a diferença
+entre \emph{dado} e \emph{valor}.} O número 10 é um valor, sem
+significado. Por outro lado, \emph{``10 horas dormidas''} é um dado,
+caracterizado pelo valor 10 e pela variável \emph{``horas dormidas''}.
 
-Abaixo, os passos 1-5 para realizar o \emph{donwload}.
+Outro aspecto importante sobre os dados está em sua forma, ou seja, como
+os dados podem ser organizados. A Tabela~\ref{tbl-data-shapes} apresenta
+as formas mais comuns de organização.
 
-\begin{center}
-\includegraphics{images/instalacao_r.gif}
-\end{center}
+\begin{longtable}[]{@{}
+  >{\centering\arraybackslash}p{(\columnwidth - 4\tabcolsep) * \real{0.1758}}
+  >{\centering\arraybackslash}p{(\columnwidth - 4\tabcolsep) * \real{0.5165}}
+  >{\centering\arraybackslash}p{(\columnwidth - 4\tabcolsep) * \real{0.3077}}@{}}
 
-\end{tcolorbox}
+\caption{\label{tbl-data-shapes}Formas pelas quais os dados podem ser
+organizados}
 
-\begin{enumerate}
-\def\labelenumi{\arabic{enumi}.}
-\setcounter{enumi}{5}
-\item
-  Você receberá um aviso, que varia conforme o navegador em uso, de que
-  o arquivo está sendo baixado. Abaixo, um exemplo no Microsoft Edge:
+\tabularnewline
 
-  \begin{center}
-  \includegraphics[width=3.96875in,height=\textheight]{images/clipboard-2313357345.png}
-  \end{center}
+\toprule\noalign{}
+\begin{minipage}[b]{\linewidth}\centering
+Formato
+\end{minipage} & \begin{minipage}[b]{\linewidth}\centering
+Os dados se apresentam como\ldots{}
+\end{minipage} & \begin{minipage}[b]{\linewidth}\centering
+Exemplo
+\end{minipage} \\
+\midrule\noalign{}
+\endhead
+\bottomrule\noalign{}
+\endlastfoot
+Escalar & elementos individuais & ``AB'', 4, TRUE \\
+Retangular & dados organizados em \(i\) linhas e \(j\) colunas & Vetores
+e Tabelas de Dados \\
+Não-retangular & junção de uma ou mais estruturas de dados & Listas \\
 
-  No Windows, o arquivo será armazenado na pasta `Downloads' do seu
-  computador (ou na pasta que você previamente configurou como destino
-  para os arquivos baixados).
-\item
-  Feito o download, clique duas vezes no arquivo baixado e siga as
-  instruções para instalação. Na prática, basta clicar em `Avançar' até
-  o fim.
+\end{longtable}
 
-  \begin{center}
-  \includegraphics{images/clipboard-1694765597.png}
-  \end{center}
-\end{enumerate}
+Um escalar é um elemento único, que pode ser de qualquer tipo. Ou seja,
+a representação elementar de um dado se dá através de um escalar! Por
+exemplo, o tipo sanguíneo de determinada pessoa, representado pelos
+caracteres ``AB'', é um escalar do tipo texto. Você pode pensar no
+escalar como um dado organizado em 1 linha e 1 coluna.
 
-Após o final da instalação, você deverá ser capaz de encontrar e abrir
-no seu computador o \textbf{R Graphical User Interface} ou, como
-popularmente é conhecido, \textbf{RGui}. Ele estará na pasta em que você
-destinou para instalação; no Windows, algo próximo de:
+Por sua vez, dados retangulares são àqueles cuja organização ocorre em
+\(i\) linhas e \(j\) colunas, tal que \(i,j \in \mathbb{N}\) e \(i > 1\)
+ou \(j > 1\). As formas retangulares mais comuns são \emph{vetores},
+\emph{matrizes} e \emph{tabelas de dados}. Uma matriz é uma forma de
+organização de dados \emph{númericos} em em \(i\) linhas e \(j\)
+colunas. Quando uma matriz possui \(i\) linhas e \(1\) coluna \emph{ou}
+\(1\) linha e \(j\) colunas, chamamos de vetor-coluna e vetor-linha,
+respectivamente; em muitos casos, chamamos apenas de \emph{vetor}.
+Assim, o vetor é um caso especial de matriz unidimensional. As tabelas
+de dados, por outro lado, possuem \(i\) linhas e \(j\) colunas, tal que
+\(i > 1\) e \(j > 1\). Além disso, aceitam todos os tipos de dado -- por
+exemplo, númericos, de textos ou lógicos -- em qualquer que seja a
+combinação de linha e coluna.
 
-\texttt{C:\textbackslash{}ProgramData\textbackslash{}Microsoft\textbackslash{}Windows\textbackslash{}Start\ Menu\textbackslash{}Programs\textbackslash{}R}
+Por sua vez, dados não-retangulares se referem a toda organização de
+dados que não seja feita em linhas e colunas relacionadas entre si. A
+forma mais comum é a lista. Observe um exemplo abaixo: cada
+característica pode ser entendida como um elemento de uma lista. Apesar
+de pertencerem a mesma estrutura, os elementos não se comunicam entre
+si.
 
-\begin{center}
-\includegraphics{images/clipboard-2094164095.png}
-\end{center}
+\begin{longtable}[]{@{}llllll@{}}
+\toprule\noalign{}
+\endhead
+\bottomrule\noalign{}
+\endlastfoot
+~ & ~ & ~ & ~ & ~ & ~ \\
+~ & Jorge & Laís & Matheus & Laura & Nathália \\
+Gênero & Masculino & Feminino & Masculino & Feminino & Feminino \\
+~ & ~ & ~ & ~ & ~ & ~ \\
+~ & Jorge & Laís & Matheus & Laura & Nathália \\
+Idade & 18 & 23 & 22 & 21 & 21 \\
+~ & ~ & ~ & ~ & ~ & ~ \\
+~ & Jorge & Laís & Matheus & Laura & Nathália \\
+Altura (cm) & 180 & 170 & 170 & 175 & 168 \\
+~ & ~ & ~ & ~ & ~ & ~ \\
+~ & Jorge & Laís & Matheus & Laura & Nathália \\
+Peso (kg) & 76 & 65 & 70 & 68 & 66 \\
+~ & ~ & ~ & ~ & ~ & ~ \\
+\end{longtable}
 
-\section{Conhecendo o RGui}\label{conhecendo-o-rgui}
+Nesse caso em específico, conseguimos fazer a transição para uma tabela
+(forma retangular) pois todos os elementos são são características das
+mesmas pessoas. Em uma tabela de dados, automaticamente temos uma
+relação entre os dados: cada linha contém características de uma unidade
+específica.
 
-De forma geral, um GUI permite com que o usuário utilize a linguagem de
-forma interativa através de botões e dispositivos visuais. Observe que,
-na parte superior, temos oito botões principais, representados por
-pequenas imagens.
+\captionsetup{labelsep=none}
 
-\begin{center}
-\includegraphics[width=3.125in,height=\textheight]{images/clipboard-3228534230.png}
-\end{center}
+\begin{longtable}[]{@{}ccccc@{}}
 
-Cada botão executa uma tarefa específica. Os três primeiros, da esquerda
-para direita, são os mais relevantes:
+\caption{\label{tbl-tabela-retangular}}
 
-\begin{itemize}
-\item
-  `Abrir script': permite com que você carregue, no Editor de Código, um
-  arquivo que contém linhas de código (script). Arquivos desse tipo,
-  cuja extensão é \texttt{.R}, serão os mais importantes da linguagem.
-\item
-  `Carregar área de trabalho': \emph{importa} objetos que foram salvos
-  anteriormente em um arquivo do tipo \texttt{.RData}.
-\item
-  `Salvar área de trabalho': salva objetos criados em um arquivo do tipo
-  \texttt{.RData}.
-\end{itemize}
+\tabularnewline
 
-Os botões restantes, em ordem, executam as seguintes tarefas: `Copiar',
-`Colar', `Copiar e colar', `Parar computação atual' e `Imprimir'. Nesse
-momento, não se preocupe em saber o que significa \emph{importar} ou o
-que é um arquivo do tipo \emph{.RData}.
+\toprule\noalign{}
+Nome & Gênero & Idade & Altura (cm) & Peso (kg) \\
+\midrule\noalign{}
+\endhead
+\bottomrule\noalign{}
+\endlastfoot
+Jorge & Masculino & 18 & 180 & 76 \\
+Laís & Feminino & 23 & 170 & 65 \\
+Matheus & Masculino & 22 & 175 & 70 \\
+Laura & Feminino & 21 & 181 & 68 \\
+Nathália & Feminino & 21 & 168 & 66 \\
 
-Por outro lado, vamos procurar entender melhor o que são o
-\textbf{Console} e o \textbf{Editor de Código}. O primeiro corresponde à
-janela de nome \emph{R Console,} no canto esquerdo da sua tela. Este
-último, por sua vez, não abre instantâneamente no momento em que você
-acessa o RGui, mas podemos abrí-lo manualmente através de `Arquivo'
-\textgreater{} `Novo script' -- ou, então, carregando um script já
-existente através do botão `Abrir script', que vimos anteriormente.
-Posicionando o Editor de Código ao lado do Console, teremos a seguinte
-imagem:
+\end{longtable}
 
-\begin{center}
-\includegraphics{images/clipboard-1401293353.png}
-\end{center}
+\section{Estruturas de Dados no R}\label{estruturas-de-dados-no-r}
 
-Por quê esses espaços terão relevância para nós?
+Na seção anterior, vimos os conceitos de \emph{tipo} e \emph{forma}.
+Tenha em mente que são duas definições que existem independentemente de
+qualquer linguagem de programação -- elas versam sobre \emph{dados} de
+forma geral.
 
-\begin{itemize}
-\item
-  O Editor de Código é o local em que você escreve os comandos que
-  deseja executar no R, além de comentários que busquem registrar o
-  porquê de você ter escrito determinada parte do seu código. Na
-  prática, um \emph{comentário} é uma linha que não será interpretada --
-  e consequentemente executada -- como parte da linguagem. Para
-  registrar um comentário, basta escrever o símbolo `\#' antes do que
-  você deseja escrever naquela linha\footnote{Note que, se o seu
-    comentário for longo demais, de tal forma que você queira quebrá-lo
-    em duas ou mais linhas, será necessário novamente escrever `\#' na
-    próxima linha}. Um ponto importante: o Editor permite com que
-  salvemos o script que criamos em um arquivo do tipo \texttt{.R}.
-  Lembre-se: esse é o principal tipo de arquivo da linguagem.
-\item
-  O Console, por sua vez, é o local em que a parte interpretável de
-  código em R (ou seja, tudo exceto comentários) será
-  \emph{efetivamente} executada e os respectivos resultados serão
-  mostrados. É aqui que a mágica efetivamente ocorre! Você também pode
-  executar partes do seu código diretamente no Console, porém os
-  comandos não ficam salvos, são apenas temporários.
-\end{itemize}
-
-Simplificando: \textbf{o Editor é o espaço em que você realmente
-escreverá os códigos em R}. Ele atua como rascunho do seu script,
-permitindo com que você posteriormente salve o que foi escrito e,
-consequentemente, volte a executar o mesmo código. Já \textbf{o Console
-é o espaço em que o código é processado, retornando com o resultado dos
-comandos que você escreveu}.
-
-\textbf{Entretanto, não iremos utilizá-los através do RGui.} No capítulo
-seguinte, instalaremos e conheceremos um pouco mais sobre outro
-ambiente, bem mais completo, para se programar em R. \emph{``Meu Deus,
-aprendi todos esses conceitos à toa?''}, você deve estar se perguntando.
-Não! Muito do que aprendemos nessa seção voltará a aparecer no capítulo
-seguinte.
-
-\begin{tcolorbox}[enhanced jigsaw, opacityback=0, breakable, leftrule=.75mm, toprule=.15mm, colbacktitle=quarto-callout-tip-color!10!white, toptitle=1mm, colback=white, left=2mm, title=\textcolor{quarto-callout-tip-color}{\faLightbulb}\hspace{0.5em}{Executando um simples código no RGui (Opcional)}, bottomtitle=1mm, titlerule=0mm, arc=.35mm, rightrule=.15mm, bottomrule=.15mm, opacitybacktitle=0.6, coltitle=black, colframe=quarto-callout-tip-color-frame]
-
-Beleza, não tocaremos no RGui. Mas é interessante compreender que já é
-possível executar -- ou \emph{rodar,} no jargão de programação -- algum
-pedaço de código -- ou \emph{chunk} -- escrito em R. Para isso, basta
-escrevê-lo após o símbolo de `maior que' (\textgreater) no Console.
-
-Vamos entender com um rápido exemplo. No GIF abaixo, atribuimos à
-variável de nome \texttt{x} o valor númerico \texttt{2}. Em seguida,
-escrevemos o nome novamente para retornar seu valor. Fique tranquilo:
-ainda iremos ver melhor o que significam termos como \emph{atribuir um
-valor à determinada variável}. O objetivo deste \emph{box} foi apenas te
-mostrar que já estamos aptos a programar em R!
-
-\begin{center}
-\includegraphics{images/rgui_exemplo.gif}
-\end{center}
-
-\end{tcolorbox}
-
-\bookmarksetup{startatroot}
-
-\chapter{Instalando o RStudio}\label{instalando-o-rstudio}
-
-\textbf{Acontece que o RGui não é tão prático de se usar}. Pensando
-nisso, a empresa \href{https://posit.co/}{Posit} criou um Ambiente de
-Desenvolvimento Integrado (\emph{Integrated Development Environment},
-IDE) chamado \textbf{RStudio}. Em nosso contexto, tanto GUI quanto IDE
-são ferramentas que permitem a utilização da linguagem. A diferença é
-que a IDE tem atributos com a finalidade de facilitar o desenvolvimento
-dos códigos. Grosso modo, toda IDE é uma GUI mas o inverso não é
-verdadeiro (nem toda GUI é uma IDE).
-
-Em resumo: \textbf{é muito mais fácil utilizar o R através do RStudio e,
-por este motivo, vamos baixá-lo na sua versão gratuita} (que já é
-suficiente para os cursos que serão ministrados no Instituto).
-
-\section{Três passos}\label{truxeas-passos}
-
-Para instalar o RStudio no Windows, novamente iremos seguir alguns
-passos -- nesse caso, apenas 3:
+Por outro lado, agora veremos o conceito e alguns exemplos de
+\emph{estrutura de dados} para o R. \textbf{A estrutura de dados é a
+forma pela qual o R classificará um objeto em relação ao \emph{tipo} e a
+\emph{forma} dos dados que contém.} Existe uma estrutura de dados para
+cada combinação de tipo e forma? \textbf{Não.} Compreender as principais
+estruturas disponíveis no R requer vê-las como uma combinação de
 
 \begin{enumerate}
-\def\labelenumi{\arabic{enumi}.}
+\def\labelenumi{(\alph{enumi})}
+\tightlist
 \item
-  Acesse a página de downloads da RStudio:
-  \url{https://posit.co/download/rstudio-desktop/\#download}. Se você
-  tiver acesso de administrador, basta clicar em \emph{`Download RStudio
-  Desktop for Windows'}.
-
-  \begin{center}
-  \includegraphics[width=3.32292in,height=\textheight]{images/clipboard-2426047081.png}
-  \end{center}
+  \emph{algum} formato de dados
 \item
-  De forma análoga ao \emph{download} do R, você receberá um aviso de
-  que o arquivo está sendo baixado (na sua pasta de `Downloads' ou
-  similar).
-
-  \begin{center}
-  \includegraphics[width=3.85417in,height=\textheight]{images/clipboard-3795362132.png}
-  \end{center}
-\item
-  Clique duas vezes no arquivo que você baixou e siga as instruções
-  recomendadas de instalação, cuja tela inicial está na imagem abaixo.
-
-  \begin{center}
-  \includegraphics{images/clipboard-987499479.png}
-  \end{center}
+  o fato de conterem um único ou vários tipos de dados
 \end{enumerate}
 
-Ao final da instalação, você deverá ser capaz de abrir o RStudio no seu
-computador, resultando em algo similar à imagem abaixo. No Windows,
-provavelmente você o encontrará no caminho:
+\subsection{Criando e armazenando objetos na
+memória}\label{criando-e-armazenando-objetos-na-memuxf3ria}
 
-\texttt{C:\textbackslash{}ProgramData\textbackslash{}Microsoft\textbackslash{}Windows\textbackslash{}Start\ Menu\textbackslash{}Programs\textbackslash{}RStudio}
+Antes de conhecê-las, no entanto, vamos entender melhor os comandos para
+criar e armazenar \emph{qualquer} objeto (seja ele para armazenar dados,
+como nesse capítulo, ou para criar funções, que serão vistas no próximo)
+na memória do R.
+
+Para \emph{criar} e \emph{armazenar} um objeto, sempre escreveremos
+inicialmente seu nome (escolhido por você), seguido de um dos
+\emph{operadores} \emph{de atribuição} (ou \emph{assingment operators},
+como são conhecidos) e, por fim, o objeto propriamente dito com as
+informações de nosso interesse. O principal operador de atribuição para
+se criar objetos é \texttt{\textless{}-}. Outro operador que é comumente
+utilizado para cumprir a mesma tarefa é \texttt{=}. Ainda que exista uma
+leve diferença entre ambos, ao longo dos cursos será possível utilizar o
+operador de sua preferência. Por ser o ideal, utilizaremos
+\texttt{\textless{}-} no restante do material.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{nome\_do\_objeto }\OtherTok{\textless{}{-}} \ErrorTok{\textgreater{}}\NormalTok{objeto com informações}\SpecialCharTok{\textless{}}
+  
+\NormalTok{nome do objeto }\OtherTok{=}  \ErrorTok{\textgreater{}}\NormalTok{objeto com informações}\SpecialCharTok{\textless{}}
+\end{Highlighting}
+\end{Shaded}
+
+No parágrafo anterior, observe que está escrito \emph{`criar e
+armazenar'}. Nós poderíamos simplesmente criar um objeto, sem
+armazená-lo na memória do R. Nesse caso, não teríamos o nome do objeto
+disponível na aba \textbf{Environment} (ou seja, ele não seria
+armazenado no nosso ambiente de trabalho) e seria bem mais complicado
+registrar todas as mudanças que viermos a fazer nele. Aconteceria apenas
+a ocorrência de uma única saída no Console com a estrutura do objeto
+criado (de forma semelhante ao que fizemos no capítulo anterior) -- o
+quê não tem grande utilidade para nós, exceto caso você queira verificar
+a estrutura do objeto antes de realmente armazená-lo.
+
+Ao mesmo tempo, você irá perceber que a \emph{criação e armazenamento de
+um objeto não implica sua visualização imediata}. Isso signfinica que,
+ao dar o comando para criar algum objeto, não acontecerá nada no
+Console. Você pode acabar achando que o processo falhou ou algo do tipo,
+mas não é nada disso! Como dissemos, a mudança ocorrerá na aba
+Environment, onde deverá aparecer o nome do novo objeto. Para visualizar
+o objeto criado, escreva seu nome e rode a linha de código. Agora sim o
+objeto aparecerá no Console.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{nome\_do\_objeto}
+\end{Highlighting}
+\end{Shaded}
+
+Se você criou e armazenou um objeto na memória, ele ficará por lá até
+que você encerre sua sessão atual (feche o RStudio) ou, então, que o
+remova. Para remover qualquer objeto basta escrever
+\texttt{rm(nome\_do\_objeto)}. Caso tenha o desejo de remover vários
+objetos, basta separar seus nomes com vírgula. Para remover \emph{todos}
+os objetos que aparecem na aba Environment, use
+\texttt{rm(list\ =\ ls())}.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{rm}\NormalTok{(nome\_do\_objeto1)}
+
+\FunctionTok{rm}\NormalTok{(nome\_do\_objeto1, nome\_do\_objeto2, ...)}
+
+\FunctionTok{rm}\NormalTok{(}\AttributeTok{list =} \FunctionTok{ls}\NormalTok{())}
+\end{Highlighting}
+\end{Shaded}
+
+Observe no GIF abaixo como é na prática!
 
 \begin{center}
-\includegraphics{images/clipboard-1128946571.png}
+\includegraphics[width=6.45833in,height=\textheight]{images/criando_objeto.gif}
 \end{center}
 
-\textbf{Feito? Então estamos prontos para utilizar o R através do
-RStudio!}
+\subsection{Valor único}\label{valor-uxfanico}
 
-\section{Conhecendo o RStudio}\label{conhecendo-o-rstudio}
+Ao criar um objeto com valor único, estamos armazenando um escalar que
+pode variar quanto ao tipo (por exemplo, númerico, \emph{string} ou
+valor lógico). Nesse caso, a \emph{estrutura} do objeto \emph{será
+idêntica} ao \emph{tipo} -- o que faz sentido, afinal estamos falando de
+um objeto de uma única linha e coluna.
 
-\begin{tcolorbox}[enhanced jigsaw, opacityback=0, breakable, leftrule=.75mm, toprule=.15mm, colbacktitle=quarto-callout-note-color!10!white, toptitle=1mm, colback=white, left=2mm, title=\textcolor{quarto-callout-note-color}{\faInfo}\hspace{0.5em}{Nota}, bottomtitle=1mm, titlerule=0mm, arc=.35mm, rightrule=.15mm, bottomrule=.15mm, opacitybacktitle=0.6, coltitle=black, colframe=quarto-callout-note-color-frame]
+\subsubsection{Numérico}\label{numuxe9rico}
 
-A seção 3.2 `Conhecendo o RStudio' é baseada na seção
-\href{https://livro.curso-r.com/2-1-telas.html}{2.1 `Telas'} do livro
-\emph{Ciência de Dados em R}, feito pelo Curso-R. De qualquer modo,
-eventuais erros são inteiramente de nossa responsabilidade.
+Um objeto \textbf{númerico} contém apenas um número (por exemplo, 1, 2,
+4.13, \(\pi\), entre outros). Se quisessemos atribuir o valor numérico 5
+à um objeto chamado \texttt{x}, como poderiamos fazer? Observe abaixo e
+replique no seu RStudio!
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{x }\OtherTok{\textless{}{-}} \DecValTok{5} 
+\end{Highlighting}
+\end{Shaded}
+
+Note que o Console não retorna nenhuma mensagem ou valor. Como dissemos
+na seção anterior, a única diferença que você deve ser capaz de observar
+é no painel Environment, no quadrante superior direito do RStudio. O
+nome do novo objeto aparecerá lá. Para que você possa visualizar o
+conteúdo do objeto criado, terá que escrever apenas seu nome e rodar a
+linha de código!
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{x}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+[1] 5
+\end{verbatim}
+
+\subsubsection{Textual}\label{textual}
+
+Uma \textbf{sequência de caracteres} (\emph{character string}, ou apenas
+\emph{string}) é um conjunto de caracteres dentro de um par de aspas e
+pode ou não incluir espaços. Por exemplo, ``elevada'' e ``pressão
+arterial elevada'' são objetos de caracteres com um único valor de
+\emph{string}.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{y }\OtherTok{\textless{}{-}} \StringTok{"pressão arterial elevada"} 
+\NormalTok{y}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+[1] "pressão arterial elevada"
+\end{verbatim}
+
+\subsection{Vetor}\label{vetor}
+
+Um \textbf{vetor} contém uma coleção ordenada de dados indexados pelos
+inteiros \(1, 2,..., n\), onde \(n\) é o comprimento do vetor. \emph{O
+vetor como estrutura de dados é a combinação da forma vetor com dados de
+um único tipo, não necessariamente numérico.} No exemplo abaixo, um
+vetor númerico, isto é, que contém apenas números.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{z }\OtherTok{\textless{}{-}} \FunctionTok{c}\NormalTok{(}\DecValTok{5}\NormalTok{, }\DecValTok{8}\NormalTok{, }\DecValTok{12}\NormalTok{) }
+\NormalTok{z}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+[1]  5  8 12
+\end{verbatim}
+
+\textbf{Se você tentar criar um vetor contendo dois tipos de dados
+diferentes, ele converterá todos os dados para o tipo texto.} A única
+exceção é com relação a entradas do tipo lógico \texttt{NA} \emph{(Not
+Available)}, que representam a ausência de determinado dado.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{z }\OtherTok{\textless{}{-}} \FunctionTok{c}\NormalTok{(}\DecValTok{5}\NormalTok{, }\StringTok{"texto"}\NormalTok{, }\ConstantTok{TRUE}\NormalTok{, }\ConstantTok{NA}\NormalTok{)}
+\NormalTok{z}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+[1] "5"     "texto" "TRUE"  NA     
+\end{verbatim}
+
+É inegável que, a partir deste ponto, as estruturas começam a ficar mais
+interessantes. Lembre-se que o vetor tem uma dimensão e pode ter muitas
+informações armazenadas. É natural que, em determinadas situações,
+desejemos acessar apenas valores específicos dentre os que constam nele.
+
+Como podemos fazer isso? Note que podemos associar a cada elemento de um
+vetor um número, representando a linha ou coluna em que consta. A esse
+número chamamos de índice! Dessa forma, fica fácil acessar qualquer um
+de seus valores. Basta escrever, ao lado de seu nome e entre colchetes,
+o índice que está associado à este valor. Por exemplo, vamos acessar o
+segundo elemento do vetor \texttt{z} que acabamos de criar.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{z[}\DecValTok{2}\NormalTok{] }\CommentTok{\# Acessando o segundo elemento de um vetor}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+[1] "texto"
+\end{verbatim}
+
+\begin{tcolorbox}[enhanced jigsaw, titlerule=0mm, colframe=quarto-callout-tip-color-frame, opacitybacktitle=0.6, left=2mm, bottomrule=.15mm, breakable, arc=.35mm, colback=white, title=\textcolor{quarto-callout-tip-color}{\faLightbulb}\hspace{0.5em}{Outras formas de criar vetores (Opcional)}, opacityback=0, bottomtitle=1mm, toptitle=1mm, rightrule=.15mm, colbacktitle=quarto-callout-tip-color!10!white, coltitle=black, leftrule=.75mm, toprule=.15mm]
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\DecValTok{1}\SpecialCharTok{:}\DecValTok{7}                \CommentTok{\# Criando uma sequência de números de 1 a 7}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+[1] 1 2 3 4 5 6 7
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{seq}\NormalTok{(}\DecValTok{2}\NormalTok{, }\DecValTok{10}\NormalTok{, }\AttributeTok{by =} \DecValTok{2}\NormalTok{) }\CommentTok{\# Criando um sequência de 2 a 10 pulando um número. }
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+[1]  2  4  6  8 10
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{rep}\NormalTok{(}\DecValTok{3}\NormalTok{, }\DecValTok{5}\NormalTok{)          }\CommentTok{\# Repetindo o número 3, 5 vezes }
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+[1] 3 3 3 3 3
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{rep}\NormalTok{(}\FunctionTok{c}\NormalTok{(}\DecValTok{1}\NormalTok{,}\DecValTok{2}\NormalTok{), }\DecValTok{3}\NormalTok{)     }\CommentTok{\# Repetindo o vetor (1,2), 3 vezes}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+[1] 1 2 1 2 1 2
+\end{verbatim}
 
 \end{tcolorbox}
 
-O RStudio será o ambiente no qual iremos trabalhar com a linguagem. Por
-essa razão, é \emph{muito} importante que você se sinta confortável com
-o que verá no seu computador após abrí-lo. Nessa seção, iremos
-compreender melhor o \emph{layout} do RStudio, além das utilidades que
-ele nos proporciona ao longo do processo de escrita dos códigos.
+\subsubsection{Fator}\label{fator}
 
-Ao abrir o RStudio pela primeira vez (como na imagem anterior), você
-verá inicialmente 3 quadrantes. Um deles, preenchendo a parte esquerda
-da tela, já conhecemos: é o \textbf{Console}, que cumpre o mesmo papel
-explicado no capítulo anterior. Ao mesmo tempo, o quadrante que mais
-utilizaremos não aparece inicialmente: é o \textbf{Editor de Código},
-outro velho conhecido que também possui a mesma atribuição anterior. Tal
-como no caso do RGui, o Editor não abre automaticamente pois o RStudio
-não é capaz de saber se o usuário tem o desejo de construir um código do
-zero -- ou seja, criar um novo arquivo com extensão \emph{.R} -- ou
-apenas dar continuidade à algum em que já estava trabalhando.
+Um \textbf{fator} é um tipo especial de vetor que contém valores
+numéricos subjacentes \(1, 2,..., n\), mas cada um desses \(n\) valores
+possui um rótulo de texto associado (que pode ou não ser o valor
+numérico). Esses valores rotulados são os \textbf{níveis}
+\emph{(levels)} do fator. Um uso comum de um fator é armazenar uma
+variável categórica. \textbf{Depois de criar um vetor de fator com
+níveis específicos, nenhum elemento desse vetor poderá assumir um valor
+que não seja um de seus níveis pré-atribuídos.}
 
-No fim das contas, teremos 4 quadrantes:
+Você pode criar um fator a partir de um vetor de caracteres e o R
+assumirá que os valores únicos são os rótulos dos níveis. Por exemplo,
+no exemplo abaixo os níveis serão ``lento'', ``normal'' e ``rápido''.
 
-\includegraphics{images/clipboard-1486032127.png}
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{y }\OtherTok{\textless{}{-}} \FunctionTok{factor}\NormalTok{(}\FunctionTok{c}\NormalTok{(}\StringTok{"super rápido"}\NormalTok{, }\StringTok{"super lento"}\NormalTok{, }\StringTok{"normal"}\NormalTok{, }\StringTok{"super rápido"}\NormalTok{, }\StringTok{"normal"}\NormalTok{))}
+\NormalTok{y         }\CommentTok{\# Rodar o vetor de fator também irá retornar os níveis}
+\end{Highlighting}
+\end{Shaded}
 
-\begin{tcolorbox}[enhanced jigsaw, opacityback=0, colback=white, left=2mm, breakable, leftrule=.75mm, arc=.35mm, rightrule=.15mm, toprule=.15mm, bottomrule=.15mm, colframe=quarto-callout-note-color-frame]
-\begin{minipage}[t]{5.5mm}
-\textcolor{quarto-callout-note-color}{\faInfo}
-\end{minipage}%
-\begin{minipage}[t]{\textwidth - 5.5mm}
+\begin{verbatim}
+[1] super rápido super lento  normal       super rápido normal      
+Levels: normal super lento super rápido
+\end{verbatim}
 
-Por padrão, os quadrantes estarão dispostos na sua tela da forma como
-mostramos na imagem acima, mas você pode organizá-los da forma que
-preferir acessando a seção \emph{Pane Layout} da opção
-\texttt{Global\ options...} no menu \texttt{Tools}.
+Se quiser alterar os rótulos, você pode fazê-lo atribuindo um novo valor
+aos seus níveis. Por exemplo, suponha que queiramos que os rótulos sejam
+maiúsculos.
 
-\end{minipage}%
-\end{tcolorbox}
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{levels}\NormalTok{(y) }\OtherTok{\textless{}{-}} \FunctionTok{c}\NormalTok{(}\StringTok{"Super Rápido"}\NormalTok{, }\StringTok{"Normal"}\NormalTok{, }\StringTok{"Super Lento"}\NormalTok{) }
+\FunctionTok{levels}\NormalTok{(y)}
+\end{Highlighting}
+\end{Shaded}
 
-É importante que você entenda que o Editor e o Console são os dois
-principais quadrantes do RStudio. Passaremos a maior parte do tempo
-neles. Como não custa nada, vamos relembrar suas respectivas serventias:
+\begin{verbatim}
+[1] "Super Rápido" "Normal"       "Super Lento" 
+\end{verbatim}
 
-\begin{itemize}
-\item
-  \textbf{Editor de Código}: é local em que escreveremos/editaremos
-  nossos códigos, salvando posteriormente em um arquivo do tipo
-  \texttt{.R}. Conforme formos avançando, você acabará reparando que
-  temos algumas melhorias em relação ao RGui:
+Como alternativa, você pode atribuir novos rótulos de nível ao criar o
+fator. Isso tem a vantagem adicional de permitir que você decida em que
+ordem os níveis devem aparecer. Quando criamos o fator, R atribuiu
+automaticamente os níveis pegando os valores exclusivos de \texttt{y} e
+colocando-os em ordem alfabética. Por vários motivos (como criar um
+gráfico de barras posteriormente), você pode querer que os níveis
+estejam em uma ordem diferente. \textbf{Você pode especificar a ordem
+dos níveis ao criar a variável, mas tome cuidado porque se você deixar
+de fora um valor que aparece nos dados esse valor acabará definido como
+ausente (}\texttt{NA}\textbf{)}.
 
-  \begin{enumerate}
-  \def\labelenumi{\arabic{enumi}.}
-  \tightlist
-  \item
-    O RStudio colore algumas palavras e símbolos para \emph{facilitar} a
-    leitura do código. Por exemplo, tudo o que for comentário será de
-    uma determinada cor, assim como tudo que você escrever entre aspas
-    -- considerado texto passível de ser executado como parte de um
-    código -- será de outra.
-  \item
-    Outra funcionalidade interessante do Editor no RStudio é a
-    capacidade de você poder buscar e substituir determinadas
-    palavras/expressões que estejam presentes no código, poupando tempo
-    e evitando erros caso o fizessemos de forma maunal; para tal, basta
-    clicar no símbolo da lupa logo acima da primeira linha.
-  \item
-    Além disso, o RStudio possui o recurso de autocompletar partes de um
-    código! Caso você esteja escrevendo o nome de um \emph{objeto} que
-    ele consiga identificar, receberá automaticamente uma sugestão para
-    completar a escrita, bastando apertar a tecla \texttt{Tab} para
-    aceitá-la.
-  \end{enumerate}
-\item
-  \textbf{Console}: é local em que o código é executado e recebemos as
-  saídas. Nele, temos também o recurso de autocompletar nomes de
-  objetos. Para \emph{limpar} o Console, isto é, excluir o registro do
-  que já foi executado pelo R, basta clicar no símbolo de vassoura, no
-  canto direito superior do quadrante, ou então utilizar o atalho
-  \texttt{Ctrl\ +\ L}.
-\end{itemize}
+No exemplo anterior, gostaríamos que a ordem fosse da velocidade menor
+para o maior.
 
-Os demais quadrantes do lado \emph{direito} contém painéis auxiliares. O
-objetivo deles é facilitar pequenas tarefas que fazem parte tanto da
-programação quanto da análise de dados como, por exemplo, olhar a
-documentação de funções, analisar os objetos criados em uma sessão do R,
-procurar e organizar os arquivos que compõem a nossa análise, armazenar
-e analisar os gráficos criados e muito mais.
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\# Enter ORIGINAL values in levels }
+\CommentTok{\# Enter the NEW level labels in labels }
+\CommentTok{\# Make sure the orderings of levels and labels correspond }
+\NormalTok{y }\OtherTok{\textless{}{-}} \FunctionTok{factor}\NormalTok{(}\FunctionTok{c}\NormalTok{(}\StringTok{"super rápido"}\NormalTok{, }\StringTok{"super lento"}\NormalTok{, }\StringTok{"normal"}\NormalTok{, }\StringTok{"super rápido"}\NormalTok{, }\StringTok{"normal"}\NormalTok{),              }
+            \AttributeTok{levels =} \FunctionTok{c}\NormalTok{(}\StringTok{"super lento"}\NormalTok{, }\StringTok{"normal"}\NormalTok{, }\StringTok{"super rápido"}\NormalTok{), }
+            \AttributeTok{labels =} \FunctionTok{c}\NormalTok{(}\StringTok{"Super Lento"}\NormalTok{, }\StringTok{"Normal"}\NormalTok{, }\StringTok{"Super Rápido"}\NormalTok{)) }
+\FunctionTok{levels}\NormalTok{(y)}
+\end{Highlighting}
+\end{Shaded}
 
-No quadrante \emph{superior}, temos
+\begin{verbatim}
+[1] "Super Lento"  "Normal"       "Super Rápido"
+\end{verbatim}
 
-\begin{itemize}
-\item
-  \textbf{Environment}: painel com todos os objetos criados na sessão.
-  Será bastante útil como referência para avaliar os objetos que criamos
-  ou deixamos de criar com determinado comando.
-\item
-  \textbf{History}: painel com um histórico dos comandos rodados.
-\end{itemize}
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{y}
+\end{Highlighting}
+\end{Shaded}
 
-Já no quadrante \emph{inferior}, temos
+\begin{verbatim}
+[1] Super Rápido Super Lento  Normal       Super Rápido Normal      
+Levels: Super Lento Normal Super Rápido
+\end{verbatim}
 
-\begin{itemize}
-\item
-  \textbf{Files}: mostra os arquivos no diretório de trabalho. Nele, é
-  possível navegar entre as pastas do seu computador! Você pode, por
-  exemplo, abrir um arquivo do tipo \texttt{.R} sem necessariamente ter
-  que passar pela janela de busca do seu sistema operacional.
-\item
-  \textbf{Plots}: painel onde os gráficos serão apresentados, caso você
-  crie um código que os produza.
-\item
-  \textbf{Packages}: apresenta todos os pacotes instalados e carregados.
-\item
-  \textbf{Help}: janela onde as documentações de funções serão
-  apresentadas.
-\item
-  \textbf{Viewer}: painel onde relatórios e dashboards serão
-  apresentados.
-\end{itemize}
+\subsection{Matriz}\label{matriz}
 
-Além do Console e do Editor, dê atenção especial aos painéis
-Environment, Help e Plots, nesta ordem.
+Uma \textbf{matriz} contém uma coleção bidimensional de dados indexados
+por pares de inteiros \((i, j)\). \emph{A matriz como estrutura de dados
+é a combinação da forma matriz com dados de um único tipo, não
+necessariamente numérico.} Abaixo, uma matriz numérica.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{x }\OtherTok{\textless{}{-}} \FunctionTok{matrix}\NormalTok{(}\FunctionTok{c}\NormalTok{(}\DecValTok{1}\NormalTok{,}\DecValTok{2}\NormalTok{,}\DecValTok{3}\NormalTok{,}\DecValTok{4}\NormalTok{,}\DecValTok{5}\NormalTok{,}\DecValTok{6}\NormalTok{), }\AttributeTok{nrow =} \DecValTok{2}\NormalTok{, }\AttributeTok{ncol =} \DecValTok{3}\NormalTok{) }
+\NormalTok{x}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+     [,1] [,2] [,3]
+[1,]    1    3    5
+[2,]    2    4    6
+\end{verbatim}
+
+Assim como os vetores, as matrizes não podem conter valores de
+diferentes tipos. Se você tentar criar uma matriz contendo valores
+numéricos e de caracteres, por exemplo, ela converterá os valores
+numéricos em caracteres. Note que você pode definir o número de linhas e
+colunas que uma matriz venha a possuir.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{z }\OtherTok{\textless{}{-}} \FunctionTok{matrix}\NormalTok{(}\FunctionTok{c}\NormalTok{(}\DecValTok{1}\NormalTok{,}\DecValTok{2}\NormalTok{,}\StringTok{"c"}\NormalTok{,}\StringTok{"d"}\NormalTok{,}\StringTok{"e"}\NormalTok{,}\StringTok{"f"}\NormalTok{), }\AttributeTok{nrow =} \DecValTok{3}\NormalTok{, }\AttributeTok{ncol =} \DecValTok{2}\NormalTok{) }
+\NormalTok{z}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+     [,1] [,2]
+[1,] "1"  "d" 
+[2,] "2"  "e" 
+[3,] "c"  "f" 
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{z }\OtherTok{\textless{}{-}} \FunctionTok{matrix}\NormalTok{(}\FunctionTok{c}\NormalTok{(}\DecValTok{1}\NormalTok{,}\DecValTok{2}\NormalTok{,}\StringTok{"c"}\NormalTok{,}\StringTok{"d"}\NormalTok{,}\StringTok{"e"}\NormalTok{,}\StringTok{"f"}\NormalTok{), }\AttributeTok{nrow =} \DecValTok{2}\NormalTok{, }\AttributeTok{ncol =} \DecValTok{3}\NormalTok{) }
+\NormalTok{z}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+     [,1] [,2] [,3]
+[1,] "1"  "c"  "e" 
+[2,] "2"  "d"  "f" 
+\end{verbatim}
+
+É importante ressaltar que, no R, uma matriz criada com \(i\) linhas e
+\(1\) coluna (ou \(1\) linha e \(j\) colunas) continua sendo
+interpretada como uma matriz, ao invés de ser interpretada como
+vetor-coluna (ou vetor-linha).
+
+Como a matriz é um objeto de natureza bidimensional, podemos acessar
+seus elementos individuais através da inserção dos seus índices de linha
+\emph{e} coluna. Por exemplo, para acessar o elemento presente na
+segunda linha e terceira coluna da matriz \texttt{z} que aramazenamos
+por último, rode:
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{z[}\DecValTok{2}\NormalTok{,}\DecValTok{3}\NormalTok{]}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+[1] "f"
+\end{verbatim}
+
+Outra forma de acessar algum dado específico da matriz é pensá-la como
+sendo um único vetor, o qual vai sendo repartido conforme termina o
+tamanho que você pré-selecionou paras colunas. Dessa forma, podemos
+retornar determinado elemento pensando em seu índice de vetor. Por
+exemplo, poderíamos acessar o dado \texttt{f} pensando que é o sexto
+elemento do equivalente ao vetor \texttt{c("a","b","c","d","e","f")}.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{z[}\DecValTok{6}\NormalTok{]}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+[1] "f"
+\end{verbatim}
+
+Ao mesmo tempo, podemos acessar apenas uma coluna ou linha específica.
+Para tal, selecione a coluna ou linha que deseja retornar e deixe a
+coordenada restante como espaço vazio. No código abaixo, vamos
+selecionar inicialmente a primeira linha da matriz \texttt{z} e, na
+sequência, sua terceira coluna.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{z[}\DecValTok{1}\NormalTok{,]}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+[1] "1" "c" "e"
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{z[,}\DecValTok{3}\NormalTok{]}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+[1] "e" "f"
+\end{verbatim}
+
+\subsection{Data frame}\label{data-frame}
+
+Como matrizes (e vetores) contêm dados de apenas um tipo (por exemplo,
+todas as células são dados numéricos, de caracteres ou lógicos),
+precisamos de outra estrutura de dados para dados heterogêneos.
+
+A necessidade de armazenar dados heterogêneos não é nada exótico ou
+incomum. Na verdade, mesmo os conjuntos de dados mais simples exigem a
+mistura de vários tipos de dados. Por exemplo, imagine que queremos
+armazenar um conjunto de dados que contém informações básicas sobre um
+grupo de pessoas, assim como na Tabela~\ref{tbl-tabela-retangular}. Cada
+uma dessas cinco variáveis pode ser armazenada como um vetor (as duas
+primeiras do tipo caractere, as outras do tipo numérico). Para armazenar
+todas as cinco variáveis em uma única estrutura de dados, podemos
+combinar os cinco vetores em uma tabela retangular. As tabelas são a
+forma mais frequente de armazenar dados!
+
+E qual o nome da estrutura de dados que armazena tabelas de dados no R?
+São os \emph{data frames! O data frame como estrutura de dados é a
+combinação da forma tabela e da presença de qualquer tipo de dado.} No
+\emph{chunk} abaixo, vamos recriar a Tabela~\ref{tbl-tabela-retangular}
+como exemplo.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{info\_pessoas }\OtherTok{\textless{}{-}} \FunctionTok{data.frame}\NormalTok{(}\AttributeTok{Nome =} \FunctionTok{c}\NormalTok{(}\StringTok{"Jorge"}\NormalTok{, }\StringTok{"Laís"}\NormalTok{, }\StringTok{"Matheus"}\NormalTok{, }\StringTok{"Laura"}\NormalTok{, }\StringTok{"Nathália"}\NormalTok{),}
+\NormalTok{                           Gênero }\OtherTok{=} \FunctionTok{c}\NormalTok{(}\StringTok{"Masculino"}\NormalTok{, }\StringTok{"Feminino"}\NormalTok{, }\StringTok{"Masculino"}\NormalTok{, }\StringTok{"Feminino"}\NormalTok{, }\StringTok{"Feminino"}\NormalTok{),}
+                           \AttributeTok{Idade =} \FunctionTok{c}\NormalTok{(}\DecValTok{18}\NormalTok{, }\DecValTok{23}\NormalTok{, }\DecValTok{22}\NormalTok{, }\DecValTok{21}\NormalTok{, }\DecValTok{21}\NormalTok{),}
+                           \AttributeTok{Altura =} \FunctionTok{c}\NormalTok{(}\DecValTok{180}\NormalTok{, }\DecValTok{170}\NormalTok{, }\DecValTok{175}\NormalTok{, }\DecValTok{181}\NormalTok{, }\DecValTok{168}\NormalTok{),}
+                           \AttributeTok{Peso =} \FunctionTok{c}\NormalTok{(}\DecValTok{76}\NormalTok{, }\DecValTok{65}\NormalTok{, }\DecValTok{70}\NormalTok{, }\DecValTok{68}\NormalTok{, }\DecValTok{66}\NormalTok{))}
+
+\NormalTok{info\_pessoas}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+      Nome    Gênero Idade Altura Peso
+1    Jorge Masculino    18    180   76
+2     Laís  Feminino    23    170   65
+3  Matheus Masculino    22    175   70
+4    Laura  Feminino    21    181   68
+5 Nathália  Feminino    21    168   66
+\end{verbatim}
+
+Você pode acessar qualquer dado específico de um \emph{data frame} a
+partir do mesmo procedimento utilizado com matrizes. Por exemplo, para
+acessar o dado contido na segunda linha da primeira coluna, basta rodar
+\texttt{info\_pessoas{[}2,1{]}}.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{info\_pessoas[}\DecValTok{2}\NormalTok{,}\DecValTok{1}\NormalTok{]}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+[1] "Laís"
+\end{verbatim}
+
+De forma semelhante, podemos acessar uma coluna ou linha específica.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{info\_pessoas[,}\DecValTok{2}\NormalTok{] }\CommentTok{\# Retornando dados da segundo coluna}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+[1] "Masculino" "Feminino"  "Masculino" "Feminino"  "Feminino" 
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{info\_pessoas[}\DecValTok{1}\NormalTok{,] }\CommentTok{\# Retornando dados da primeira linha}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+   Nome    Gênero Idade Altura Peso
+1 Jorge Masculino    18    180   76
+\end{verbatim}
+
+É interessante notar que um \emph{data frame} pode ser pensado como a
+junção de múltiplos vetores-coluna, cada um representando determinada
+variável! Isso nos dá outra forma de selecionar colunas específicas:
+basta colocar entre colchetes o índice do vetor-coluna que você deseja
+selecionar. Note, no entanto, uma diferença: nesta \emph{sintaxe}, o
+objeto que retornará ainda terá estrutura de um \emph{data frame} (agora
+com cinco linhas e uma coluna) ao invés de vetor, como no \emph{chunk}
+anterior.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{info\_pessoas[}\DecValTok{2}\NormalTok{]}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+     Gênero
+1 Masculino
+2  Feminino
+3 Masculino
+4  Feminino
+5  Feminino
+\end{verbatim}
+
+\subsection{Lista}\label{lista}
+
+Uma lista contém uma coleção ordenada de objetos, sendo que estes podem
+ser de tipos diferentes. \emph{A lista como estrutura de dados é a
+combinação da forma lista (representando dados não-retangulares) e da
+presença de qualquer tipo de dado.} Na prática, uma lista pode aceitar
+\textbf{qualquer} objeto de dados como elemento -- inclusive uma outra
+lista!
+
+Para que fique mais claro, abaixo está uma lista que contém um objeto
+com cada tipo de estrutura vista até agora! Colocamos nesta lista um
+valor único, um vetor, uma matriz e um data frame. Eles serão
+armazenados em um novo objeto, que nomeamos de \texttt{lista\_exemplo}.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{lista\_exemplo }\OtherTok{\textless{}{-}} \FunctionTok{list}\NormalTok{(}\StringTok{"5"}\NormalTok{, }\FunctionTok{c}\NormalTok{(}\DecValTok{1}\NormalTok{,}\DecValTok{2}\NormalTok{,}\DecValTok{3}\NormalTok{), }\FunctionTok{matrix}\NormalTok{(}\FunctionTok{c}\NormalTok{(}\DecValTok{2}\NormalTok{,}\DecValTok{2}\NormalTok{,}\DecValTok{3}\NormalTok{,}\DecValTok{4}\NormalTok{), }\DecValTok{2}\NormalTok{, }\DecValTok{2}\NormalTok{), info\_pessoas)}
+\end{Highlighting}
+\end{Shaded}
+
+Observe que a lista, apesar de poder contar com objetos de várias
+estruturas (e, consequentemente, dimensões), acaba por ter uma única
+dimensão. Você pode acessar seus elementos de forma \emph{parecida} com
+o caso de um vetor. A diferença é que, no caso de uma lista, teremos que
+utilizar duplo colchetes. Abaixo, um exemplo de como acessar o quarto
+elemento da \texttt{lista\_exemplo} -- no caso, o \emph{data frame}
+\texttt{info\_pessoas} que criamos anteriormente.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{lista\_exemplo[[}\DecValTok{4}\NormalTok{]]}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+      Nome    Gênero Idade Altura Peso
+1    Jorge Masculino    18    180   76
+2     Laís  Feminino    23    170   65
+3  Matheus Masculino    22    175   70
+4    Laura  Feminino    21    181   68
+5 Nathália  Feminino    21    168   66
+\end{verbatim}
+
+Listas são mais úteis do que você pode estar pensando nesse momento.
+Elas permitem que você agrupe objetos de um mesmo assunto, mas com
+diferentes estruturas, em um único objeto `central'. Em muitos casos,
+facilita a organização.
 
 
 
