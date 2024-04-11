@@ -64,7 +64,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <script src="site_libs/quarto-search/fuse.min.js"></script>
 <script src="site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="./">
-<link href="./funcoes-e-pacotes.html" rel="next">
+<link href="./importando.html" rel="next">
 <link href="./prim-passos.html" rel="prev">
 <link href="./logo_gpeq_html.png" rel="icon" type="image/png">
 <script src="site_libs/quarto-html/quarto.js"></script>
@@ -268,14 +268,8 @@ window.Quarto = {
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./funcoes-e-pacotes.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Funções e pacotes</span></span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
   <a href="./importando.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">Importando dados</span></span></a>
+ <span class="menu-text"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Importando dados</span></span></a>
   </div>
 </li>
       </ul>
@@ -342,7 +336,7 @@ window.Quarto = {
 <p><strong>Na prática, dados nos mostram informações sobre determinado indivíduo ou situação que procuramos descrever, seja uma pessoa, instituição, comportamento, condição geográfica, etc.</strong> O número de horas que você dormiu essa noite é um dado. A lista que relata quem é ou não calvo na sua família é uma <em>coleção</em> de dados. A expectativa, hoje, de quanto será a inflação acumulada nos próximos 12 meses é um dado. A variação percentual do Produto Interno Bruto (PIB) real no último trimestre é um dado. A lista que mostra a sequência de variações do PIB real nos últimos dez trimestres é uma <em>série temporal</em>, isto é, dados em sequência ao longo do tempo.</p>
 <section id="tipo-forma" class="level3" data-number="5.1.1">
 <h3 data-number="5.1.1" class="anchored" data-anchor-id="tipo-forma"><span class="header-section-number">5.1.1</span> Tipo &amp; Forma</h3>
-<p>Vamos nos aprofundar um pouco mais. Ao lidar formalmente com dados, <strong>devemos ter mente que eles são compostos por uma ou mais variáveis e seus valores</strong>. <em>Uma variável é uma dimensão ou propriedade que descreve uma unidade de observação</em> (por exemplo, uma pessoa) e normalmente pode assumir valores diferentes. Por outro lado, os <em>valores são as instâncias concretas que uma variável atribui a cada unidade de observação e são ainda caracterizados por seu intervalo</em> (por exemplo, valores categóricos versus valores contínuos) <em>e seu tipo</em> (por exemplo, valores lógicos, numéricos ou de caracteres). Estaremos interessados no <em>tipo</em> dos dados. A <a href="#tbl-data-types" class="quarto-xref">Tabela&nbsp;<span class="quarto-unresolved-ref">tbl-data-types</span></a> apresenta os que podem aparecer com maior frequência.</p>
+<p>Vamos nos aprofundar um pouco mais. Ao lidar formalmente com dados, <strong>devemos ter mente que eles são compostos por uma ou mais variáveis e seus valores</strong>. <em>Uma variável é uma dimensão ou propriedade que descreve uma unidade de observação</em> (por exemplo, uma pessoa) e normalmente pode assumir valores diferentes. Por outro lado, os <em>valores são as instâncias concretas que uma variável atribui a cada unidade de observação e são ainda caracterizados por seu intervalo</em> (por exemplo, valores categóricos versus valores contínuos) <em>e seu tipo</em> (por exemplo, valores lógicos, numéricos ou de caracteres). Estaremos interessados no <em>tipo</em> dos dados. A <a href="#tbl-data-types" class="quarto-xref">Tabela&nbsp;<span>5.1</span></a> apresenta os que podem aparecer com maior frequência.</p>
 <div class="cell">
 <div id="tbl-data-types" class="cell quarto-float anchored">
 <figure class="quarto-float quarto-float-tbl figure">
@@ -393,7 +387,7 @@ Tabela&nbsp;5.1: Tipos mais comuns de dados
 </div>
 </div>
 <p>Voltando ao primeiro exemplo, uma pessoa pode ser descrita pelas variáveis <em>nome</em>, <em>número de horas dormidas</em> e <em>se dormiu ou não mais de oito horas</em>. Os valores correspondentes a essas variáveis seriam do tipo texto (por exemplo, “Pedro”), numéricos (número de horas) e lógicos (<code>TRUE</code> ou <code>FALSE</code>, definido em função do tempo descansado<a href="#fn1" class="footnote-ref" id="fnref1" role="doc-noteref"><sup>1</sup></a>). <strong>Note a diferença entre <em>dado</em> e <em>valor</em>.</strong> O número 10 é um valor, sem significado. Por outro lado, <em>“10 horas dormidas”</em> é um dado, caracterizado pelo valor 10 e pela variável <em>“horas dormidas”</em>.</p>
-<p>Outro aspecto importante sobre os dados está em sua forma, ou seja, como os dados podem ser organizados. A <a href="#tbl-data-shapes" class="quarto-xref">Tabela&nbsp;<span class="quarto-unresolved-ref">tbl-data-shapes</span></a> apresenta as formas mais comuns de organização.</p>
+<p>Outro aspecto importante sobre os dados está em sua forma, ou seja, como os dados podem ser organizados. A <a href="#tbl-data-shapes" class="quarto-xref">Tabela&nbsp;<span>5.2</span></a> apresenta as formas mais comuns de organização.</p>
 <div class="cell">
 <div id="tbl-data-shapes" class="cell quarto-float anchored">
 <figure class="quarto-float quarto-float-tbl figure">
@@ -843,8 +837,8 @@ Levels: Super Lento Normal Super Rápido</code></pre>
 <section id="data-frame" class="level3" data-number="5.2.5">
 <h3 data-number="5.2.5" class="anchored" data-anchor-id="data-frame"><span class="header-section-number">5.2.5</span> Data frame</h3>
 <p>Como matrizes (e vetores) contêm dados de apenas um tipo (por exemplo, todas as células são dados numéricos, de caracteres ou lógicos), precisamos de outra estrutura de dados para dados heterogêneos.</p>
-<p>A necessidade de armazenar dados heterogêneos não é nada exótico ou incomum. Na verdade, mesmo os conjuntos de dados mais simples exigem a mistura de vários tipos de dados. Por exemplo, imagine que queremos armazenar um conjunto de dados que contém informações básicas sobre um grupo de pessoas, assim como na <a href="#tbl-tabela-retangular" class="quarto-xref">Tabela&nbsp;<span class="quarto-unresolved-ref">tbl-tabela-retangular</span></a>. Cada uma dessas cinco variáveis pode ser armazenada como um vetor (as duas primeiras do tipo caractere, as outras do tipo numérico). Para armazenar todas as cinco variáveis em uma única estrutura de dados, podemos combinar os cinco vetores em uma tabela retangular. As tabelas são a forma mais frequente de armazenar dados!</p>
-<p>E qual o nome da estrutura de dados que armazena tabelas de dados no R? São os <em>data frames! O data frame como estrutura de dados é a combinação da forma tabela e da presença de qualquer tipo de dado.</em> No <em>chunk</em> abaixo, vamos recriar a <a href="#tbl-tabela-retangular" class="quarto-xref">Tabela&nbsp;<span class="quarto-unresolved-ref">tbl-tabela-retangular</span></a> como exemplo.</p>
+<p>A necessidade de armazenar dados heterogêneos não é nada exótico ou incomum. Na verdade, mesmo os conjuntos de dados mais simples exigem a mistura de vários tipos de dados. Por exemplo, imagine que queremos armazenar um conjunto de dados que contém informações básicas sobre um grupo de pessoas, assim como na <a href="#tbl-tabela-retangular" class="quarto-xref">Tabela&nbsp;<span>5.3</span></a>. Cada uma dessas cinco variáveis pode ser armazenada como um vetor (as duas primeiras do tipo caractere, as outras do tipo numérico). Para armazenar todas as cinco variáveis em uma única estrutura de dados, podemos combinar os cinco vetores em uma tabela retangular. As tabelas são a forma mais frequente de armazenar dados!</p>
+<p>E qual o nome da estrutura de dados que armazena tabelas de dados no R? São os <em>data frames! O data frame como estrutura de dados é a combinação da forma tabela e da presença de qualquer tipo de dado.</em> No <em>chunk</em> abaixo, vamos recriar a <a href="#tbl-tabela-retangular" class="quarto-xref">Tabela&nbsp;<span>5.3</span></a> como exemplo.</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb45"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb45-1"><a href="#cb45-1" aria-hidden="true" tabindex="-1"></a>info_pessoas <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(<span class="at">Nome =</span> <span class="fu">c</span>(<span class="st">"Jorge"</span>, <span class="st">"Laís"</span>, <span class="st">"Matheus"</span>, <span class="st">"Laura"</span>, <span class="st">"Nathália"</span>),</span>
 <span id="cb45-2"><a href="#cb45-2" aria-hidden="true" tabindex="-1"></a>                           Gênero <span class="ot">=</span> <span class="fu">c</span>(<span class="st">"Masculino"</span>, <span class="st">"Feminino"</span>, <span class="st">"Masculino"</span>, <span class="st">"Feminino"</span>, <span class="st">"Feminino"</span>),</span>
@@ -1344,8 +1338,8 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
       </a>          
   </div>
   <div class="nav-page nav-page-next">
-      <a href="./funcoes-e-pacotes.html" class="pagination-link" aria-label="Funções e pacotes">
-        <span class="nav-page-text"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Funções e pacotes</span></span> <i class="bi bi-arrow-right-short"></i>
+      <a href="./importando.html" class="pagination-link" aria-label="Importando dados">
+        <span class="nav-page-text"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Importando dados</span></span> <i class="bi bi-arrow-right-short"></i>
       </a>
   </div>
 </nav>

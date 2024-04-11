@@ -40,12 +40,14 @@ Essa história toda para dizer: **o arquivo básico que iremos baixar para insta
 
     Se você tiver algum problema com o *download*, tente escolher outro servidor no passo 2 – por exemplo, um dos servidores da Universidade de São Paulo.
 
+::: {.content-visible when-format="html"}
 ::: callout-note
 ## Encontrando o caminho!
 
 Abaixo, os passos 1-5 para realizar o *donwload*.
 
-![](images/instalacao_r.gif){fig-align="center" width="381"}
+![](images/instalacao_r.gif){fig-align="center"}
+:::
 :::
 
 6.  Você receberá um aviso, que varia conforme o navegador em uso, de que o arquivo está sendo baixado. Abaixo, um exemplo no Microsoft Edge:
@@ -96,6 +98,7 @@ Simplificando: **o Editor é o espaço em que você realmente escreverá os cód
 
 **Entretanto, não iremos utilizá-los através do RGui.** No capítulo seguinte, instalaremos e conheceremos um pouco mais sobre outro ambiente, bem mais completo, para se programar em R. *"Meu Deus, aprendi todos esses conceitos à toa?"*, você deve estar se perguntando. Não! Muito do que aprendemos nessa seção voltará a aparecer no capítulo seguinte.
 
+::: {.content-visible when-format="html"}
 ::: {.callout-tip collapse="true"}
 ## Executando um simples código no RGui (Opcional)
 
@@ -104,4 +107,5 @@ Beleza, não tocaremos no RGui. Mas é interessante compreender que já é poss�
 Vamos entender com um rápido exemplo. No GIF abaixo, atribuimos à variável de nome `x` o valor númerico `2`. Em seguida, escrevemos o nome novamente para retornar seu valor. Fique tranquilo: ainda iremos ver melhor o que significam termos como *atribuir um valor à determinada variável*. O objetivo deste *box* foi apenas te mostrar que já estamos aptos a programar em R!
 
 ![](images/rgui_exemplo.gif){fig-align="center"}
+:::
 :::

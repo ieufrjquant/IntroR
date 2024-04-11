@@ -150,9 +150,11 @@ rm(nome_do_objeto1, nome_do_objeto2, ...)
 rm(list = ls())
 ```
 
+::: {.content-visible when-format="html"}
 Observe no GIF abaixo como é na prática!
 
 ![](images/criando_objeto.gif){fig-align="center" width="620"}
+:::
 
 ### Valor único
 

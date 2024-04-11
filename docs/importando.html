@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>R e RStudio para Iniciantes - 7&nbsp; Importando dados</title>
+<title>R e RStudio para Iniciantes - 6&nbsp; Importando dados</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -64,7 +64,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <script src="site_libs/quarto-search/fuse.min.js"></script>
 <script src="site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="./">
-<link href="./funcoes-e-pacotes.html" rel="prev">
+<link href="./objetos.html" rel="prev">
 <link href="./logo_gpeq_html.png" rel="icon" type="image/png">
 <script src="site_libs/quarto-html/quarto.js"></script>
 <script src="site_libs/quarto-html/popper.min.js"></script>
@@ -116,7 +116,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Alternar barra lateral" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./intro-lingr.html">Programando em R</a></li><li class="breadcrumb-item"><a href="./importando.html"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">Importando dados</span></a></li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./intro-lingr.html">Programando em R</a></li><li class="breadcrumb-item"><a href="./importando.html"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Importando dados</span></a></li></ol></nav>
         <a class="flex-grow-1" role="button" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Alternar barra lateral" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
       <button type="button" class="btn quarto-search-button" aria-label="" onclick="window.quartoOpenSearch();">
@@ -238,14 +238,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./funcoes-e-pacotes.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Funções e pacotes</span></span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
   <a href="./importando.html" class="sidebar-item-text sidebar-link active">
- <span class="menu-text"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">Importando dados</span></span></a>
+ <span class="menu-text"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Importando dados</span></span></a>
   </div>
 </li>
       </ul>
@@ -260,11 +254,11 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     <h2 id="toc-title">Índice</h2>
    
   <ul>
-  <li><a href="#definindo-o-diretório-de-trabalho" id="toc-definindo-o-diretório-de-trabalho" class="nav-link active" data-scroll-target="#definindo-o-diretório-de-trabalho"><span class="header-section-number">7.1</span> Definindo o diretório de trabalho</a></li>
-  <li><a href="#funções-mais-utilizadas-para-importação" id="toc-funções-mais-utilizadas-para-importação" class="nav-link" data-scroll-target="#funções-mais-utilizadas-para-importação"><span class="header-section-number">7.2</span> Funções mais utilizadas para importação</a>
+  <li><a href="#definindo-o-diretório-de-trabalho" id="toc-definindo-o-diretório-de-trabalho" class="nav-link active" data-scroll-target="#definindo-o-diretório-de-trabalho"><span class="header-section-number">6.1</span> Definindo o diretório de trabalho</a></li>
+  <li><a href="#funções-mais-utilizadas-para-importação" id="toc-funções-mais-utilizadas-para-importação" class="nav-link" data-scroll-target="#funções-mais-utilizadas-para-importação"><span class="header-section-number">6.2</span> Funções mais utilizadas para importação</a>
   <ul class="collapse">
-  <li><a href="#o-pacote-readr-lendo-arquivos-delimitados" id="toc-o-pacote-readr-lendo-arquivos-delimitados" class="nav-link" data-scroll-target="#o-pacote-readr-lendo-arquivos-delimitados"><span class="header-section-number">7.2.1</span> O pacote readr – lendo arquivos delimitados</a></li>
-  <li><a href="#o-pacote-readxl-lendo-planilhas" id="toc-o-pacote-readxl-lendo-planilhas" class="nav-link" data-scroll-target="#o-pacote-readxl-lendo-planilhas"><span class="header-section-number">7.2.2</span> O pacote readxl – lendo planilhas</a></li>
+  <li><a href="#o-pacote-readr-lendo-arquivos-delimitados" id="toc-o-pacote-readr-lendo-arquivos-delimitados" class="nav-link" data-scroll-target="#o-pacote-readr-lendo-arquivos-delimitados"><span class="header-section-number">6.2.1</span> O pacote readr – lendo arquivos delimitados</a></li>
+  <li><a href="#o-pacote-readxl-lendo-planilhas" id="toc-o-pacote-readxl-lendo-planilhas" class="nav-link" data-scroll-target="#o-pacote-readxl-lendo-planilhas"><span class="header-section-number">6.2.2</span> O pacote readxl – lendo planilhas</a></li>
   </ul></li>
   </ul>
 </nav>
@@ -272,9 +266,9 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
-<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./intro-lingr.html">Programando em R</a></li><li class="breadcrumb-item"><a href="./importando.html"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">Importando dados</span></a></li></ol></nav>
+<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./intro-lingr.html">Programando em R</a></li><li class="breadcrumb-item"><a href="./importando.html"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Importando dados</span></a></li></ol></nav>
 <div class="quarto-title">
-<h1 class="title"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">Importando dados</span></h1>
+<h1 class="title"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Importando dados</span></h1>
 </div>
 
 
@@ -296,8 +290,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <p>trazer de outro país, estado ou município.</p>
 </blockquote>
 <p>No campo da programação, <em>importar</em> mantém signifcado semelhante: trazer dados externos para nosso ambiente, de forma que possamos manipulá-los com a linguagem. Aplicando à nossa realidade, queremos trazer tabelas de dados para a memória do R, na aba Environment, de forma que possamos manipulá-las posteriormente!</p>
-<section id="definindo-o-diretório-de-trabalho" class="level2" data-number="7.1">
-<h2 data-number="7.1" class="anchored" data-anchor-id="definindo-o-diretório-de-trabalho"><span class="header-section-number">7.1</span> Definindo o diretório de trabalho</h2>
+<section id="definindo-o-diretório-de-trabalho" class="level2" data-number="6.1">
+<h2 data-number="6.1" class="anchored" data-anchor-id="definindo-o-diretório-de-trabalho"><span class="header-section-number">6.1</span> Definindo o diretório de trabalho</h2>
 <p>Antes de importar, é interessante definirmos nosso <em>diretório de trabalho</em>, que corresponde ao caminho para a pasta fixa que iremos utilizar para criar ou armazenar arquivos. Pense no diretório como a pasta do seu computador que servirá como local de armazenamento de todos os arquivos relacionados ao trabalho/projeto que você estiver executando naquele momento – sejam scripts, planilhas, etc.</p>
 <p>Para configurar determinada pasta como diretório de trabalho, aperte <code>Ctrl + Shift + H</code> e, na sequência, selecione a pasta que desejar. Perceba que esse comando rodará a função <code>setwd()</code> no Console, cujo argumento é o caminho para a pasta. Você também pode selecionar o diretório de trabalho desta maneira direta.</p>
 <div class="cell">
@@ -305,8 +299,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </div>
 <p>Note que, no RStudio, o caminho para o diretório atual aparece na parte superior do painel de Console, ao lado do número da versão do R que você estiver utilizando no momento. Ao mesmo tempo, você pode retornar o diretório atual de trabalho apenas rodando a função <code>getwd()</code>, sem nenhum argumento.</p>
 </section>
-<section id="funções-mais-utilizadas-para-importação" class="level2" data-number="7.2">
-<h2 data-number="7.2" class="anchored" data-anchor-id="funções-mais-utilizadas-para-importação"><span class="header-section-number">7.2</span> Funções mais utilizadas para importação</h2>
+<section id="funções-mais-utilizadas-para-importação" class="level2" data-number="6.2">
+<h2 data-number="6.2" class="anchored" data-anchor-id="funções-mais-utilizadas-para-importação"><span class="header-section-number">6.2</span> Funções mais utilizadas para importação</h2>
 <p>Com o propósito de importar dados para o RStudio, iremos aprender a utilizar algumas funções específicas. Repare que estamos falando de <em>funções</em>, ou seja, existe mais de uma função que busca permitir com que o RStudio seja capaz de ler e armazenar dados internamente em sua memória, para posterior manipulação. Isso acontece pois não existe um único tipo de arquivo capaz de armazenar dados.</p>
 <p>Dois pacotes serão utilizados: <code>readr</code>, que faz parte do <em>tidyverse</em>, e <code>openxlsx</code>. Portanto, é necessário que você os instale, caso ainda não tenha feito e, na sequência, carrege os pacotes.</p>
 <div class="cell">
@@ -316,11 +310,11 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(readr)</span>
 <span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(openxlsx)</span></code><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<section id="o-pacote-readr-lendo-arquivos-delimitados" class="level3" data-number="7.2.1">
-<h3 data-number="7.2.1" class="anchored" data-anchor-id="o-pacote-readr-lendo-arquivos-delimitados"><span class="header-section-number">7.2.1</span> O pacote readr – lendo arquivos delimitados</h3>
+<section id="o-pacote-readr-lendo-arquivos-delimitados" class="level3" data-number="6.2.1">
+<h3 data-number="6.2.1" class="anchored" data-anchor-id="o-pacote-readr-lendo-arquivos-delimitados"><span class="header-section-number">6.2.1</span> O pacote readr – lendo arquivos delimitados</h3>
 <p>O pacote <code>readr</code> é utilizado principalmente para ler arquivos delimitados por algum caractere específico. <em>‘Como assim, arquivos delimitados por caractere?’</em> Em muitos casos, as tabelas de dados são tão grandes – ou seja, várias observações (linhas) e variáveis (colunas) – que será necessário reduzir seu tamanho com intuito de facilitar o compartilhamento com terceiros. Uma saída é comprimir todas as variáveis em uma única coluna, em que os dados são <em>separados por algum caractere especial</em>, mantendo o mesmo número de observações anterior. Cada linha continua representando uma observação de determinada unidade. Passamos de <em>n</em> observações e <em>m</em> colunas para <em>n</em> observações e 1 coluna.</p>
-<section id="read_csv" class="level4" data-number="7.2.1.1">
-<h4 data-number="7.2.1.1" class="anchored" data-anchor-id="read_csv"><span class="header-section-number">7.2.1.1</span> <code>read_csv()</code></h4>
+<section id="read_csv" class="level4" data-number="6.2.1.1">
+<h4 data-number="6.2.1.1" class="anchored" data-anchor-id="read_csv"><span class="header-section-number">6.2.1.1</span> <code>read_csv()</code></h4>
 <p>Para começar, vamos nos concentrar no tipo de arquivo de dados retangular mais comum: CSV, que é a abreviação de <em>Comma Separeted Values</em> (valores separados por vírgula, em português). Abaixo, temos a aparência de um arquivo CSV simples, contendo informações de estudantes. A primeira linha, comumente chamada de <em>cabeçalho</em>, fornece os nomes das colunas, e as cinco linhas seguintes fornecem os dados.</p>
 <div class="cell">
 <div class="cell-output cell-output-stdout">
@@ -332,12 +326,12 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 5,Nathália,Peixe,Regime,21,66</code></pre>
 </div>
 </div>
-<p>A <a href="#tbl-students-table" class="quarto-xref">Tabela&nbsp;<span class="quarto-unresolved-ref">tbl-students-table</span></a> mostra uma representação dos mesmos dados em uma tabela.</p>
+<p>A <a href="#tbl-students-table" class="quarto-xref">Tabela&nbsp;<span>6.1</span></a> mostra uma representação dos mesmos dados em uma tabela.</p>
 <div class="cell">
 <div id="tbl-students-table" class="cell quarto-float anchored">
 <figure class="quarto-float quarto-float-tbl figure">
 <figcaption class="quarto-float-caption-top quarto-float-caption quarto-float-tbl" id="tbl-students-table-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-Tabela&nbsp;7.1: Dados do arquivo estudantes.csv como tabela.
+Tabela&nbsp;6.1: Dados do arquivo estudantes.csv como tabela.
 </figcaption>
 <div aria-describedby="tbl-students-table-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 <div class="cell-output-display">
@@ -452,14 +446,14 @@ Funções para outros tipos de arquivo delimitados (Opcional)
 </div>
 </section>
 </section>
-<section id="o-pacote-readxl-lendo-planilhas" class="level3" data-number="7.2.2">
-<h3 data-number="7.2.2" class="anchored" data-anchor-id="o-pacote-readxl-lendo-planilhas"><span class="header-section-number">7.2.2</span> O pacote readxl – lendo planilhas</h3>
+<section id="o-pacote-readxl-lendo-planilhas" class="level3" data-number="6.2.2">
+<h3 data-number="6.2.2" class="anchored" data-anchor-id="o-pacote-readxl-lendo-planilhas"><span class="header-section-number">6.2.2</span> O pacote readxl – lendo planilhas</h3>
 <p>Nesta seção, iremos nos concentrar em importar dados de <em>planilhas</em>, especificamente os que foram agrupados em planilhas de <em>Excel</em>. Veremos como importar todos os dados de uma planilha com apenas uma única aba, assim como de uma aba específica, caso exista mais de uma.</p>
-<section id="read.xlsx" class="level4" data-number="7.2.2.1">
-<h4 data-number="7.2.2.1" class="anchored" data-anchor-id="read.xlsx"><span class="header-section-number">7.2.2.1</span> <code>read.xlsx()</code></h4>
+<section id="read.xlsx" class="level4" data-number="6.2.2.1">
+<h4 data-number="6.2.2.1" class="anchored" data-anchor-id="read.xlsx"><span class="header-section-number">6.2.2.1</span> <code>read.xlsx()</code></h4>
 <p>A maioria dos arquivos escritos em Excel hoje possui uma extensão do tipo <code>.xlsx</code>. Portanto, vamos focar na função do pacote <code>openxlsx</code> que melhor lide com planilhas desse tipo: <code>read.xlsx()</code>. Como no caso anterior, note que o objeto criado terá estrutura de um <em>data frame</em>.</p>
-<section id="planilha" class="level5" data-number="7.2.2.1.1">
-<h5 data-number="7.2.2.1.1" class="anchored" data-anchor-id="planilha"><span class="header-section-number">7.2.2.1.1</span> Planilha</h5>
+<section id="planilha" class="level5" data-number="6.2.2.1.1">
+<h5 data-number="6.2.2.1.1" class="anchored" data-anchor-id="planilha"><span class="header-section-number">6.2.2.1.1</span> Planilha</h5>
 <p>Esse caso se aplica quando você desejar importar <em>todos</em> os dados que estão na <em>primeira</em> <em>e única</em> aba de uma planilha. O procedimento é muito parecido com o que fizemos no caso de arquivos delimitados: precisaremos do endereço para o arquivo que desejamos importar, que pode ser um caminho de pastas no seu computador ou um <em>link</em> externo.</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb6"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a>estudantes <span class="ot">&lt;-</span> <span class="fu">read.xlsx</span>(<span class="st">"dados/estudantes.xlsx"</span>)</span>
@@ -474,8 +468,8 @@ Funções para outros tipos de arquivo delimitados (Opcional)
 </div>
 </div>
 </section>
-<section id="aba-específica" class="level5" data-number="7.2.2.1.2">
-<h5 data-number="7.2.2.1.2" class="anchored" data-anchor-id="aba-específica"><span class="header-section-number">7.2.2.1.2</span> Aba específica</h5>
+<section id="aba-específica" class="level5" data-number="6.2.2.1.2">
+<h5 data-number="6.2.2.1.2" class="anchored" data-anchor-id="aba-específica"><span class="header-section-number">6.2.2.1.2</span> Aba específica</h5>
 <p>Para importar dados de uma aba específica de determinada planilha é necessário especificar, além do endereço do arquivo, o nome ou o índice da aba que você deseja. No exemplo abaixo, importamos os dados completos do <em>Maddison Project Database 2020</em>, que estão contidos na terceira aba da planilha disponibilizada pelos organizadores<em>.</em></p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb8"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a>dados <span class="ot">&lt;-</span> <span class="fu">read.xlsx</span>(<span class="st">"https://www.rug.nl/ggdc/historicaldevelopment/maddison/data/mpd2020.xlsx"</span>, </span>
@@ -922,8 +916,8 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 </script>
 <nav class="page-navigation">
   <div class="nav-page nav-page-previous">
-      <a href="./funcoes-e-pacotes.html" class="pagination-link" aria-label="Funções e pacotes">
-        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Funções e pacotes</span></span>
+      <a href="./objetos.html" class="pagination-link" aria-label="Objetos">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Objetos</span></span>
       </a>          
   </div>
   <div class="nav-page nav-page-next">
