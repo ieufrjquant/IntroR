@@ -1,3 +1,10 @@
+```{r}
+#| echo: false
+#| message: false
+
+library(tidyverse)
+```
+
 # Funções e pacotes
 
 A segunda parte da citação dizia:
@@ -30,7 +37,10 @@ Perceba que definimos a função acima de modo *verbal*, ou seja, com palavras. 
 
 ::: columns
 ::: {.column width="40%"}
-```{r, echo = F, warning = F}
+```{r}
+#| echo: false
+#| warning: false
+
 library(knitr)
 library(kableExtra)
 library(magrittr)
@@ -50,7 +60,9 @@ knitr::kable(
 
 ::: {.column width="55%"}
 ```{r, echo = F, warning = F, message = FALSE}
-library(tidyverse)
+#| echo: false
+#| warning: false
+#| message: false
 
   ggplot(data.frame(x = seq(-3, 3, 1)[-4]), aes(x)) +
     geom_function(fun = function(x) {ifelse(x == 0, NA, 2/x)}, linewidth = 0.8) +

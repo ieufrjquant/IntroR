@@ -29,7 +29,7 @@ book:
       chapters:
         - prim-passos.qmd
         - objetos.qmd
-        - funcoes-e-pacotes.qmd
+        #- funcoes-e-pacotes.qmd
         - importando.qmd
     
   downloads: [pdf, epub]
