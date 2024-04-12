@@ -31,7 +31,7 @@ book:
         - funcoes-e-pacotes.qmd
         - importando.qmd
     
-  downloads: [pdf, epub]
+  downloads: [pdf]
   sharing: [twitter, facebook]
 
 format:
