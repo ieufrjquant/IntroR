@@ -117,7 +117,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Alternar barra lateral" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./intro-lingr.html">Programando em R</a></li><li class="breadcrumb-item"><a href="./prim-passos.html"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Primeiros passos</span></a></li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./intro-lingr.html">R Básico</a></li><li class="breadcrumb-item"><a href="./prim-passos.html"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Primeiros passos</span></a></li></ol></nav>
         <a class="flex-grow-1" role="button" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Alternar barra lateral" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
       <button type="button" class="btn quarto-search-button" aria-label="" onclick="window.quartoOpenSearch();">
@@ -203,7 +203,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
             <a href="./intro-lingr.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Programando em R</span></a>
+ <span class="menu-text">R Básico</span></a>
           <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" aria-expanded="true" aria-label="Alternar seção">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
@@ -227,10 +227,27 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
  <span class="menu-text"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Funções e pacotes</span></span></a>
   </div>
 </li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a href="./dados.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Dados</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" aria-expanded="true" aria-label="Alternar seção">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-3" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./importando.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">Importando dados</span></span></a>
+ <span class="menu-text"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">Importando</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./manipulando.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">Manipulando</span></span></a>
   </div>
 </li>
       </ul>
@@ -247,16 +264,20 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   <ul>
   <li><a href="#operadores-aritméticos" id="toc-operadores-aritméticos" class="nav-link active" data-scroll-target="#operadores-aritméticos"><span class="header-section-number">4.1</span> Operadores Aritméticos</a></li>
   <li><a href="#operadores-lógicos" id="toc-operadores-lógicos" class="nav-link" data-scroll-target="#operadores-lógicos"><span class="header-section-number">4.2</span> Operadores Lógicos</a></li>
-  <li><a href="#possíveis-complicações" id="toc-possíveis-complicações" class="nav-link" data-scroll-target="#possíveis-complicações"><span class="header-section-number">4.3</span> Possíveis complicações</a></li>
+  <li><a href="#possíveis-complicações" id="toc-possíveis-complicações" class="nav-link" data-scroll-target="#possíveis-complicações"><span class="header-section-number">4.3</span> Possíveis complicações</a>
+  <ul class="collapse">
+  <li><a href="#comando-incompleto" id="toc-comando-incompleto" class="nav-link" data-scroll-target="#comando-incompleto"><span class="header-section-number">4.3.1</span> Comando incompleto</a></li>
+  <li><a href="#comando-inexistente-na-linguagem" id="toc-comando-inexistente-na-linguagem" class="nav-link" data-scroll-target="#comando-inexistente-na-linguagem"><span class="header-section-number">4.3.2</span> Comando inexistente na linguagem</a></li>
+  </ul></li>
   </ul>
 </nav>
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
-<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./intro-lingr.html">Programando em R</a></li><li class="breadcrumb-item"><a href="./prim-passos.html"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Primeiros passos</span></a></li></ol></nav>
+<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./intro-lingr.html">R Básico</a></li><li class="breadcrumb-item"><a href="./prim-passos.html"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Primeiros passos</span></a></li></ol></nav>
 <div class="quarto-title">
-<h1 class="title"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Primeiros passos</span></h1>
+<h1 class="title"><span id="sec-prim-passos" class="quarto-section-identifier"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Primeiros passos</span></span></h1>
 </div>
 
 
@@ -283,18 +304,28 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </div>
 </div>
 </div>
-<p>Como vimos nos capítulos anteriores, o papel do <strong>Console</strong> no R é interpretar os nossos comandos à luz da linguagem. Ele avalia o código que o passamos e devolve a saída correspondente — se tudo der certo — ou uma mensagem de erro — se o seu código tiver algum problema. Essa operação é chamada de <strong>avaliar</strong>, <strong>executar</strong> ou <strong>rodar</strong> o código. Para que seu código seja executado diretamente no Console, escreva-o e, na sequência, aperte <code>Enter</code>. A outra forma de executar uma expressão é escrever o código em um <em>script</em> no <strong>Editor</strong>, deixar o cursor em cima da linha e usar o atalho <code>Ctrl + Enter</code>. Assim, o comando é enviado para o Console, onde é diretamente executado.</p>
-<p>Nesse capítulo, você <em>rodará</em> suas primeiras linhas de código com intuito de realizar operações aritméticas como <em>adição</em>, <em>subtração</em>, <em>multiplicação</em> e <em>divisão</em>, além de comparações lógicas simples. O objetivo aqui não é te ensinar matemática básica, mas te preparar para a execução de linhas de código mais avançadas. É a forma mais fácil de um iniciante ganhar familiaridade e experiência prática com o R.</p>
+<p>Como vimos nos capítulos anteriores, o papel do <strong>Console</strong> no R é interpretar os nossos comandos à luz da linguagem. Ele avalia o código que o passamos e devolve a saída correspondente – se tudo der certo – ou uma mensagem de erro – se o seu código tiver algum problema. Essa operação é chamada de <strong>avaliar</strong>, <strong>executar</strong> ou <strong>rodar</strong> o código. Para que seu código seja executado diretamente no Console, escreva-o e, na sequência, aperte <code>Enter</code>. A outra forma de executar uma expressão é escrevê-la em um <em>script</em> no <strong>Editor</strong>, selecioná-la (ou apenas clicar na linha em que está) e usar o atalho <code>Ctrl + Enter</code>. Assim, o comando é enviado para o Console, onde é diretamente executado.</p>
+<p>Nesse capítulo, te mostraremos como o processo funciona! Você <em>rodará</em> suas primeiras linhas de código, ordenando ao R que realize operações aritméticas como <em>adição</em>, <em>subtração</em>, <em>multiplicação</em> e <em>divisão</em>, além de comparações lógicas simples. O objetivo aqui não é ensinar matemática básica, mas te proporcionar a primeira experiência prática com o R. É o jeito mais fácil de um iniciante se familiarizar com a linguagem, automaticamente se preparando melhor para a execução de linhas de código mais avançadas.</p>
 <section id="operadores-aritméticos" class="level2" data-number="4.1">
 <h2 data-number="4.1" class="anchored" data-anchor-id="operadores-aritméticos"><span class="header-section-number">4.1</span> Operadores Aritméticos</h2>
-<p>De agora em diante, cada região sombreada de cinza representa código, ao passo que seu resultado estará exposto logo na sequência. Vamos começar com um exemplo simples:</p>
+<div class="callout callout-style-simple callout-note">
+<div class="callout-body d-flex">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-body-container">
+<p>De agora em diante, cada região sombreada de cinza e centralizada no documento representa um pedaço código. Quando couber, o resultado de sua execução no Console será exposto logo na sequência. Observe que você pode copiar o que está escrito ao passar o cursor sobre a região e clicar no símbolo de prancheta que aparecerá no canto direito superior.</p>
+</div>
+</div>
+</div>
+<p>Vamos começar com um exemplo simples! Vamos pedir ao R que some os números <code>1</code> e <code>1</code>:</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="dv">1</span> <span class="sc">+</span> <span class="dv">1</span></span></code><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] 2</code></pre>
 </div>
 </div>
-<p>Nesse caso, o nosso comando foi o código <code>1 + 1</code> e a saída foi o valor <code>2</code>. Como você pode reproduzir esse comando no RStudio? Inicialmente, copie o que está escrito acima ao clicar no símbolo de prancheta no canto superior direito da região sombreada. Na sequência, cole no Editor de Código e aperte <code>Ctrl + Enter</code> (ou então no Console, pressionando apenas <code>Enter</code>). Observe abaixo!</p>
+<p>Nesse caso, o nosso comando foi o código <code>1 + 1</code> e a saída foi o valor <code>2</code>. Como você pode reproduzir esse comando no RStudio? Inicialmente, copie o que está escrito acima ao clicar no símbolo de prancheta no canto superior direito da região sombreada. Na sequência, cole no Editor de Código e aperte <code>Ctrl + Enter</code> (ou então cole no Console, na sequência pressionando apenas <code>Enter</code>). Observe abaixo!</p>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
 <p><img src="images/1mais1.gif" class="img-fluid quarto-figure quarto-figure-center figure-img"></p>
@@ -305,7 +336,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <div id="tbl-ope-mat" class="cell quarto-float anchored">
 <figure class="quarto-float quarto-float-tbl figure">
 <figcaption class="quarto-float-caption-top quarto-float-caption quarto-float-tbl" id="tbl-ope-mat-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-Tabela&nbsp;4.1: Operadores matemáticos do R
+Tabela&nbsp;4.1: Operadores matemáticos no R
 </figcaption>
 <div aria-describedby="tbl-ope-mat-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 <div class="cell-output-display">
@@ -368,6 +399,7 @@ Tabela&nbsp;4.1: Operadores matemáticos do R
 </figure>
 </div>
 </div>
+<p>Incluímos os operadores de potênciação, resto e parte inteira de divisão. Na prática, não serão tão utilizados quanto os demais, mas é importante que você os veja pelo menos uma vez durante o processo de aprendizado.</p>
 </section>
 <section id="operadores-lógicos" class="level2" data-number="4.2">
 <h2 data-number="4.2" class="anchored" data-anchor-id="operadores-lógicos"><span class="header-section-number">4.2</span> Operadores Lógicos</h2>
@@ -424,7 +456,7 @@ Tabela&nbsp;4.2: Operadores lógicos do R
 <tr class="even">
 <td style="text-align: center;">Menor ou igual que</td>
 <td style="text-align: center;">&lt;=</td>
-<td style="text-align: center;">5 =&lt; 3</td>
+<td style="text-align: center;">5 &lt;= 3</td>
 <td style="text-align: center;">FALSE</td>
 </tr>
 <tr class="odd">
@@ -461,7 +493,10 @@ Tabela&nbsp;4.2: Operadores lógicos do R
 </section>
 <section id="possíveis-complicações" class="level2" data-number="4.3">
 <h2 data-number="4.3" class="anchored" data-anchor-id="possíveis-complicações"><span class="header-section-number">4.3</span> Possíveis complicações</h2>
-<p>Se você digitar um comando incompleto, como <code>5 +</code>, e apertar <code>Enter</code>, o R mostrará um <code>+</code>, o que não tem nada a ver com a adição da matemática. Isso significa que o R está esperando você enviar <strong>mais</strong> algum código para completar o seu comando. Termine o seu comando ou aperte <code>Esc</code> para recomeçar.</p>
+<p>Em determinado momento, você pode acabar executando errado algum trecho de código. Como o R se comporta nessas situações?</p>
+<section id="comando-incompleto" class="level3" data-number="4.3.1">
+<h3 data-number="4.3.1" class="anchored" data-anchor-id="comando-incompleto"><span class="header-section-number">4.3.1</span> Comando incompleto</h3>
+<p>Se você digitar um comando incompleto no Console, como <code>5 +</code>, e apertar <code>Enter</code>, o R mostrará um <code>+</code>, o que não tem nada a ver com a adição da matemática. Isso significa que o R está esperando você enviar <strong>mais</strong> algum código para completar o seu comando. Termine o seu comando ou aperte <code>Esc</code> para recomeçar.</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="dv">5</span> <span class="sc">-</span></span>
 <span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a><span class="sc">+</span> </span>
@@ -470,7 +505,10 @@ Tabela&nbsp;4.2: Operadores lógicos do R
 <pre><code>[1] 0</code></pre>
 </div>
 </div>
-<p>Se você digitar um comando que o R não reconhece, ele retornará uma mensagem de erro. <strong>Não entre em pânico.</strong> Ele só está te avisando que não conseguiu interpretar o comando.</p>
+</section>
+<section id="comando-inexistente-na-linguagem" class="level3" data-number="4.3.2">
+<h3 data-number="4.3.2" class="anchored" data-anchor-id="comando-inexistente-na-linguagem"><span class="header-section-number">4.3.2</span> Comando inexistente na linguagem</h3>
+<p>Se você digitar um comando que o R não reconhece, ele retornará uma mensagem de erro. <strong>Não entre em pânico.</strong> Ele só está te avisando que não conseguiu interpretar o comando. Imagine que queremos retornar a parte inteira da divisão de <code>5</code> por <code>2</code>. Nesse caso, devemos digitar <code>5 %% 2</code> no Editor e rodar. Mas, se por engano, digitarmos <code>5 % 2</code>?</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb7"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="dv">5</span> % <span class="dv">2</span></span></code><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-error">
@@ -479,15 +517,16 @@ Tabela&nbsp;4.2: Operadores lógicos do R
       ^</code></pre>
 </div>
 </div>
-<p>Você pode digitar outro comando normalmente em seguida.</p>
+<p>Não existe um operador <code>%</code> no R, logo esse comando retorna erro! Você pode digitar o comando correto normalmente em seguida.</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb9"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="dv">5</span> <span class="sc">^</span> <span class="dv">2</span></span></code><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb9"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="dv">5</span> <span class="sc">%%</span> <span class="dv">2</span></span></code><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>[1] 25</code></pre>
+<pre><code>[1] 1</code></pre>
 </div>
 </div>
 
 
+</section>
 </section>
 
 </main> <!-- /main -->
@@ -902,8 +941,8 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 </script>
 <nav class="page-navigation">
   <div class="nav-page nav-page-previous">
-      <a href="./intro-lingr.html" class="pagination-link" aria-label="Programando em R">
-        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text">Programando em R</span>
+      <a href="./intro-lingr.html" class="pagination-link" aria-label="R Básico">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text">R Básico</span>
       </a>          
   </div>
   <div class="nav-page nav-page-next">

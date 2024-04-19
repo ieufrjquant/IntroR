@@ -29,7 +29,11 @@ book:
         - prim-passos.qmd
         - objetos.qmd
         - funcoes-e-pacotes.qmd
+        
+    - part: dados.qmd
+      chapters:
         - importando.qmd
+        - manipulando.qmd
     
   downloads: [pdf]
   sharing: [twitter, facebook]

@@ -1,4 +1,4 @@
-# Objetos
+# Objetos {#sec-objetos}
 
 Na apresentação dessa parte do material, trouxemos uma citação que, em parte, dizia:
 
@@ -117,8 +117,8 @@ Na seção anterior, vimos os conceitos de *tipo* e *forma*. Tenha em mente que 
 
 Por outro lado, agora veremos o conceito e alguns exemplos de *estrutura de dados* para o R. **A estrutura de dados é a forma pela qual o R classificará um objeto em relação ao *tipo* e a *forma* dos dados que contém.** Existe uma estrutura de dados para cada combinação de tipo e forma? **Não.** Compreender as principais estruturas disponíveis no R requer vê-las como uma combinação de
 
-(a) *algum* formato de dados
-(b) o fato de conterem um único ou vários tipos de dados
+(a) Determinado formato de dados
+(b) Número de tipos de dados (se é único ou possui vários)
 
 ### Criando e armazenando objetos na memória
 
@@ -201,20 +201,38 @@ z
 
 É inegável que, a partir deste ponto, as estruturas começam a ficar mais interessantes. Lembre-se que o vetor tem uma dimensão e pode ter muitas informações armazenadas. É natural que, em determinadas situações, desejemos acessar apenas valores específicos dentre os que constam nele.
 
-Como podemos fazer isso? Note que podemos associar a cada elemento de um vetor um número, representando a linha ou coluna em que consta. A esse número chamamos de índice! Dessa forma, fica fácil acessar qualquer um de seus valores. Basta escrever, ao lado de seu nome e entre colchetes, o índice que está associado à este valor. Por exemplo, vamos acessar o segundo elemento do vetor `z` que acabamos de criar.
+Como podemos fazer isso? Note que podemos um número associar a cada elemento de um vetor, representando a linha ou coluna em que consta. A esse número chamamos de *índice*. Dessa forma, fica fácil acessar qualquer um de seus valores: basta escrever, ao lado de seu nome e entre colchetes, o índice que está associado à este valor. Por exemplo, vamos acessar o segundo elemento do vetor `z` que acabamos de criar.
 
 ```{r}
-z[2] # Acessando o segundo elemento de um vetor
+z[2] # Acessando o segundo elemento do vetor z
 ```
 
-::: {.callout-tip collapse="true"}
-## Outras formas de criar vetores (Opcional)
+Você também acessar mais de um valor específico.
 
 ```{r}
-1:7                # Criando uma sequência de números de 1 a 7
-seq(2, 10, by = 2) # Criando um sequência de 2 a 10 pulando um número. 
+z[2:4] # Acessando do segundo ao quarto elemento do vetor z
+```
+
+::: callout-note
+## Algumas formas de criar vetores padronizados
+
+Em determinadas situações, você pode ter o desejo de criar um vetor que tenha certo padrão. Por exemplo, se quiséssemos criar um vetor contendo todos os números inteiros de 1 a 7, como faríamos? Uma opção, de fato, é escrever `c(1,2,3,4,5,6,7)`. No entanto, essa abordagem não é prática quando a sequência for grande: imagine ter que escrever todos os inteiros de 1 a 100, por exemplo! Nessas ocasiões, podemos gerar o vetor desejado escrevendo os limites inferior e superior separados pelo operador `:`!
+
+```{r}
+2:10                # Criando uma sequência de números de 2 a 10
+```
+
+Mas... e se quiséssemos selecionar uma sequência com mesmo intervalo, de tal maneira que o termo seguinte fosse igual ao termo anterior mais dois? Podemos usar a função `seq()`! Note que, tanto neste caso quanto no anterior, estamos falando da criação de vetores numéricos.
+
+```{r}
+seq(2, 10, by = 2) # Criando um sequência de 2 a 10 pulando um número.
+```
+
+Por fim, e não menos importante, você ter o desejo de criar um vetor com valores repetidos -- seja número, texto ou lógico. Para essa tarefa, utilizamos a função `rep()`!
+
+```{r}
 rep(3, 5)          # Repetindo o número 3, 5 vezes 
-rep(c(1,2), 3)     # Repetindo o vetor (1,2), 3 vezes
+rep(c(1,"ab"), 3)  # Repetindo o vetor (1,"ab"), 3 vezes
 ```
 :::
 
@@ -241,9 +259,10 @@ Como alternativa, você pode atribuir novos rótulos de nível ao criar o fator.
 No exemplo anterior, gostaríamos que a ordem fosse da velocidade menor para o maior.
 
 ```{r}
-# Enter ORIGINAL values in levels 
-# Enter the NEW level labels in labels 
-# Make sure the orderings of levels and labels correspond 
+# Insira os valores originais nos níveis
+# Insira os novos valores nos rótulos
+# Tenha certeza que a ordem dos níveis e dos rótulos correspondem 
+
 y <- factor(c("super rápido", "super lento", "normal", "super rápido", "normal"),              
             levels = c("super lento", "normal", "super rápido"), 
             labels = c("Super Lento", "Normal", "Super Rápido")) 

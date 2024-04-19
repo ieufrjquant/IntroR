@@ -1,27 +1,31 @@
-# Primeiros passos
+# Primeiros passos {#sec-prim-passos}
 
 ::: {.callout-note appearance="minimal"}
 Partes deste capítulo são baseadas na seção [3.2 'R como calculadora'](https://livro.curso-r.com/3-2-r-como-calculadora.html) do livro *Ciência de Dados em R*, feito pelo Curso-R. De qualquer modo, eventuais erros são inteiramente de nossa responsabilidade.
 :::
 
-Como vimos nos capítulos anteriores, o papel do **Console** no R é interpretar os nossos comandos à luz da linguagem. Ele avalia o código que o passamos e devolve a saída correspondente — se tudo der certo — ou uma mensagem de erro — se o seu código tiver algum problema. Essa operação é chamada de **avaliar**, **executar** ou **rodar** o código. Para que seu código seja executado diretamente no Console, escreva-o e, na sequência, aperte `Enter`. A outra forma de executar uma expressão é escrever o código em um *script* no **Editor**, deixar o cursor em cima da linha e usar o atalho `Ctrl + Enter`. Assim, o comando é enviado para o Console, onde é diretamente executado.
+Como vimos nos capítulos anteriores, o papel do **Console** no R é interpretar os nossos comandos à luz da linguagem. Ele avalia o código que o passamos e devolve a saída correspondente – se tudo der certo – ou uma mensagem de erro – se o seu código tiver algum problema. Essa operação é chamada de **avaliar**, **executar** ou **rodar** o código. Para que seu código seja executado diretamente no Console, escreva-o e, na sequência, aperte `Enter`. A outra forma de executar uma expressão é escrevê-la em um *script* no **Editor**, selecioná-la (ou apenas clicar na linha em que está) e usar o atalho `Ctrl + Enter`. Assim, o comando é enviado para o Console, onde é diretamente executado.
 
-Nesse capítulo, você *rodará* suas primeiras linhas de código com intuito de realizar operações aritméticas como *adição*, *subtração*, *multiplicação* e *divisão*, além de comparações lógicas simples. O objetivo aqui não é te ensinar matemática básica, mas te preparar para a execução de linhas de código mais avançadas. É a forma mais fácil de um iniciante ganhar familiaridade e experiência prática com o R.
+Nesse capítulo, te mostraremos como o processo funciona! Você *rodará* suas primeiras linhas de código, ordenando ao R que realize operações aritméticas como *adição*, *subtração*, *multiplicação* e *divisão*, além de comparações lógicas simples. O objetivo aqui não é ensinar matemática básica, mas te proporcionar a primeira experiência prática com o R. É o jeito mais fácil de um iniciante se familiarizar com a linguagem, automaticamente se preparando melhor para a execução de linhas de código mais avançadas.
 
 ## Operadores Aritméticos
 
-De agora em diante, cada região sombreada de cinza representa código, ao passo que seu resultado estará exposto logo na sequência. Vamos começar com um exemplo simples:
+::: {.callout-note appearance="simple"}
+De agora em diante, cada região sombreada de cinza e centralizada no documento representa um pedaço código. Quando couber, o resultado de sua execução no Console será exposto logo na sequência. Observe que você pode copiar o que está escrito ao passar o cursor sobre a região e clicar no símbolo de prancheta que aparecerá no canto direito superior.
+:::
+
+Vamos começar com um exemplo simples! Vamos pedir ao R que some os números `1` e `1`:
 
 ```{r}
 1 + 1
 ```
 
 ::: {.content-visible when-format="pdf"}
-Nesse caso, o nosso comando foi o código `1 + 1` e a saída foi o valor `2`. Como você pode reproduzir esse comando no RStudio? Inicialmente, copie o que está escrito acima ao clicar no símbolo de prancheta no canto superior direito da região sombreada. Na sequência, cole no Editor de Código e aperte `Ctrl + Enter` (ou então no Console, pressionando apenas `Enter`).
+Nesse caso, o nosso comando foi o código `1 + 1` e a saída foi o valor `2`. Como você pode reproduzir esse comando no RStudio? Inicialmente, copie o que está escrito acima ao clicar no símbolo de prancheta no canto superior direito da região sombreada. Na sequência, cole no Editor de Código e aperte `Ctrl + Enter` (ou então cole no Console, na sequência pressionando apenas `Enter`).
 :::
 
 ::: {.content-visible when-format="html"}
-Nesse caso, o nosso comando foi o código `1 + 1` e a saída foi o valor `2`. Como você pode reproduzir esse comando no RStudio? Inicialmente, copie o que está escrito acima ao clicar no símbolo de prancheta no canto superior direito da região sombreada. Na sequência, cole no Editor de Código e aperte `Ctrl + Enter` (ou então no Console, pressionando apenas `Enter`). Observe abaixo!
+Nesse caso, o nosso comando foi o código `1 + 1` e a saída foi o valor `2`. Como você pode reproduzir esse comando no RStudio? Inicialmente, copie o que está escrito acima ao clicar no símbolo de prancheta no canto superior direito da região sombreada. Na sequência, cole no Editor de Código e aperte `Ctrl + Enter` (ou então cole no Console, na sequência pressionando apenas `Enter`). Observe abaixo!
 
 ![](images/1mais1.gif){fig-align="center"}
 :::
@@ -31,7 +35,7 @@ Tente agora jogar no Console a expressão: `2 * 2 - (4 + 4) / 2`. Deu zero? Pron
 ```{r}
 #| label: tbl-ope-mat
 #| echo: false
-#| tbl-cap: Operadores matemáticos do R
+#| tbl-cap: Operadores matemáticos no R
 #| 
 data.frame(operacao = c("Adição", "Subtração", "Multiplicação", "Divisão", "Potenciação", "Resto da Divisão", "Parte Inteira da Divisão"),
            operador = c("+", "-", "*", "/", "^", "%%", "%/%"),
@@ -40,6 +44,8 @@ data.frame(operacao = c("Adição", "Subtração", "Multiplicação", "Divisão"
   knitr::kable(align = "c", col.names = c("Operação", "Operador", "Exemplo", "Resultado"))
 
 ```
+
+Incluímos os operadores de potênciação, resto e parte inteira de divisão. Na prática, não serão tão utilizados quanto os demais, mas é importante que você os veja pelo menos uma vez durante o processo de aprendizado.
 
 ## Operadores Lógicos
 
@@ -58,14 +64,18 @@ Abaixo, introduzimos a @tbl-ope-log com outros operadores lógicos da linguagem.
 
 data.frame(comparacao = c("Maior que", "Maior ou igual que", "Menor que", "Menor ou igual que", "Igual à", "Diferente de", "x **e** y", "x **ou** y"),
            operador = c(">", ">=", "<", "<=", "==", "!=", "&", "|"),
-           exemplo = c("2 > 1", "2 >= 2", "2 < 3", "5 =< 3", "4 == 4", "5 != 3", "x <- c(1, 4, NA, 8) <br> x[!is.na(x) & x > 5]", "x <- c(1, 4, NA, 8) <br> x[!is.na(x) | x > 5]"),
+           exemplo = c("2 > 1", "2 >= 2", "2 < 3", "5 <= 3", "4 == 4", "5 != 3", "x <- c(1, 4, NA, 8) <br> x[!is.na(x) & x > 5]", "x <- c(1, 4, NA, 8) <br> x[!is.na(x) | x > 5]"),
            resultado = c(2 > 1, 2 >= 2, 2 < 3, 5 <= 3, 4 == 4, 5 != 3, 8, "1, 4, 8")) |>  
   knitr::kable(align = "c", col.names = c("Operação", "Operador", "Exemplo", "Resultado"))
 ```
 
 ## Possíveis complicações
 
-Se você digitar um comando incompleto, como `5 +`, e apertar `Enter`, o R mostrará um `+`, o que não tem nada a ver com a adição da matemática. Isso significa que o R está esperando você enviar **mais** algum código para completar o seu comando. Termine o seu comando ou aperte `Esc` para recomeçar.
+Em determinado momento, você pode acabar executando errado algum trecho de código. Como o R se comporta nessas situações?
+
+### Comando incompleto
+
+Se você digitar um comando incompleto no Console, como `5 +`, e apertar `Enter`, o R mostrará um `+`, o que não tem nada a ver com a adição da matemática. Isso significa que o R está esperando você enviar **mais** algum código para completar o seu comando. Termine o seu comando ou aperte `Esc` para recomeçar.
 
 ```{r, error=TRUE}
 5 -
@@ -73,14 +83,16 @@ Se você digitar um comando incompleto, como `5 +`, e apertar `Enter`, o R mostr
 + 5
 ```
 
-Se você digitar um comando que o R não reconhece, ele retornará uma mensagem de erro. **Não entre em pânico.** Ele só está te avisando que não conseguiu interpretar o comando.
+### Comando inexistente na linguagem
+
+Se você digitar um comando que o R não reconhece, ele retornará uma mensagem de erro. **Não entre em pânico.** Ele só está te avisando que não conseguiu interpretar o comando. Imagine que queremos retornar a parte inteira da divisão de `5` por `2`. Nesse caso, devemos digitar `5 %% 2` no Editor e rodar. Mas, se por engano, digitarmos `5 % 2`?
 
 ```{r, error=TRUE}
 5 % 2
 ```
 
-Você pode digitar outro comando normalmente em seguida.
+Não existe um operador `%` no R, logo esse comando retorna erro! Você pode digitar o comando correto normalmente em seguida.
 
 ```{r, error=TRUE}
-5 ^ 2
+5 %% 2
 ```

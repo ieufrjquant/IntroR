@@ -5,7 +5,7 @@
 library(tidyverse)
 ```
 
-# Funções e pacotes
+# Funções e pacotes {#sec-funcoes-e-pacotes}
 
 A segunda parte da citação dizia:
 
@@ -34,7 +34,6 @@ Vamos deixar os conceitos mais claros. Imagine que te propronho a seguinte regra
 [^funcoes-e-pacotes-1]: Pense em números como $0,01$, por exemplo. Inserindo na nossa função, teríamos então $f(x)=2/0,01=200$. Se inseríssemos $0,001$, obteríamos $f(x)=2/0,001=2000$. O mesmo vale para valores negativos, apenas alterando o sinal do resultado. Perceba que, sendo em módulo menor do que um, quanto mais próximo de zero for o número, mais extremo será o resultado da função.
 
 Perceba que definimos a função acima de modo *verbal*, ou seja, com palavras. Poderíamos também descrevê-la numericamente através de uma tabela ou, então, de forma visual com um gráfico (ambas abaixo). De todo modo, a forma mais comum de se descrever uma função é através de sua *fórmula* que, no nosso exemplo, seria $f(x)=2/x$.
-
 
 ::: columns
 ::: {.column width="40%"}
@@ -79,7 +78,6 @@ library(ggplot2)
 ```
 :::
 :::
-
 
 Não precisamos nos aprofundar nos conceitos. **O que você precisa guardar dessa seção é o fato de podermos pensar na função como uma *caixa preta* que, ao receber elementos de** $A$, **os transforma em um determinado valor *(output)* presente em** $B$. Como vimos, a forma pela qual essa 'caixa preta' irá transformar $x$ em $f(x)$ é a nossa regra propriamente dita.
 

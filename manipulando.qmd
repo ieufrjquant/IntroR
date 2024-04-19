@@ -1,0 +1,19 @@
+# Manipulando
+
+Aprendemos, nesta parte do material:
+
+-   Escrever e executar comandos, seja no Console ou Editor;
+
+-   O que são objetos e funções, além de como criá-los e armazená-los na memória;
+
+-   Importar dados para o R, isto é, criar e armazenar objetos com seu conteúdo na memória
+
+Perceba que estamos construindo uma sequência lógica de aprendizado. No @sec-prim-passos, nos familiarizamos um pouco melhor com comandos no R e o ambiente do RStudio. Nos @sec-objetos e @sec-funcoes-e-pacotes, aprendemos os conceitos de objeto e função, respectivamente, utilizando a experiência adquirida no capítulo anterior para criá-los e armazená-los sem a desconfiança inicial de quem nunca teve contato com a linguagem. Por fim, no @sec-importando desenvolvemos a capacidade de importar dados de fontes externas ao R – sejam eles do mundo real ou apenas construídos pelo seu professor.
+
+Em resumo, você pode pensar que chegamos neste momento com um certo conhecimento e prática na linguagem um objeto contendo dados
+
+Modificar seu número de linhas, colunas ou seus dados propriamente ditos.
+
+## Sem funções externas
+
+## dplyr

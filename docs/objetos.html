@@ -146,7 +146,7 @@ window.Quarto = {
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Alternar barra lateral" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./intro-lingr.html">Programando em R</a></li><li class="breadcrumb-item"><a href="./objetos.html"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Objetos</span></a></li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./intro-lingr.html">R Básico</a></li><li class="breadcrumb-item"><a href="./objetos.html"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Objetos</span></a></li></ol></nav>
         <a class="flex-grow-1" role="button" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Alternar barra lateral" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
       <button type="button" class="btn quarto-search-button" aria-label="" onclick="window.quartoOpenSearch();">
@@ -232,7 +232,7 @@ window.Quarto = {
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
             <a href="./intro-lingr.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Programando em R</span></a>
+ <span class="menu-text">R Básico</span></a>
           <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" aria-expanded="true" aria-label="Alternar seção">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
@@ -256,10 +256,27 @@ window.Quarto = {
  <span class="menu-text"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Funções e pacotes</span></span></a>
   </div>
 </li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a href="./dados.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Dados</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" aria-expanded="true" aria-label="Alternar seção">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-3" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./importando.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">Importando dados</span></span></a>
+ <span class="menu-text"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">Importando</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./manipulando.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">Manipulando</span></span></a>
   </div>
 </li>
       </ul>
@@ -293,9 +310,9 @@ window.Quarto = {
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
-<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./intro-lingr.html">Programando em R</a></li><li class="breadcrumb-item"><a href="./objetos.html"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Objetos</span></a></li></ol></nav>
+<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./intro-lingr.html">R Básico</a></li><li class="breadcrumb-item"><a href="./objetos.html"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Objetos</span></a></li></ol></nav>
 <div class="quarto-title">
-<h1 class="title"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Objetos</span></h1>
+<h1 class="title"><span id="sec-objetos" class="quarto-section-identifier"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Objetos</span></span></h1>
 </div>
 
 
@@ -606,8 +623,8 @@ Tabela&nbsp;5.3
 <p>Na seção anterior, vimos os conceitos de <em>tipo</em> e <em>forma</em>. Tenha em mente que são duas definições que existem independentemente de qualquer linguagem de programação – elas versam sobre <em>dados</em> de forma geral.</p>
 <p>Por outro lado, agora veremos o conceito e alguns exemplos de <em>estrutura de dados</em> para o R. <strong>A estrutura de dados é a forma pela qual o R classificará um objeto em relação ao <em>tipo</em> e a <em>forma</em> dos dados que contém.</strong> Existe uma estrutura de dados para cada combinação de tipo e forma? <strong>Não.</strong> Compreender as principais estruturas disponíveis no R requer vê-las como uma combinação de</p>
 <ol type="a">
-<li><em>algum</em> formato de dados</li>
-<li>o fato de conterem um único ou vários tipos de dados</li>
+<li>Determinado formato de dados</li>
+<li>Número de tipos de dados (se é único ou possui vários)</li>
 </ol>
 <section id="criando-e-armazenando-objetos-na-memória" class="level3" data-number="5.2.1">
 <h3 data-number="5.2.1" class="anchored" data-anchor-id="criando-e-armazenando-objetos-na-memória"><span class="header-section-number">5.2.1</span> Criando e armazenando objetos na memória</h3>
@@ -686,42 +703,53 @@ Tabela&nbsp;5.3
 </div>
 </div>
 <p>É inegável que, a partir deste ponto, as estruturas começam a ficar mais interessantes. Lembre-se que o vetor tem uma dimensão e pode ter muitas informações armazenadas. É natural que, em determinadas situações, desejemos acessar apenas valores específicos dentre os que constam nele.</p>
-<p>Como podemos fazer isso? Note que podemos associar a cada elemento de um vetor um número, representando a linha ou coluna em que consta. A esse número chamamos de índice! Dessa forma, fica fácil acessar qualquer um de seus valores. Basta escrever, ao lado de seu nome e entre colchetes, o índice que está associado à este valor. Por exemplo, vamos acessar o segundo elemento do vetor <code>z</code> que acabamos de criar.</p>
+<p>Como podemos fazer isso? Note que podemos um número associar a cada elemento de um vetor, representando a linha ou coluna em que consta. A esse número chamamos de <em>índice</em>. Dessa forma, fica fácil acessar qualquer um de seus valores: basta escrever, ao lado de seu nome e entre colchetes, o índice que está associado à este valor. Por exemplo, vamos acessar o segundo elemento do vetor <code>z</code> que acabamos de criar.</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb13"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a>z[<span class="dv">2</span>] <span class="co"># Acessando o segundo elemento de um vetor</span></span></code><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb13"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a>z[<span class="dv">2</span>] <span class="co"># Acessando o segundo elemento do vetor z</span></span></code><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] "texto"</code></pre>
 </div>
 </div>
-<div class="callout callout-style-default callout-tip callout-titled">
-<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-1-contents" aria-controls="callout-1" aria-expanded="false" aria-label="Toggle callout">
+<p>Você também acessar mais de um valor específico.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb15"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a>z[<span class="dv">2</span><span class="sc">:</span><span class="dv">4</span>] <span class="co"># Acessando do segundo ao quarto elemento do vetor z</span></span></code><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] "texto" "TRUE"  NA     </code></pre>
+</div>
+</div>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
 <i class="callout-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
-Outras formas de criar vetores (Opcional)
+Algumas formas de criar vetores padronizados
 </div>
-<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
 </div>
-<div id="callout-1" class="callout-1-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
+<p>Em determinadas situações, você pode ter o desejo de criar um vetor que tenha certo padrão. Por exemplo, se quiséssemos criar um vetor contendo todos os números inteiros de 1 a 7, como faríamos? Uma opção, de fato, é escrever <code>c(1,2,3,4,5,6,7)</code>. No entanto, essa abordagem não é prática quando a sequência for grande: imagine ter que escrever todos os números de 1 a 100, por exemplo! Nessas ocasiões, podemos gerar o vetor desejado escrevendo o limite inferior e superior separados pelo operador <code>:</code>!</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb15"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a><span class="dv">1</span><span class="sc">:</span><span class="dv">7</span>                <span class="co"># Criando uma sequência de números de 1 a 7</span></span></code><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb17"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a><span class="dv">2</span><span class="sc">:</span><span class="dv">10</span>                <span class="co"># Criando uma sequência de números de 2 a 10</span></span></code><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>[1] 1 2 3 4 5 6 7</code></pre>
+<pre><code>[1]  2  3  4  5  6  7  8  9 10</code></pre>
 </div>
-<div class="sourceCode cell-code" id="cb17"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a><span class="fu">seq</span>(<span class="dv">2</span>, <span class="dv">10</span>, <span class="at">by =</span> <span class="dv">2</span>) <span class="co"># Criando um sequência de 2 a 10 pulando um número. </span></span></code><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>Mas… e se quiséssemos selecionar uma sequência com mesmo intervalo, de tal maneira que o termo seguinte fosse igual ao termo anterior mais dois? Podemos usar a função <code>seq()</code>! Note que, tanto neste caso quanto no anterior, estamos falando da criação de vetores numéricos.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb19"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb19-1"><a href="#cb19-1" aria-hidden="true" tabindex="-1"></a><span class="fu">seq</span>(<span class="dv">2</span>, <span class="dv">10</span>, <span class="at">by =</span> <span class="dv">2</span>) <span class="co"># Criando um sequência de 2 a 10 pulando um número.</span></span></code><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1]  2  4  6  8 10</code></pre>
 </div>
-<div class="sourceCode cell-code" id="cb19"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb19-1"><a href="#cb19-1" aria-hidden="true" tabindex="-1"></a><span class="fu">rep</span>(<span class="dv">3</span>, <span class="dv">5</span>)          <span class="co"># Repetindo o número 3, 5 vezes </span></span></code><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>Por fim, e não menos importante, você ter o desejo de criar um vetor com valores repetidos – seja número, texto ou lógico. Para essa tarefa, utilizamos a função <code>rep()</code>!</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb21"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb21-1"><a href="#cb21-1" aria-hidden="true" tabindex="-1"></a><span class="fu">rep</span>(<span class="dv">3</span>, <span class="dv">5</span>)          <span class="co"># Repetindo o número 3, 5 vezes </span></span></code><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] 3 3 3 3 3</code></pre>
 </div>
-<div class="sourceCode cell-code" id="cb21"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb21-1"><a href="#cb21-1" aria-hidden="true" tabindex="-1"></a><span class="fu">rep</span>(<span class="fu">c</span>(<span class="dv">1</span>,<span class="dv">2</span>), <span class="dv">3</span>)     <span class="co"># Repetindo o vetor (1,2), 3 vezes</span></span></code><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb23"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb23-1"><a href="#cb23-1" aria-hidden="true" tabindex="-1"></a><span class="fu">rep</span>(<span class="fu">c</span>(<span class="dv">1</span>,<span class="st">"ab"</span>), <span class="dv">3</span>)  <span class="co"># Repetindo o vetor (1,"ab"), 3 vezes</span></span></code><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>[1] 1 2 1 2 1 2</code></pre>
-</div>
+<pre><code>[1] "1"  "ab" "1"  "ab" "1"  "ab"</code></pre>
 </div>
 </div>
 </div>
@@ -731,8 +759,8 @@ Outras formas de criar vetores (Opcional)
 <p>Um <strong>fator</strong> é um tipo especial de vetor que contém valores numéricos subjacentes <span class="math inline">\(1, 2,..., n\)</span>, mas cada um desses <span class="math inline">\(n\)</span> valores possui um rótulo de texto associado (que pode ou não ser o valor numérico). Esses valores rotulados são os <strong>níveis</strong> <em>(levels)</em> do fator. Um uso comum de um fator é armazenar uma variável categórica. <strong>Depois de criar um vetor de fator com níveis específicos, nenhum elemento desse vetor poderá assumir um valor que não seja um de seus níveis pré-atribuídos.</strong></p>
 <p>Você pode criar um fator a partir de um vetor de caracteres e o R assumirá que os valores únicos são os rótulos dos níveis. Por exemplo, no exemplo abaixo os níveis serão “lento”, “normal” e “rápido”.</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb23"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb23-1"><a href="#cb23-1" aria-hidden="true" tabindex="-1"></a>y <span class="ot">&lt;-</span> <span class="fu">factor</span>(<span class="fu">c</span>(<span class="st">"super rápido"</span>, <span class="st">"super lento"</span>, <span class="st">"normal"</span>, <span class="st">"super rápido"</span>, <span class="st">"normal"</span>))</span>
-<span id="cb23-2"><a href="#cb23-2" aria-hidden="true" tabindex="-1"></a>y         <span class="co"># Rodar o vetor de fator também irá retornar os níveis</span></span></code><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb25"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb25-1"><a href="#cb25-1" aria-hidden="true" tabindex="-1"></a>y <span class="ot">&lt;-</span> <span class="fu">factor</span>(<span class="fu">c</span>(<span class="st">"super rápido"</span>, <span class="st">"super lento"</span>, <span class="st">"normal"</span>, <span class="st">"super rápido"</span>, <span class="st">"normal"</span>))</span>
+<span id="cb25-2"><a href="#cb25-2" aria-hidden="true" tabindex="-1"></a>y         <span class="co"># Rodar o vetor de fator também irá retornar os níveis</span></span></code><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] super rápido super lento  normal       super rápido normal      
 Levels: normal super lento super rápido</code></pre>
@@ -740,8 +768,8 @@ Levels: normal super lento super rápido</code></pre>
 </div>
 <p>Se quiser alterar os rótulos, você pode fazê-lo atribuindo um novo valor aos seus níveis. Por exemplo, suponha que queiramos que os rótulos sejam maiúsculos.</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb25"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb25-1"><a href="#cb25-1" aria-hidden="true" tabindex="-1"></a><span class="fu">levels</span>(y) <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">"Super Rápido"</span>, <span class="st">"Normal"</span>, <span class="st">"Super Lento"</span>) </span>
-<span id="cb25-2"><a href="#cb25-2" aria-hidden="true" tabindex="-1"></a><span class="fu">levels</span>(y)</span></code><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb27"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb27-1"><a href="#cb27-1" aria-hidden="true" tabindex="-1"></a><span class="fu">levels</span>(y) <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">"Super Rápido"</span>, <span class="st">"Normal"</span>, <span class="st">"Super Lento"</span>) </span>
+<span id="cb27-2"><a href="#cb27-2" aria-hidden="true" tabindex="-1"></a><span class="fu">levels</span>(y)</span></code><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] "Super Rápido" "Normal"       "Super Lento" </code></pre>
 </div>
@@ -749,17 +777,18 @@ Levels: normal super lento super rápido</code></pre>
 <p>Como alternativa, você pode atribuir novos rótulos de nível ao criar o fator. Isso tem a vantagem adicional de permitir que você decida em que ordem os níveis devem aparecer. Quando criamos o fator, R atribuiu automaticamente os níveis pegando os valores exclusivos de <code>y</code> e colocando-os em ordem alfabética. Por vários motivos (como criar um gráfico de barras posteriormente), você pode querer que os níveis estejam em uma ordem diferente. <strong>Você pode especificar a ordem dos níveis ao criar a variável, mas tome cuidado porque se você deixar de fora um valor que aparece nos dados esse valor acabará definido como ausente (</strong><code>NA</code><strong>)</strong>.</p>
 <p>No exemplo anterior, gostaríamos que a ordem fosse da velocidade menor para o maior.</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb27"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb27-1"><a href="#cb27-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Enter ORIGINAL values in levels </span></span>
-<span id="cb27-2"><a href="#cb27-2" aria-hidden="true" tabindex="-1"></a><span class="co"># Enter the NEW level labels in labels </span></span>
-<span id="cb27-3"><a href="#cb27-3" aria-hidden="true" tabindex="-1"></a><span class="co"># Make sure the orderings of levels and labels correspond </span></span>
-<span id="cb27-4"><a href="#cb27-4" aria-hidden="true" tabindex="-1"></a>y <span class="ot">&lt;-</span> <span class="fu">factor</span>(<span class="fu">c</span>(<span class="st">"super rápido"</span>, <span class="st">"super lento"</span>, <span class="st">"normal"</span>, <span class="st">"super rápido"</span>, <span class="st">"normal"</span>),              </span>
-<span id="cb27-5"><a href="#cb27-5" aria-hidden="true" tabindex="-1"></a>            <span class="at">levels =</span> <span class="fu">c</span>(<span class="st">"super lento"</span>, <span class="st">"normal"</span>, <span class="st">"super rápido"</span>), </span>
-<span id="cb27-6"><a href="#cb27-6" aria-hidden="true" tabindex="-1"></a>            <span class="at">labels =</span> <span class="fu">c</span>(<span class="st">"Super Lento"</span>, <span class="st">"Normal"</span>, <span class="st">"Super Rápido"</span>)) </span>
-<span id="cb27-7"><a href="#cb27-7" aria-hidden="true" tabindex="-1"></a><span class="fu">levels</span>(y)</span></code><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb29"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb29-1"><a href="#cb29-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Insira os valores originais nos níveis</span></span>
+<span id="cb29-2"><a href="#cb29-2" aria-hidden="true" tabindex="-1"></a><span class="co"># Insira os novos valores nos rótulos</span></span>
+<span id="cb29-3"><a href="#cb29-3" aria-hidden="true" tabindex="-1"></a><span class="co"># Tenha certeza que a ordem dos níveis e dos rótulos correspondem </span></span>
+<span id="cb29-4"><a href="#cb29-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb29-5"><a href="#cb29-5" aria-hidden="true" tabindex="-1"></a>y <span class="ot">&lt;-</span> <span class="fu">factor</span>(<span class="fu">c</span>(<span class="st">"super rápido"</span>, <span class="st">"super lento"</span>, <span class="st">"normal"</span>, <span class="st">"super rápido"</span>, <span class="st">"normal"</span>),              </span>
+<span id="cb29-6"><a href="#cb29-6" aria-hidden="true" tabindex="-1"></a>            <span class="at">levels =</span> <span class="fu">c</span>(<span class="st">"super lento"</span>, <span class="st">"normal"</span>, <span class="st">"super rápido"</span>), </span>
+<span id="cb29-7"><a href="#cb29-7" aria-hidden="true" tabindex="-1"></a>            <span class="at">labels =</span> <span class="fu">c</span>(<span class="st">"Super Lento"</span>, <span class="st">"Normal"</span>, <span class="st">"Super Rápido"</span>)) </span>
+<span id="cb29-8"><a href="#cb29-8" aria-hidden="true" tabindex="-1"></a><span class="fu">levels</span>(y)</span></code><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] "Super Lento"  "Normal"       "Super Rápido"</code></pre>
 </div>
-<div class="sourceCode cell-code" id="cb29"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb29-1"><a href="#cb29-1" aria-hidden="true" tabindex="-1"></a>y</span></code><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb31"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb31-1"><a href="#cb31-1" aria-hidden="true" tabindex="-1"></a>y</span></code><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] Super Rápido Super Lento  Normal       Super Rápido Normal      
 Levels: Super Lento Normal Super Rápido</code></pre>
@@ -771,8 +800,8 @@ Levels: Super Lento Normal Super Rápido</code></pre>
 <h3 data-number="5.2.4" class="anchored" data-anchor-id="matriz"><span class="header-section-number">5.2.4</span> Matriz</h3>
 <p>Uma <strong>matriz</strong> contém uma coleção bidimensional de dados indexados por pares de inteiros <span class="math inline">\((i, j)\)</span>. <em>A matriz como estrutura de dados é a combinação da forma matriz com dados de um único tipo, não necessariamente numérico.</em> Abaixo, uma matriz numérica.</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb31"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb31-1"><a href="#cb31-1" aria-hidden="true" tabindex="-1"></a>x <span class="ot">&lt;-</span> <span class="fu">matrix</span>(<span class="fu">c</span>(<span class="dv">1</span>,<span class="dv">2</span>,<span class="dv">3</span>,<span class="dv">4</span>,<span class="dv">5</span>,<span class="dv">6</span>), <span class="at">nrow =</span> <span class="dv">2</span>, <span class="at">ncol =</span> <span class="dv">3</span>) </span>
-<span id="cb31-2"><a href="#cb31-2" aria-hidden="true" tabindex="-1"></a>x</span></code><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb33"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb33-1"><a href="#cb33-1" aria-hidden="true" tabindex="-1"></a>x <span class="ot">&lt;-</span> <span class="fu">matrix</span>(<span class="fu">c</span>(<span class="dv">1</span>,<span class="dv">2</span>,<span class="dv">3</span>,<span class="dv">4</span>,<span class="dv">5</span>,<span class="dv">6</span>), <span class="at">nrow =</span> <span class="dv">2</span>, <span class="at">ncol =</span> <span class="dv">3</span>) </span>
+<span id="cb33-2"><a href="#cb33-2" aria-hidden="true" tabindex="-1"></a>x</span></code><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>     [,1] [,2] [,3]
 [1,]    1    3    5
@@ -781,16 +810,16 @@ Levels: Super Lento Normal Super Rápido</code></pre>
 </div>
 <p>Assim como os vetores, as matrizes não podem conter valores de diferentes tipos. Se você tentar criar uma matriz contendo valores numéricos e de caracteres, por exemplo, ela converterá os valores numéricos em caracteres. Note que você pode definir o número de linhas e colunas que uma matriz venha a possuir.</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb33"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb33-1"><a href="#cb33-1" aria-hidden="true" tabindex="-1"></a>z <span class="ot">&lt;-</span> <span class="fu">matrix</span>(<span class="fu">c</span>(<span class="dv">1</span>,<span class="dv">2</span>,<span class="st">"c"</span>,<span class="st">"d"</span>,<span class="st">"e"</span>,<span class="st">"f"</span>), <span class="at">nrow =</span> <span class="dv">3</span>, <span class="at">ncol =</span> <span class="dv">2</span>) </span>
-<span id="cb33-2"><a href="#cb33-2" aria-hidden="true" tabindex="-1"></a>z</span></code><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb35"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb35-1"><a href="#cb35-1" aria-hidden="true" tabindex="-1"></a>z <span class="ot">&lt;-</span> <span class="fu">matrix</span>(<span class="fu">c</span>(<span class="dv">1</span>,<span class="dv">2</span>,<span class="st">"c"</span>,<span class="st">"d"</span>,<span class="st">"e"</span>,<span class="st">"f"</span>), <span class="at">nrow =</span> <span class="dv">3</span>, <span class="at">ncol =</span> <span class="dv">2</span>) </span>
+<span id="cb35-2"><a href="#cb35-2" aria-hidden="true" tabindex="-1"></a>z</span></code><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>     [,1] [,2]
 [1,] "1"  "d" 
 [2,] "2"  "e" 
 [3,] "c"  "f" </code></pre>
 </div>
-<div class="sourceCode cell-code" id="cb35"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb35-1"><a href="#cb35-1" aria-hidden="true" tabindex="-1"></a>z <span class="ot">&lt;-</span> <span class="fu">matrix</span>(<span class="fu">c</span>(<span class="dv">1</span>,<span class="dv">2</span>,<span class="st">"c"</span>,<span class="st">"d"</span>,<span class="st">"e"</span>,<span class="st">"f"</span>), <span class="at">nrow =</span> <span class="dv">2</span>, <span class="at">ncol =</span> <span class="dv">3</span>) </span>
-<span id="cb35-2"><a href="#cb35-2" aria-hidden="true" tabindex="-1"></a>z</span></code><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb37"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb37-1"><a href="#cb37-1" aria-hidden="true" tabindex="-1"></a>z <span class="ot">&lt;-</span> <span class="fu">matrix</span>(<span class="fu">c</span>(<span class="dv">1</span>,<span class="dv">2</span>,<span class="st">"c"</span>,<span class="st">"d"</span>,<span class="st">"e"</span>,<span class="st">"f"</span>), <span class="at">nrow =</span> <span class="dv">2</span>, <span class="at">ncol =</span> <span class="dv">3</span>) </span>
+<span id="cb37-2"><a href="#cb37-2" aria-hidden="true" tabindex="-1"></a>z</span></code><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>     [,1] [,2] [,3]
 [1,] "1"  "c"  "e" 
@@ -800,25 +829,25 @@ Levels: Super Lento Normal Super Rápido</code></pre>
 <p>É importante ressaltar que, no R, uma matriz criada com <span class="math inline">\(i\)</span> linhas e <span class="math inline">\(1\)</span> coluna (ou <span class="math inline">\(1\)</span> linha e <span class="math inline">\(j\)</span> colunas) continua sendo interpretada como uma matriz, ao invés de ser interpretada como vetor-coluna (ou vetor-linha).</p>
 <p>Como a matriz é um objeto de natureza bidimensional, podemos acessar seus elementos individuais através da inserção dos seus índices de linha <em>e</em> coluna. Por exemplo, para acessar o elemento presente na segunda linha e terceira coluna da matriz <code>z</code> que aramazenamos por último, rode:</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb37"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb37-1"><a href="#cb37-1" aria-hidden="true" tabindex="-1"></a>z[<span class="dv">2</span>,<span class="dv">3</span>]</span></code><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb39"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb39-1"><a href="#cb39-1" aria-hidden="true" tabindex="-1"></a>z[<span class="dv">2</span>,<span class="dv">3</span>]</span></code><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] "f"</code></pre>
 </div>
 </div>
 <p>Outra forma de acessar algum dado específico da matriz é pensá-la como sendo um único vetor, o qual vai sendo repartido conforme termina o tamanho que você pré-selecionou paras colunas. Dessa forma, podemos retornar determinado elemento pensando em seu índice de vetor. Por exemplo, poderíamos acessar o dado <code>f</code> pensando que é o sexto elemento do equivalente ao vetor <code>c("a","b","c","d","e","f")</code>.</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb39"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb39-1"><a href="#cb39-1" aria-hidden="true" tabindex="-1"></a>z[<span class="dv">6</span>]</span></code><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb41"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb41-1"><a href="#cb41-1" aria-hidden="true" tabindex="-1"></a>z[<span class="dv">6</span>]</span></code><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] "f"</code></pre>
 </div>
 </div>
 <p>Ao mesmo tempo, podemos acessar apenas uma coluna ou linha específica. Para tal, selecione a coluna ou linha que deseja retornar e deixe a coordenada restante como espaço vazio. No código abaixo, vamos selecionar inicialmente a primeira linha da matriz <code>z</code> e, na sequência, sua terceira coluna.</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb41"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb41-1"><a href="#cb41-1" aria-hidden="true" tabindex="-1"></a>z[<span class="dv">1</span>,]</span></code><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb43"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb43-1"><a href="#cb43-1" aria-hidden="true" tabindex="-1"></a>z[<span class="dv">1</span>,]</span></code><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] "1" "c" "e"</code></pre>
 </div>
-<div class="sourceCode cell-code" id="cb43"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb43-1"><a href="#cb43-1" aria-hidden="true" tabindex="-1"></a>z[,<span class="dv">3</span>]</span></code><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb45"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb45-1"><a href="#cb45-1" aria-hidden="true" tabindex="-1"></a>z[,<span class="dv">3</span>]</span></code><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] "e" "f"</code></pre>
 </div>
@@ -830,13 +859,13 @@ Levels: Super Lento Normal Super Rápido</code></pre>
 <p>A necessidade de armazenar dados heterogêneos não é nada exótico ou incomum. Na verdade, mesmo os conjuntos de dados mais simples exigem a mistura de vários tipos de dados. Por exemplo, imagine que queremos armazenar um conjunto de dados que contém informações básicas sobre um grupo de pessoas, assim como na <a href="#tbl-tabela-retangular" class="quarto-xref">Tabela&nbsp;<span>5.3</span></a>. Cada uma dessas cinco variáveis pode ser armazenada como um vetor (as duas primeiras do tipo caractere, as outras do tipo numérico). Para armazenar todas as cinco variáveis em uma única estrutura de dados, podemos combinar os cinco vetores em uma tabela retangular. As tabelas são a forma mais frequente de armazenar dados!</p>
 <p>E qual o nome da estrutura de dados que armazena tabelas de dados no R? São os <em>data frames! O data frame como estrutura de dados é a combinação da forma tabela e da presença de qualquer tipo de dado.</em> No <em>chunk</em> abaixo, vamos recriar a <a href="#tbl-tabela-retangular" class="quarto-xref">Tabela&nbsp;<span>5.3</span></a> como exemplo.</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb45"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb45-1"><a href="#cb45-1" aria-hidden="true" tabindex="-1"></a>info_pessoas <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(<span class="at">Nome =</span> <span class="fu">c</span>(<span class="st">"Jorge"</span>, <span class="st">"Laís"</span>, <span class="st">"Matheus"</span>, <span class="st">"Laura"</span>, <span class="st">"Nathália"</span>),</span>
-<span id="cb45-2"><a href="#cb45-2" aria-hidden="true" tabindex="-1"></a>                           Gênero <span class="ot">=</span> <span class="fu">c</span>(<span class="st">"Masculino"</span>, <span class="st">"Feminino"</span>, <span class="st">"Masculino"</span>, <span class="st">"Feminino"</span>, <span class="st">"Feminino"</span>),</span>
-<span id="cb45-3"><a href="#cb45-3" aria-hidden="true" tabindex="-1"></a>                           <span class="at">Idade =</span> <span class="fu">c</span>(<span class="dv">18</span>, <span class="dv">23</span>, <span class="dv">22</span>, <span class="dv">21</span>, <span class="dv">21</span>),</span>
-<span id="cb45-4"><a href="#cb45-4" aria-hidden="true" tabindex="-1"></a>                           <span class="at">Altura =</span> <span class="fu">c</span>(<span class="dv">180</span>, <span class="dv">170</span>, <span class="dv">175</span>, <span class="dv">181</span>, <span class="dv">168</span>),</span>
-<span id="cb45-5"><a href="#cb45-5" aria-hidden="true" tabindex="-1"></a>                           <span class="at">Peso =</span> <span class="fu">c</span>(<span class="dv">76</span>, <span class="dv">65</span>, <span class="dv">70</span>, <span class="dv">68</span>, <span class="dv">66</span>))</span>
-<span id="cb45-6"><a href="#cb45-6" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb45-7"><a href="#cb45-7" aria-hidden="true" tabindex="-1"></a>info_pessoas</span></code><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb47"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb47-1"><a href="#cb47-1" aria-hidden="true" tabindex="-1"></a>info_pessoas <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(<span class="at">Nome =</span> <span class="fu">c</span>(<span class="st">"Jorge"</span>, <span class="st">"Laís"</span>, <span class="st">"Matheus"</span>, <span class="st">"Laura"</span>, <span class="st">"Nathália"</span>),</span>
+<span id="cb47-2"><a href="#cb47-2" aria-hidden="true" tabindex="-1"></a>                           Gênero <span class="ot">=</span> <span class="fu">c</span>(<span class="st">"Masculino"</span>, <span class="st">"Feminino"</span>, <span class="st">"Masculino"</span>, <span class="st">"Feminino"</span>, <span class="st">"Feminino"</span>),</span>
+<span id="cb47-3"><a href="#cb47-3" aria-hidden="true" tabindex="-1"></a>                           <span class="at">Idade =</span> <span class="fu">c</span>(<span class="dv">18</span>, <span class="dv">23</span>, <span class="dv">22</span>, <span class="dv">21</span>, <span class="dv">21</span>),</span>
+<span id="cb47-4"><a href="#cb47-4" aria-hidden="true" tabindex="-1"></a>                           <span class="at">Altura =</span> <span class="fu">c</span>(<span class="dv">180</span>, <span class="dv">170</span>, <span class="dv">175</span>, <span class="dv">181</span>, <span class="dv">168</span>),</span>
+<span id="cb47-5"><a href="#cb47-5" aria-hidden="true" tabindex="-1"></a>                           <span class="at">Peso =</span> <span class="fu">c</span>(<span class="dv">76</span>, <span class="dv">65</span>, <span class="dv">70</span>, <span class="dv">68</span>, <span class="dv">66</span>))</span>
+<span id="cb47-6"><a href="#cb47-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb47-7"><a href="#cb47-7" aria-hidden="true" tabindex="-1"></a>info_pessoas</span></code><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>      Nome    Gênero Idade Altura Peso
 1    Jorge Masculino    18    180   76
@@ -848,20 +877,20 @@ Levels: Super Lento Normal Super Rápido</code></pre>
 </div>
 <p>Você pode acessar qualquer dado específico de um <em>data frame</em> a partir do mesmo procedimento utilizado com matrizes. Por exemplo, para acessar o dado contido na segunda linha da primeira coluna, basta rodar <code>info_pessoas[2,1]</code>.</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb47"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb47-1"><a href="#cb47-1" aria-hidden="true" tabindex="-1"></a>info_pessoas[<span class="dv">2</span>,<span class="dv">1</span>]</span></code><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb49"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb49-1"><a href="#cb49-1" aria-hidden="true" tabindex="-1"></a>info_pessoas[<span class="dv">2</span>,<span class="dv">1</span>]</span></code><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] "Laís"</code></pre>
 </div>
 </div>
 <p>De forma semelhante, podemos acessar uma coluna ou linha específica.</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb49"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb49-1"><a href="#cb49-1" aria-hidden="true" tabindex="-1"></a>info_pessoas[,<span class="dv">2</span>] <span class="co"># Retornando dados da segundo coluna</span></span></code><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb51"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb51-1"><a href="#cb51-1" aria-hidden="true" tabindex="-1"></a>info_pessoas[,<span class="dv">2</span>] <span class="co"># Retornando dados da segundo coluna</span></span></code><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] "Masculino" "Feminino"  "Masculino" "Feminino"  "Feminino" </code></pre>
 </div>
 </div>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb51"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb51-1"><a href="#cb51-1" aria-hidden="true" tabindex="-1"></a>info_pessoas[<span class="dv">1</span>,] <span class="co"># Retornando dados da primeira linha</span></span></code><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb53"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb53-1"><a href="#cb53-1" aria-hidden="true" tabindex="-1"></a>info_pessoas[<span class="dv">1</span>,] <span class="co"># Retornando dados da primeira linha</span></span></code><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>   Nome    Gênero Idade Altura Peso
 1 Jorge Masculino    18    180   76</code></pre>
@@ -869,7 +898,7 @@ Levels: Super Lento Normal Super Rápido</code></pre>
 </div>
 <p>É interessante notar que um <em>data frame</em> pode ser pensado como a junção de múltiplos vetores-coluna, cada um representando determinada variável! Isso nos dá outra forma de selecionar colunas específicas: basta colocar entre colchetes o índice do vetor-coluna que você deseja selecionar. Note, no entanto, uma diferença: nesta <em>sintaxe</em>, o objeto que retornará ainda terá estrutura de um <em>data frame</em> (agora com cinco linhas e uma coluna) ao invés de vetor, como no <em>chunk</em> anterior.</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb53"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb53-1"><a href="#cb53-1" aria-hidden="true" tabindex="-1"></a>info_pessoas[<span class="dv">2</span>]</span></code><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb55"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb55-1"><a href="#cb55-1" aria-hidden="true" tabindex="-1"></a>info_pessoas[<span class="dv">2</span>]</span></code><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>     Gênero
 1 Masculino
@@ -885,11 +914,11 @@ Levels: Super Lento Normal Super Rápido</code></pre>
 <p>Uma lista contém uma coleção ordenada de objetos, sendo que estes podem ser de tipos diferentes. <em>A lista como estrutura de dados é a combinação da forma lista (representando dados não-retangulares) e da presença de qualquer tipo de dado.</em> Na prática, uma lista pode aceitar <strong>qualquer</strong> objeto de dados como elemento – inclusive uma outra lista!</p>
 <p>Para que fique mais claro, abaixo está uma lista que contém um objeto com cada tipo de estrutura vista até agora! Colocamos nesta lista um valor único, um vetor, uma matriz e um data frame. Eles serão armazenados em um novo objeto, que nomeamos de <code>lista_exemplo</code>.</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb55"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb55-1"><a href="#cb55-1" aria-hidden="true" tabindex="-1"></a>lista_exemplo <span class="ot">&lt;-</span> <span class="fu">list</span>(<span class="st">"5"</span>, <span class="fu">c</span>(<span class="dv">1</span>,<span class="dv">2</span>,<span class="dv">3</span>), <span class="fu">matrix</span>(<span class="fu">c</span>(<span class="dv">2</span>,<span class="dv">2</span>,<span class="dv">3</span>,<span class="dv">4</span>), <span class="dv">2</span>, <span class="dv">2</span>), info_pessoas)</span></code><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb57"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb57-1"><a href="#cb57-1" aria-hidden="true" tabindex="-1"></a>lista_exemplo <span class="ot">&lt;-</span> <span class="fu">list</span>(<span class="st">"5"</span>, <span class="fu">c</span>(<span class="dv">1</span>,<span class="dv">2</span>,<span class="dv">3</span>), <span class="fu">matrix</span>(<span class="fu">c</span>(<span class="dv">2</span>,<span class="dv">2</span>,<span class="dv">3</span>,<span class="dv">4</span>), <span class="dv">2</span>, <span class="dv">2</span>), info_pessoas)</span></code><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>Observe que a lista, apesar de poder contar com objetos de várias estruturas (e, consequentemente, dimensões), acaba por ter uma única dimensão. Você pode acessar seus elementos de forma <em>parecida</em> com o caso de um vetor. A diferença é que, no caso de uma lista, teremos que utilizar duplo colchetes. Abaixo, um exemplo de como acessar o quarto elemento da <code>lista_exemplo</code> – no caso, o <em>data frame</em> <code>info_pessoas</code> que criamos anteriormente.</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb56"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb56-1"><a href="#cb56-1" aria-hidden="true" tabindex="-1"></a>lista_exemplo[[<span class="dv">4</span>]]</span></code><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb58"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb58-1"><a href="#cb58-1" aria-hidden="true" tabindex="-1"></a>lista_exemplo[[<span class="dv">4</span>]]</span></code><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>      Nome    Gênero Idade Altura Peso
 1    Jorge Masculino    18    180   76

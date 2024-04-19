@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>R e RStudio para Iniciantes - 2&nbsp; Instalando o R</title>
+<title>R e RStudio para Iniciantes - 8&nbsp; Manipulando</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -30,8 +30,7 @@ ul.task-list li input[type="checkbox"] {
 <script src="site_libs/quarto-search/fuse.min.js"></script>
 <script src="site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="./">
-<link href="./instalando-rstudio.html" rel="next">
-<link href="./intro-instalacao.html" rel="prev">
+<link href="./importando.html" rel="prev">
 <link href="./logo_gpeq_html.png" rel="icon" type="image/png">
 <script src="site_libs/quarto-html/quarto.js"></script>
 <script src="site_libs/quarto-html/popper.min.js"></script>
@@ -83,7 +82,7 @@ ul.task-list li input[type="checkbox"] {
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Alternar barra lateral" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./intro-instalacao.html">Instalação</a></li><li class="breadcrumb-item"><a href="./instalando-r.html"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Instalando o R</span></a></li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./dados.html">Dados</a></li><li class="breadcrumb-item"><a href="./manipulando.html"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">Manipulando</span></a></li></ol></nav>
         <a class="flex-grow-1" role="button" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Alternar barra lateral" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
       <button type="button" class="btn quarto-search-button" aria-label="" onclick="window.quartoOpenSearch();">
@@ -154,7 +153,7 @@ ul.task-list li input[type="checkbox"] {
       <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./instalando-r.html" class="sidebar-item-text sidebar-link active">
+  <a href="./instalando-r.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Instalando o R</span></span></a>
   </div>
 </li>
@@ -212,7 +211,7 @@ ul.task-list li input[type="checkbox"] {
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./manipulando.html" class="sidebar-item-text sidebar-link">
+  <a href="./manipulando.html" class="sidebar-item-text sidebar-link active">
  <span class="menu-text"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">Manipulando</span></span></a>
   </div>
 </li>
@@ -228,17 +227,17 @@ ul.task-list li input[type="checkbox"] {
     <h2 id="toc-title">Índice</h2>
    
   <ul>
-  <li><a href="#sete-passos" id="toc-sete-passos" class="nav-link active" data-scroll-target="#sete-passos"><span class="header-section-number">2.1</span> Sete passos</a></li>
-  <li><a href="#conhecendo-o-rgui" id="toc-conhecendo-o-rgui" class="nav-link" data-scroll-target="#conhecendo-o-rgui"><span class="header-section-number">2.2</span> Conhecendo o RGui</a></li>
+  <li><a href="#sem-funções-externas" id="toc-sem-funções-externas" class="nav-link active" data-scroll-target="#sem-funções-externas"><span class="header-section-number">8.1</span> Sem funções externas</a></li>
+  <li><a href="#dplyr" id="toc-dplyr" class="nav-link" data-scroll-target="#dplyr"><span class="header-section-number">8.2</span> dplyr</a></li>
   </ul>
 </nav>
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
-<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./intro-instalacao.html">Instalação</a></li><li class="breadcrumb-item"><a href="./instalando-r.html"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Instalando o R</span></a></li></ol></nav>
+<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./dados.html">Dados</a></li><li class="breadcrumb-item"><a href="./manipulando.html"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">Manipulando</span></a></li></ol></nav>
 <div class="quarto-title">
-<h1 class="title"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Instalando o R</span></h1>
+<h1 class="title"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">Manipulando</span></h1>
 </div>
 
 
@@ -255,163 +254,22 @@ ul.task-list li input[type="checkbox"] {
 </header>
 
 
-<p>Nesse capítulo, iremos aprender como baixar e instalar o R para Windows<a href="#fn1" class="footnote-ref" id="fnref1" role="doc-noteref"><sup>1</sup></a>! Optamos por dividir o passo a passo em 7 etapas – mas fique tranquilo, não são passos grandes, apenas fizemos dessa forma para que o conteúdo fique bem <em>mastigado</em>, fácil de entender.</p>
-<div class="callout callout-style-default callout-tip callout-titled">
-<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-1-contents" aria-controls="callout-1" aria-expanded="false" aria-label="Toggle callout">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
-</div>
-<div class="callout-title-container flex-fill">
-Alguns conceitos iniciais (Opcional)
-</div>
-<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
-</div>
-<div id="callout-1" class="callout-1-contents callout-collapse collapse">
-<div class="callout-body-container callout-body">
-<p>Antes de começar, vamos entender alguns conceitos. A ideia aqui é te ensinar o que significam algumas nomenclaturas e siglas que aparecem ao longo do processo de instalação, em especial <em>R Foundation</em> e <em>CRAN</em>. Essa parte é totalmente <em>opcional</em> e você pode pular direto para o passo a passo caso esteja sem tempo – ou até mesmo interesse.</p>
+<p>Aprendemos, nesta parte do material:</p>
 <ul>
-<li><p><strong>R Foundation</strong>: é uma empresa sem fins lucrativos, criada pelos principais desenvolvedores da linguagem. Quais são seus objetivos? Basicamente três: (i) administrar os direitos autorais da linguagem – e, por consequência, manter seu uso como livre; (ii) apoiar o desenvolvimento do R como um todo, isto é, fornecer informações e criar novos usos básicos, elaborar conferências, guias, entre outros; (iii) servir como ponto focal para todos os usuários da linguagem que desejem interagir com a comunidade de desenvolvedores. De forma resumida, a R Foundation é como se fosse a instituição provedora do básico da linguagem, que busca sempre atualizar e mantê-lo de pé. Se você instala o R e, logo em seguida, percebe que alguma de suas atribuições não está em perfeito funcionamento, provavelmente terá que comunicar à essas pessoas. Grosso modo, exerce um papel próximo ao da Microsoft com o Excel, por exemplo. Uma observação (importante): como o R é um software livre, qualquer pessoa pode desenvolver novas funções ou recursos a partir da linguagem. Por esse motivo, para recursos que estejam além da <em>base do R</em>, você deve recorrer à quem os criou! Por exemplo, com relação ao RStudio (que conheceremos mais à frente), devemos nos reportar à empresa Posit, sua desenvolvedora. Na prática, raramente (para não dizer nunca) iremos reportar alguma coisa à R Foundation, mas sim aos desenvolvedores daquele pacote/extensão específico (fique tranquilo, explicaremos mais à frente o conceito de <em>pacote</em> para a linguagem).</p></li>
-<li><p><strong>CRAN</strong> (Comprehensive R Archive Network): segundo o própio, é “<em>uma coleção de sites que carrega material idêntico, consistindo nas distribuições do R, extensões contriubídas, documentação e arquivos binários de R</em>”. <em>‘Meu Deus, o que isso significa?’</em> Simples: apenas uma coleção de endereços da internet em que podemos baixar a versão mais recente do R, assim como pacotes. Quem mantém o CRAN? Instituições voluntárias; em seus sites, a parte onde é possível baixar arquivos relacionados ao R é chamada de <em>mirror</em>. E com quais recursos o CRAN se mantém? Com os da própria instituição participante (principalmente em termos de colaboradores) e, também, da R Foundation!</p></li>
+<li><p>Escrever e executar comandos, seja no Console ou Editor;</p></li>
+<li><p>O que são objetos e funções, além de como criá-los e armazená-los na memória;</p></li>
+<li><p>Importar dados para o R, isto é, criar e armazenar objetos com seu conteúdo na memória</p></li>
 </ul>
-<p>Essa história toda para dizer: <strong>o arquivo básico que iremos baixar para instalar o R será obtido através de algum <em>mirror</em> do CRAN, isto é, a parte do site de alguma instituição voluntária em colaboração com a R Foundation.</strong></p>
-</div>
-</div>
-</div>
-<section id="sete-passos" class="level2" data-number="2.1">
-<h2 data-number="2.1" class="anchored" data-anchor-id="sete-passos"><span class="header-section-number">2.1</span> Sete passos</h2>
-<ol type="1">
-<li><p>O primeiro passo consiste em escolher um repositório (<em>mirror)</em> para baixar o R. No endereço <a href="https://cran.r-project.org/mirrors.html" target="_blank">https://cran.r-project.org/mirrors.html</a> encontramos todas as opções disponíveis, por país e em ordem alfabética. No seu computador, deverá aparecer a seguinte tela:</p>
-<div class="quarto-figure quarto-figure-center">
-<figure class="figure">
-<p><img src="images/clipboard-3074288328.png" class="img-fluid quarto-figure quarto-figure-center figure-img"></p>
-</figure>
-</div></li>
-<li><p>Por questões de rapidez/latência, o ideal é escolher o repositório mais próximo de você. Considerando que todos estejam no Rio de Janeiro, vamos então utilizar o <em>mirror</em> da Fiocruz.</p>
-<div class="quarto-figure quarto-figure-center">
-<figure class="figure">
-<p><img src="images/clipboard-283220567.png" class="img-fluid quarto-figure quarto-figure-center figure-img"></p>
-</figure>
-</div></li>
-<li><p>Como essa apostila foca na instalação para sistemas operacionais do tipo Windows, vamos clicar então em <em>Download R for Windows</em>, na parte superior da página.</p>
-<div class="quarto-figure quarto-figure-center">
-<figure class="figure">
-<p><img src="images/clipboard-1477947543.png" class="img-fluid quarto-figure quarto-figure-center figure-img"></p>
-</figure>
-</div></li>
-<li><p>Na página seguinte, clique em ‘base’. Grosso modo, como o nome já indica, iremos baixar os aquivos <em>base</em> do R – ou seja, o mínimo necessário que você precisará para poder executar algum código.</p>
-<div class="quarto-figure quarto-figure-center">
-<figure class="figure">
-<p><img src="images/clipboard-959933518.png" class="img-fluid quarto-figure quarto-figure-center figure-img"></p>
-</figure>
-</div></li>
-<li><p>Na nova página, clique em ‘<em>Download R x.x.x for Windows</em>’, sendo ‘x.x.x’ o número da versão que será baixada. No momento da elaboração deste tutorial, a versão mais recente do R é a 4.3.3.</p>
-<div class="quarto-figure quarto-figure-center">
-<figure class="figure">
-<p><img src="images/clipboard-3581535596.png" class="img-fluid quarto-figure quarto-figure-center figure-img"></p>
-</figure>
-</div>
-<p>Se você tiver algum problema com o <em>download</em>, tente escolher outro servidor no passo 2 – por exemplo, um dos servidores da Universidade de São Paulo.</p></li>
-</ol>
-<div class="callout callout-style-default callout-note callout-titled">
-<div class="callout-header d-flex align-content-center">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
-</div>
-<div class="callout-title-container flex-fill">
-Encontrando o caminho!
-</div>
-</div>
-<div class="callout-body-container callout-body">
-<p>Abaixo, os passos 1-5 para realizar o <em>donwload</em>.</p>
-<div class="quarto-figure quarto-figure-center">
-<figure class="figure">
-<p><img src="images/instalacao_r.gif" class="img-fluid quarto-figure quarto-figure-center figure-img"></p>
-</figure>
-</div>
-</div>
-</div>
-<ol start="6" type="1">
-<li><p>Você receberá um aviso, que varia conforme o navegador em uso, de que o arquivo está sendo baixado. Abaixo, um exemplo no Microsoft Edge:</p>
-<div class="quarto-figure quarto-figure-center">
-<figure class="figure">
-<p><img src="images/clipboard-2313357345.png" class="img-fluid quarto-figure quarto-figure-center figure-img" width="381"></p>
-</figure>
-</div>
-<p>No Windows, o arquivo será armazenado na pasta ‘Downloads’ do seu computador (ou na pasta que você previamente configurou como destino para os arquivos baixados).</p></li>
-<li><p>Feito o download, clique duas vezes no arquivo baixado e siga as instruções para instalação. Na prática, basta clicar em ‘Avançar’ até o fim.</p>
-<div class="quarto-figure quarto-figure-center">
-<figure class="figure">
-<p><img src="images/clipboard-1694765597.png" class="img-fluid quarto-figure quarto-figure-center figure-img"></p>
-</figure>
-</div></li>
-</ol>
-<p>Após o final da instalação, você deverá ser capaz de encontrar e abrir no seu computador o <strong>R Graphical User Interface</strong> ou, como popularmente é conhecido, <strong>RGui</strong>. Ele estará na pasta em que você destinou para instalação; no Windows, algo próximo de:</p>
-<p><code>C:\ProgramData\Microsoft\Windows\Start Menu\Programs\R</code></p>
-<div class="quarto-figure quarto-figure-&quot;center">
-<figure class="figure">
-<p><img src="images/clipboard-2094164095.png" class="img-fluid quarto-figure quarto-figure-&quot;center figure-img"></p>
-</figure>
-</div>
+<p>Perceba que estamos construindo uma sequência lógica de aprendizado. No <a href="prim-passos.html" class="quarto-xref"><span>Capítulo 4</span></a>, nos familiarizamos um pouco melhor com comandos no R e o ambiente do RStudio. Nos <a href="objetos.html" class="quarto-xref"><span>Capítulo 5</span></a> e <a href="funcoes-e-pacotes.html" class="quarto-xref"><span>Capítulo 6</span></a>, aprendemos os conceitos de objeto e função, respectivamente, utilizando a experiência adquirida no capítulo anterior para criá-los e armazená-los sem a desconfiança inicial de quem nunca teve contato com a linguagem. Por fim, no <a href="importando.html" class="quarto-xref"><span>Capítulo 7</span></a> desenvolvemos a capacidade de importar dados de fontes externas ao R – sejam eles do mundo real ou apenas construídos pelo seu professor.</p>
+<p>Em resumo, você pode pensar que chegamos neste momento com um certo conhecimento e prática na linguagem um objeto contendo dados</p>
+<p>Modificar seu número de linhas, colunas ou seus dados propriamente ditos.</p>
+<section id="sem-funções-externas" class="level2" data-number="8.1">
+<h2 data-number="8.1" class="anchored" data-anchor-id="sem-funções-externas"><span class="header-section-number">8.1</span> Sem funções externas</h2>
 </section>
-<section id="conhecendo-o-rgui" class="level2" data-number="2.2">
-<h2 data-number="2.2" class="anchored" data-anchor-id="conhecendo-o-rgui"><span class="header-section-number">2.2</span> Conhecendo o RGui</h2>
-<p>De forma geral, um GUI permite com que o usuário utilize a linguagem de forma interativa através de botões e dispositivos visuais. Observe que, na parte superior, temos oito botões principais, representados por pequenas imagens.</p>
-<div class="quarto-figure quarto-figure-center">
-<figure class="figure">
-<p><img src="images/clipboard-3228534230.png" class="img-fluid quarto-figure quarto-figure-center figure-img" width="300"></p>
-</figure>
-</div>
-<p>Cada botão executa uma tarefa específica. Os três primeiros, da esquerda para direita, são os mais relevantes:</p>
-<ul>
-<li><p>‘Abrir script’: permite com que você carregue, no Editor de Código, um arquivo que contém linhas de código (script). Arquivos desse tipo, cuja extensão é <code>.R</code>, serão os mais importantes da linguagem.</p></li>
-<li><p>‘Carregar área de trabalho’: <em>importa</em> objetos que foram salvos anteriormente em um arquivo do tipo <code>.RData</code>.</p></li>
-<li><p>‘Salvar área de trabalho’: salva objetos criados em um arquivo do tipo <code>.RData</code>.</p></li>
-</ul>
-<p>Os botões restantes, em ordem, executam as seguintes tarefas: ‘Copiar’, ‘Colar’, ‘Copiar e colar’, ‘Parar computação atual’ e ‘Imprimir’. Nesse momento, não se preocupe em saber o que significa <em>importar</em> ou o que é um arquivo do tipo <em>.RData</em>.</p>
-<p>Por outro lado, vamos procurar entender melhor o que são o <strong>Console</strong> e o <strong>Editor de Código</strong>. O primeiro corresponde à janela de nome <em>R Console,</em> no canto esquerdo da sua tela. Este último, por sua vez, não abre instantâneamente no momento em que você acessa o RGui, mas podemos abrí-lo manualmente através de ‘Arquivo’ &gt; ‘Novo script’ – ou, então, carregando um script já existente através do botão ‘Abrir script’, que vimos anteriormente. Posicionando o Editor de Código ao lado do Console, teremos a seguinte imagem:</p>
-<div class="quarto-figure quarto-figure-center">
-<figure class="figure">
-<p><img src="images/clipboard-1401293353.png" class="img-fluid quarto-figure quarto-figure-center figure-img"></p>
-</figure>
-</div>
-<p>Por quê esses espaços terão relevância para nós?</p>
-<ul>
-<li><p>O Editor de Código é o local em que você escreve os comandos que deseja executar no R, além de comentários que busquem registrar o porquê de você ter escrito determinada parte do seu código. Na prática, um <em>comentário</em> é uma linha que não será interpretada – e consequentemente executada – como parte da linguagem. Para registrar um comentário, basta escrever o símbolo ‘#’ antes do que você deseja escrever naquela linha<a href="#fn2" class="footnote-ref" id="fnref2" role="doc-noteref"><sup>2</sup></a>. Um ponto importante: o Editor permite com que salvemos o script que criamos em um arquivo do tipo <code>.R</code>. Lembre-se: esse é o principal tipo de arquivo da linguagem.</p></li>
-<li><p>O Console, por sua vez, é o local em que a parte interpretável de código em R (ou seja, tudo exceto comentários) será <em>efetivamente</em> executada e os respectivos resultados serão mostrados. É aqui que a mágica efetivamente ocorre! Você também pode executar partes do seu código diretamente no Console, porém os comandos não ficam salvos, são apenas temporários.</p></li>
-</ul>
-<p>Simplificando: <strong>o Editor é o espaço em que você realmente escreverá os códigos em R</strong>. Ele atua como rascunho do seu script, permitindo com que você posteriormente salve o que foi escrito e, consequentemente, volte a executar o mesmo código. Já <strong>o Console é o espaço em que o código é processado, retornando com o resultado dos comandos que você escreveu</strong>.</p>
-<p><strong>Entretanto, não iremos utilizá-los através do RGui.</strong> No capítulo seguinte, instalaremos e conheceremos um pouco mais sobre outro ambiente, bem mais completo, para se programar em R. <em>“Meu Deus, aprendi todos esses conceitos à toa?”</em>, você deve estar se perguntando. Não! Muito do que aprendemos nessa seção voltará a aparecer no capítulo seguinte.</p>
-<div class="callout callout-style-default callout-tip callout-titled">
-<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-3-contents" aria-controls="callout-3" aria-expanded="false" aria-label="Toggle callout">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
-</div>
-<div class="callout-title-container flex-fill">
-Executando um simples código no RGui (Opcional)
-</div>
-<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
-</div>
-<div id="callout-3" class="callout-3-contents callout-collapse collapse">
-<div class="callout-body-container callout-body">
-<p>Beleza, não tocaremos no RGui. Mas é interessante compreender que já é possível executar – ou <em>rodar,</em> no jargão de programação – algum pedaço de código – ou <em>chunk</em> – escrito em R. Para isso, basta escrevê-lo após o símbolo de ‘maior que’ (&gt;) no Console.</p>
-<p>Vamos entender com um rápido exemplo. No GIF abaixo, atribuimos à variável de nome <code>x</code> o valor númerico <code>2</code>. Em seguida, escrevemos o nome novamente para retornar seu valor. Fique tranquilo: ainda iremos ver melhor o que significam termos como <em>atribuir um valor à determinada variável</em>. O objetivo deste <em>box</em> foi apenas te mostrar que já estamos aptos a programar em R!</p>
-<div class="quarto-figure quarto-figure-center">
-<figure class="figure">
-<p><img src="images/rgui_exemplo.gif" class="img-fluid quarto-figure quarto-figure-center figure-img"></p>
-</figure>
-</div>
-</div>
-</div>
-</div>
+<section id="dplyr" class="level2" data-number="8.2">
+<h2 data-number="8.2" class="anchored" data-anchor-id="dplyr"><span class="header-section-number">8.2</span> dplyr</h2>
 
 
-</section>
-<section id="footnotes" class="footnotes footnotes-end-of-document" role="doc-endnotes">
-<hr>
-<ol>
-<li id="fn1"><p>Você pode realizar procedimento equivalente para sistemas operacionais Linux, apenas alterando a opção de <em>download</em> quando necessário – isto é, selecionando as opções em que esteja escrito ‘Linux’, ao invés de ‘Windows’.<a href="#fnref1" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
-<li id="fn2"><p>Note que, se o seu comentário for longo demais, de tal forma que você queira quebrá-lo em duas ou mais linhas, será necessário novamente escrever ‘#’ na próxima linha<a href="#fnref2" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
-</ol>
 </section>
 
 </main> <!-- /main -->
@@ -826,14 +684,11 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 </script>
 <nav class="page-navigation">
   <div class="nav-page nav-page-previous">
-      <a href="./intro-instalacao.html" class="pagination-link" aria-label="Instalação">
-        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text">Instalação</span>
+      <a href="./importando.html" class="pagination-link" aria-label="Importando">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">Importando</span></span>
       </a>          
   </div>
   <div class="nav-page nav-page-next">
-      <a href="./instalando-rstudio.html" class="pagination-link" aria-label="Instalando o RStudio">
-        <span class="nav-page-text"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Instalando o RStudio</span></span> <i class="bi bi-arrow-right-short"></i>
-      </a>
   </div>
 </nav>
 </div> <!-- /content -->

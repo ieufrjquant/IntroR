@@ -198,7 +198,7 @@ window.Quarto = {
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
             <a href="./intro-lingr.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Programando em R</span></a>
+ <span class="menu-text">R Básico</span></a>
           <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" aria-expanded="true" aria-label="Alternar seção">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
@@ -222,10 +222,27 @@ window.Quarto = {
  <span class="menu-text"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Funções e pacotes</span></span></a>
   </div>
 </li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a href="./dados.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Dados</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" aria-expanded="true" aria-label="Alternar seção">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-3" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./importando.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">Importando dados</span></span></a>
+ <span class="menu-text"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">Importando</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./manipulando.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">Manipulando</span></span></a>
   </div>
 </li>
       </ul>
@@ -242,7 +259,7 @@ window.Quarto = {
   <ul>
   <li><a href="#redução-no-tempo-de-cálculo" id="toc-redução-no-tempo-de-cálculo" class="nav-link active" data-scroll-target="#redução-no-tempo-de-cálculo"><span class="header-section-number">1.1</span> Redução no tempo de cálculo</a></li>
   <li><a href="#automação-de-processos" id="toc-automação-de-processos" class="nav-link" data-scroll-target="#automação-de-processos"><span class="header-section-number">1.2</span> Automação de processos</a></li>
-  <li><a href="#vamos-programar" id="toc-vamos-programar" class="nav-link" data-scroll-target="#vamos-programar"><span class="header-section-number">1.3</span> Vamos programar!</a></li>
+  <li><a href="#vamos-programar-em-r" id="toc-vamos-programar-em-r" class="nav-link" data-scroll-target="#vamos-programar-em-r"><span class="header-section-number">1.3</span> Vamos programar… <strong>em R</strong>!</a></li>
   </ul>
 </nav>
     </div>
@@ -268,25 +285,107 @@ window.Quarto = {
 </header>
 
 
-<p>De forma simplificada, é possível definir o ato de programar como a passagem de determinados comandos para o computador, com a finalidade de que ele execute determinada tarefa. Se você deseja algo que pode ser feito de forma mais eficiente por uma máquina, provavelmente escreverá um código que seja interpretável por esta, de modo que seu desejo se concretize.</p>
-<p>A capacidade de programar tornou-se uma habilidade essencial, especialmente para aqueles que desejam explorar o mundo da estatística e da matemática aplicados à determinada ciência social. Por exemplo, no contexto de interseção entre economia e matemática – principalmente na elaboração e solução de modelos teóricos – e entre economia e estatística – testando hipóteses e realizando previsões – a programação se coloca como uma ferramenta muito útil para economizar tempo de cálculo e garantir que, caso necessário, o mesmo processo seja concluído múltiplas vezes sem erros. Em outras palavras, a programação aplicada à determinada ciência social, como a economia, traz duas principais vantagens, exploradas melhoras a seguir.</p>
+<p>A programação é o meio que dá vida ao mundo em que vivemos atualmente. Desde os sistemas operacionais que alimentam nossos computadores até os aplicativos de celular que usamos diariamente, a programação tem um papel fundamental. Mas o que exatamente é programação e como ela funciona? Como vamos utilizá-la nas nossas aulas?</p>
+<p>De forma simplificada, <em>programação é a arte de escrever instruções para computadores executarem tarefas específicas.</em> Essas instruções são escritas através de <strong>linguagens de programação</strong>, que podem variar de simples e diretas, como R e Python, a complexas e poderosas, como C++ ou Java, e armazenadas em <strong>códigos</strong>. <em>Ao aprender a programar, você essencialmente está ensinando ao computador como resolver problemas, realizar cálculos, manipular dados ou criar interações com algum outro usuário.</em> Naturalmente, passamos a nos perguntar:</p>
+<ol type="i">
+<li><em>“O que é uma linguagem de programação?”</em></li>
+<li><em>“O que é um código?”</em></li>
+</ol>
+<p>A linguagem de programação é um conjunto de regras e instruções utilizadas para escrever programas de computador. Ela define a sintaxe e a semântica que os programadores devem seguir para comunicar suas intenções ao computador – ou seja, as regras de escrita. Observe que a palavra ‘linguagem’ não está por acaso. Pense na língua portuguesa, por exemplo: ela possui um conjunto de regras que moldam sua estrutura (tanto em termos de palavras quanto de concordância), isto é, possui uma sintaxe própria, e serve para que duas ou mais pessoas possam se comunicar. De certa forma parecido, não é?</p>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Linguagem de Programação
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>É o meio pelo qual os programadores se comunicam com o computador, com intuito de instruí-lo a realizar determinada tarefa. Uma linguagem de programação é caracterizada pela sua <em>sintaxe</em> própria.</p>
+</div>
+</div>
+<p>Por outro lado, o código é o resultado da aplicação dessas regras e instruções em uma linguagem de programação específica. Em outras palavras, o código é o texto ou conjunto de comandos escritos em uma linguagem de programação para realizar uma determinada tarefa ou função. Voltando à analogia da língua portuguesa, pense no código como um texto propriamente escrito em português. É a materialização da comunicação.</p>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Código
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>É o texto que contém comandos em determinada linguagem de programação. Você pode escrever um código em um arquivo do tipo <code>.txt</code>, por exemplo. No entanto, na maioria dos casos, basta observar a extensão do arquivo!</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="images/clipboard-1284162885.png" class="img-fluid quarto-figure quarto-figure-center figure-img" style="width:50.0%"></p>
+</figure>
+</div>
+</div>
+</div>
+<p>A capacidade de programar tornou-se uma habilidade essencial, especialmente para aqueles que desejam explorar o mundo da estatística e da matemática aplicados à determinada ciência social. Por exemplo, no contexto de interseção entre economia e matemática – principalmente na elaboração e solução de modelos teóricos – e entre economia e estatística – testando hipóteses e realizando previsões – a programação se coloca como uma ferramenta muito útil para economizar tempo de cálculo e garantir que, caso necessário, o mesmo processo seja concluído múltiplas vezes sem erros. Em outras palavras, a programação aplicada à determinada ciência social, como a economia, traz duas principais vantagens, explicadas melhor a seguir.</p>
 <section id="redução-no-tempo-de-cálculo" class="level2" data-number="1.1">
 <h2 data-number="1.1" class="anchored" data-anchor-id="redução-no-tempo-de-cálculo"><span class="header-section-number">1.1</span> Redução no tempo de cálculo</h2>
 <p>A primeira vantagem é a redução no tempo de cálculo de certos procedimentos que, se feitos de forma manual, levariam vários minutos, horas ou até mesmo dias. Vamos deixar mais claro com um exemplo.</p>
-<p>No ensino fundamental, você aprendeu a resolver um sistema de equações simultâneas com 2 variáveis e 2 equações, muito provavelmente pelo método de substituição. Não levava muito tempo, certo? Acontece que, na cadeira de Álgebra Linear, você aprenderá como solucionar sistemas de <span class="math inline">\(n\)</span> equações e <span class="math inline">\(n\)</span> variáveis. Normalmente, quanto maior <span class="math inline">\(n\)</span>, maior será a dificuldade de encontrar a solução do sistema. Ainda que existam <em>algoritmos</em> que permitam encontrar a solução de forma mais rápida, certo tempo será perdido se você os replicar de forma <em>manual</em>.</p>
-<p>Com auxílio da programação, no entanto, é possível implementar estes mesmos algoritmos para obter o resultado de forma quase que <em>instantânea.</em> <em>O tempo que você levaria fazendo o procedimento manual praticamente se reduz a zero – ou fica mínimo, em relação ao incial.</em> Observe que você ainda deve focar em saber como o algoritmo funciona, do contrário não será capaz de julgar se o que a máquina fez é realmente aquilo que você desejava.</p>
+<p>No ensino fundamental, você aprendeu a resolver um sistema de equações simultâneas com <span class="math inline">\(2\)</span> equações e <span class="math inline">\(2\)</span> incógnitas, muito provavelmente pelo método de substituição. Não levava muito tempo, certo? Acontece que, na cadeira de Álgebra Linear, você aprenderá como identificar a existência e encontrar a solução de sistemas com <em>muitas</em> equações e <em>muitas</em> variáveis – dado que, ao longo do curso, você terá contato com sistemas determinísticos maiores cujo objetivo é explicar a realidade de forma simplificada. Nos que possuem solução, quanto mais complexo for o sistema, maior será a dificuldade de encontrá-la. Durante o curso, você aprenderá métodos que permitem descobrir a resolução de sistemas desse tipo de forma mais rápida, pelo menos em relação ao método de substituição. No entanto, certo tempo continuará sendo perdido se você os replicar <em>manualmente</em>.</p>
+<p>Com auxílio da programação, é possível implementar estes mesmos métodos para obter o resultado de forma quase que instantânea! <em>O tempo que você levaria realizando o procedimento de forma manual se reduz próximo a zero – ou fica mínimo, comparado ao tempo que seria gasto se você resolvesse, na mão, todos os cálculos inerentes ao método em questão.</em></p>
+<div class="callout callout-style-simple callout-tip">
+<div class="callout-body d-flex">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-body-container">
+<p><strong>Observe que você ainda deve focar em saber como os métodos funcionam, do contrário não será capaz de julgar se o que a máquina fez é realmente aquilo que você desejava!</strong></p>
+</div>
+</div>
+</div>
 </section>
 <section id="automação-de-processos" class="level2" data-number="1.2">
 <h2 data-number="1.2" class="anchored" data-anchor-id="automação-de-processos"><span class="header-section-number">1.2</span> Automação de processos</h2>
-<p>Na seção anterior, repare que estavamos discorrendo implicitamente sobre cálculos de ocorrência única – ou seja, realizamos o cálculo uma vez e não teríamos mais interesse de fazê-lo novamente em um futuro próximo. No entanto, outro benefício prático do ato de programar é a automação de tarefas repetitivas. Com a programação, é possível escrever e salvar <em>scripts</em> que automatizam tarefas tediosas de manipulação e análise de dados, permitindo que os pesquisadores se concentrem em questões analíticas de maior relevância.</p>
-<p>Por exemplo, imagine que alguém te peça para calcular a média de certos valores que mudam de dia para dia. Você pode facilmente elaborar um <em>scipt</em> que, a partir de determinados números (sem especificar quais são), calcule sua média. Uma vez escrito e salvo, você pode passar a executá-lo sempre que quiser – no exemplo, todos os dias.</p>
+<p>Na seção anterior, repare que estavamos discorrendo implicitamente sobre cálculos de ocorrência única – ou seja, realizamos o cálculo uma vez e não teríamos mais interesse de fazê-lo novamente em um futuro próximo. Porém, é importante destacar que outro benefício prático do ato de programar é a automação de tarefas repetitivas. Com a programação, é possível escrever e salvar códigos que realizam as mesmas tarefas tediosas de manipulação e análise de dados sempre que necessário, permitindo que os pesquisadores se concentrem em questões analíticas de maior relevância.</p>
+<p>Por exemplo, imagine que alguém te peça para calcular a média de alguns valores, digamos dez, que mudam de dia para dia. Você poderia facilmente elaborar um código que, a partir de determinados números (independente de quais sejam), calcule a média correspondente. Uma vez o código escrito e salvo, você pode passar a executá-lo sempre que quiser – no nosso exemplo, você o executaria todos os dias. Repare que calcular a média uma única vez não seria um problema; no entanto, esse procedimento simples se torna custoso quando temos que repetí-lo todo dia. Ao automatizar a tarefa, o pesquisador pode concentrar o tempo economizado no cálculo para, por exemplo, pensar sobre o porquê da média ter apresentado aquele determinado valor.</p>
 </section>
-<section id="vamos-programar" class="level2" data-number="1.3">
-<h2 data-number="1.3" class="anchored" data-anchor-id="vamos-programar"><span class="header-section-number">1.3</span> Vamos programar!</h2>
+<section id="vamos-programar-em-r" class="level2" data-number="1.3">
+<h2 data-number="1.3" class="anchored" data-anchor-id="vamos-programar-em-r"><span class="header-section-number">1.3</span> Vamos programar… <strong>em R</strong>!</h2>
 <p>Em suma, aprender a programar oferece uma série de vantagens tangíveis para quem trabalha com estatística e matemática. Ela tornar o trabalho mais eficiente e produtivo, permitindo que os profissionais explorem dados de maneiras antes inimagináveis e desenvolvam soluções personalizadas para os desafios enfrentados em suas áreas de atuação.</p>
-<p>No restante do material, aprenderemos a programar utilizando a <em>linguagem de programação R.</em> Em outras palavras, aprenderemos sua <em>sintaxe</em>, isto é, a forma de escrever comandos corretamente para que a máquina seja capaz de interpretar e executar o que queremos como resultado.</p>
+<p>No restante do material, aprenderemos a programar utilizando a <em>linguagem de programação R.</em> Em outras palavras, aprenderemos (i) sua <em>sintaxe</em>, isto é, a forma correta de escrever comandos para que a máquina seja capaz de interpretar o que queremos como resultado, e (ii) como executar códigos que foram escritos.</p>
+<p>Você deve estar se perguntando: <em>“Por que programar em R?”</em>. Simplesmente pois é uma linguagem de programação moldada para executar tarefas estatísticas (e matemáticas, em menor grau). Não à toa, é amplamente utilizada por economistas que desejam constuir e testar hipóteses sobre seus modelos e automatizar coleta de dados econômicos.</p>
+<div class="callout callout-style-simple callout-warning">
+<div class="callout-body d-flex">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-body-container">
+<p>Ao longo da apostila, existem conteúdos que são opcionais, ou seja, você pode pulá-los sem prejuízo para a sequência do material. Pense neles como se fossem aprofundamentos. Sem tempo? Pode passar direto! Eles estarão dispostos em boxes expandíveis, como abaixo.</p>
+</div>
+</div>
+</div>
+<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-3-contents" aria-controls="callout-3" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Outros exemplos de linguagem de programação (Opcional)
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-3" class="callout-3-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p>O R é a linguagem que escolhemos para utilizar nos nossos cursos. Mas é interessante que você saiba que existem <em>outras</em> linguagens de programação por aí – algumas capazes de executar papel semelhante ao próprio R. Em 2023, as linguagens de programação mais utilizadas foram: JavaScript (63% dos programadores que responderam uma pesquisa disseram que a utilizavam<a href="#fn1" class="footnote-ref" id="fnref1" role="doc-noteref"><sup>1</sup></a>), Python (49%) e SQL (48%).</p>
+<p>Apenas 4% dos respondentes tiveram contato com R. ‘Meu Deus, estamos usando uma linguagem que poucas pessoas usam!’ você pode estar pensando agora. Calma, não é bem assim! Realmente, em comparação ao Python e SQL, o R é menos utilizado. Mas, em número absoluto, a comunidade é grande. Além disso, é bom ter em mente que <em>cada linguagem de programação tem suas vantagens e desvantagens</em> e, por esse motivo, é preciso <em>entender o contexto no qual você quer utilizá-la</em>. O R foi escolhido por sua disponibilidade e eficiência computacional em relação à métodos estatísticos e matemáticos – ideal para cursos de estatística e matemática!</p>
+</div>
+</div>
+</div>
 
 
+</section>
+<section id="footnotes" class="footnotes footnotes-end-of-document" role="doc-endnotes">
+<hr>
+<ol>
+<li id="fn1"><p>Fonte: <a href="https://www.statista.com/statistics/793628/worldwide-developer-survey-most-used-languages/" target="_blank">Statista</a><a href="#fnref1" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+</ol>
 </section>
 
 </main> <!-- /main -->

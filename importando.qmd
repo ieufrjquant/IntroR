@@ -3,7 +3,7 @@ pacman::p_load(tidyverse, openxlsx)
 options(max.print=30)
 ```
 
-# Importando dados
+# Importando {#sec-importando}
 
 Imagine que você compre um computador produzido *fora* do Brasil. Nesse caso, dizemos que você *importou* o computador de determinado país que o produziu, não é? Inclusive, segundo a Oxford Languages, o verbo *importar* pode ser definido como
 
@@ -133,7 +133,7 @@ estudantes
 
 Para importar dados de uma aba específica de determinada planilha é necessário especificar, além do endereço do arquivo, o nome ou o índice da aba que você deseja. No exemplo abaixo, importamos os dados completos do *Maddison Project Database 2020*, que estão contidos na terceira aba da planilha disponibilizada pelos organizadores*.*
 
-```{r}
+```{r, eval=FALSE}
 dados <- read.xlsx("https://www.rug.nl/ggdc/historicaldevelopment/maddison/data/mpd2020.xlsx", 
                    sheet = "Full data")
 
