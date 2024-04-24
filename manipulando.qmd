@@ -1,9 +1,303 @@
+```{r, echo=FALSE}
+pacman::p_load(tidyverse, openxlsx)
+options(max.print=30)
+```
+
 # Manipulando
 
 Perceba que estamos construindo uma sequência lógica de aprendizado. No @sec-prim-passos, nos familiarizamos um pouco melhor com comandos no R e o ambiente do RStudio. Nos @sec-objetos e @sec-funcoes-e-pacotes, aprendemos os conceitos de objeto e função, respectivamente, utilizando a experiência adquirida no capítulo anterior para criá-los e armazená-los sem a desconfiança inicial de quem nunca teve contato com a linguagem. Por fim, no @sec-importando desenvolvemos a capacidade de importar dados de fontes externas ao R – sejam eles do mundo real ou apenas construídos pelo seu professor. Em resumo, você pode pensar que chegamos neste momento com um certo conhecimento e prática na linguagem, aptos então a aprender como *modificar* um objeto contendo dados.
 
-*"Como assim, modificar um objeto?"* Modificar significa alterar ou transformar seus dados. Podemos, por exemplo, adicionar/remover linhas ou colunas contendo novas informações. Ou, então, simplesmente alterar determinado dado sem alterar o número de linhas ou colunas da estrutura.
+*"Como assim, modificar um objeto?"* Significa adicionar, excluir ou alterar dados. De forma resumida, podemos
 
-## Sem funções externas
+1.  substituir ou transformar (somando, multiplicando, etc.) determinado dado específico sem alterar o número de linhas e colunas da estrutura;
 
-## dplyr
+2.  adicionar ou remover determinado dado específico, alterando o número de linhas ou colunas da estrutura;
+
+Neste capítulo, daremos ênfase a modificação de *vetores* e *data.frames*, abrangendo os pontos mencionados acima[^manipulando-1].
+
+[^manipulando-1]: Não iremos, no entanto, abordar a geração de diferentes representações de uma mesma tabela de dados. Todas as tabelas que você receber estarão organizadas de forma apropriada para a execução da tarefa. De qualquer modo, caso tenha interesse em entender melhor este processo e como fazê-lo, veja o [Capítulo 5](https://r4ds.hadley.nz/data-tidy) do livro *R for Data Science*.
+
+## Vetor
+
+Lembre-se que um vetor é uma sequência de valores de mesmo tipo, podendo ser interpretado como uma coluna (vetor-coluna) ou como uma linha (vetor-linha). Portanto, se o combinarmos com mais uma coluna/linha, deixará de ser um vetor. Logo, nos concentraremos na substituição, transformação, adição e remoção de um dado específico. Vamos começar com um simples vetor `c(4, 5, 6, 444)`, atirbuindo-o ao objeto de nome `x`.
+
+```{r}
+x <- c(4, 5, 6, 444)
+x
+```
+
+### Substituindo e transformando
+
+Se quisessemos apenas substituir o seu segundo elemento, como faríamos? Basta atribuir o novo valor que desejamos, através do operador `<-`, à segunda posição do vetor `x`! Lembre-se, do @sec-objetos, que para nos referimos ao enésimo elemento de um vetor, devemos escrever seu nome, seguido de colchetes, com a posição $n$ desejada na parte interior.
+
+```{r}
+x[2] <- 444
+x
+```
+
+Podemos também substituir os valores de múltiplas posições, atribuindo um único valor. No exemplo abaixo, o valor 8 será atribuído às posições 1 e 3[^manipulando-2].
+
+[^manipulando-2]: Note que `c(1, 3)`, no interior dos colchetes, também é um vetor. Esse vetor não é armazenado na memória e, nesse contexto, serve para indicar as posições que desejamos substituir.
+
+```{r}
+x[c(1, 3)] <- 8
+x
+```
+
+Ou então substituir os valores de múltiplas posições, atribuindo múltiplos valores, de forma paralela. No exemplo abaixo, os valores '6' e '12' serão atribuídos às posições 1 e 3, respectivamente.
+
+```{r}
+x[c(1, 3)] <- c(6, 12)
+x
+```
+
+Ao invés de nos referirmos à *posição* do dado que queremos alterar, talvez seja mais útil utilizar seu valor propriamente dito, não é? Por exemplo, substituir todos os '444' presentes por '9'. Esse procedimento pode ser feito indicando, dentro dos colchetes após o nome do vetor, que queremos nos relacionar com todos os seus elementos de valor igual a '444'.
+
+```{r}
+x[x == 444] <- 9
+x
+```
+
+E se quiséssemos substituir valores específicos que são diferentes? Aqui, teremos que nos valer do uso do operador `%in%`. No exemplo abaixo, iremos substituir todos os '4' e '9' por '0'.
+
+```{r}
+x[x %in% c(4, 9)] <- 0
+x
+```
+
+Além disso, podemos, por exemplo, ter o desejo de alterar o quarto elemento do vetor `x` através da soma, subtração, multiplicação ou divisão. Nesse caso, devemos realizar a operação sobre o valor atual da quarta posição do vetor e atribuir o resultado, através do operador `<-`, à essa mesma posição! Vamos multiplicá-lo por 2.
+
+```{r}
+x[4] <- x[4] * 2
+x
+```
+
+A lógica de atribuição é idêntica ao do primeiro exemplo, quando substituímos o elemento da segunda posição! Por fim, note que você pode combinar todos esses comandos. No exemplo abaixo, substiutímos os valores '6' e 24' pelo valor da terceira posição, dividido por 2, somado mais 9 e 32, respectivamente.
+
+```{r}
+x[x %in% c(6, 12)] <- c((x[3] / 2) + 9, 32)
+x
+```
+
+### Adicionando e removendo
+
+E se quiséssemos adicionar um quinto elemento a esse vetor? Basta atribuir o valor desejado à esta posição, como se estivesse substituindo ou alterando um elemento existente! O R irá automaticamente criar esse espaço.
+
+```{r}
+x[5] <- 7
+x
+```
+
+Por outro lado, para remover determinado valor via sua posição, escreva-a dentro dos colchetes precedida pelo sinal de `-` e atribua o resultado a objeto de mesmo nome.
+
+```{r}
+x <- x[-5]
+x
+```
+
+Você também pode remover elementos de um vetor que correspondam a determinados valores. Novamente, faremos uso do operador `%in%`. Dessa vez, também usaremos o operador de negação `!`.
+
+```{r}
+x <- x[!(x %in% c(15, 32))]
+x
+```
+
+## Matriz
+
+Vamos utilizar como base a matriz contendo os números de 1 a 9, disposta em 3 linhas e 3 colunas.
+
+```{r}
+matrix <- matrix(c(1:9), ncol = 3)
+matrix
+```
+
+### Substituindo e transformando
+
+Observe que agora temos uma estrutura de dados bidimensional. Isso significa que você acessar determinando valor através de sua posição, indicando a linha e a coluna em que está. Para substituir tal valor, podemos aplicar a mesma lógica que utilizamos com vetores. No exemplo abaixo, substituímos o número da posição {linha 2, coluna 2} por 1000.
+
+```{r}
+matrix[2, 2] <- 1000
+matrix
+```
+
+Você também pode indicar múltiplas posições para fixar o novo valor. Nesse caso, é necessário inserir dois vetores dentro dos colchetes, represetando as linhas e colunas, respectivamente. O novo valor será atribuído a todas as combinações possíveis de posições geradas pelos vetores. Observe o exemplo abaixo. Nele, estamos substituindo os valores das posições {linha 1, coluna 2}, {linha 1, coluna 3}, {linha 2, coluna 2} e {linha 2, coluna 3} pelo número 500.
+
+```{r}
+matrix[c(1,2), c(2,3)] <- 500
+matrix
+```
+
+No entanto, esse não é o único jeito de se referir a posição de um elemento de uma matriz. Você pode acessá-lo pensando na matriz como um vetor coluna! Em outras palavras, contabilize cada valor em sequência, partindo da esquerda, de cima para baixo. Nessa indexação imaginária, podemos novamente acessar as posições {linha 1, coluna 3} e {linha 2, coluna 3} através dos índices 7 e 8, respectivamente.
+
+```{r}
+matrix[c(7, 8)] <- c(70, 80)
+matrix
+```
+
+Para nos referirmos à valores propriamente ditos, o procedimento é o mesmo de um vetor.
+
+```{r}
+matrix[matrix == 3] <- 90
+matrix
+
+matrix[matrix %in% c(1, 80)] <- 0
+matrix
+```
+
+Assim como o procedimento de alterar algum elemento específico.
+
+```{r}
+matrix[2, 2] <- matrix[2, 2] * 2
+matrix
+```
+
+### Adicionando e removendo
+
+E se quiséssemos adicionar um décimo elemento a essa matriz, na posição {linha 1, coluna 4}, seria possível? A resposta é não.
+
+```{r, error=TRUE}
+matrix[1, 4] <- 50
+```
+
+E se tratassemos a matriz como um vetor, como fizemos no início da subseção anterior, funcionaria? Nesse caso, até conseguiriamos atribuir o novo valor, porém a matriz seria realmente convertida em vetor!
+
+```{r}
+matrix[10] <- 50
+matrix
+```
+
+```{r,echo=FALSE}
+matrix <- matrix(c(1:9), ncol = 3)
+```
+
+Na prática, para adicionar valores à uma matriz, devemos adicionar uma nova linha ou coluna, utilizando as funções `rbind` e `cbind`, respectivamente! É necessário respeitar sua forma retangular. *"Mas e se não tivermos valores suficientes para preencher um linha ou coluna nova?"* Você pode utilizar `NA`! No exemplo abaixo, adicionamos uma nova coluna a nossa matriz base.
+
+```{r}
+matrix <- cbind(matrix, c(10, NA, NA))
+matrix
+```
+
+Por outro lado, para remover determinada linha ou coluna, escreva seu índice dentro dos colchetes precedido pelo sinal de `-`, separado por vírgula -- lembrando que linhas são escritas antes e colunas depois da vírgula. No final, atribua o resultado a objeto de mesmo nome. Abaixo, removendo a coluna 1 da matriz.
+
+```{r}
+matrix <- matrix[,-1]
+matrix
+```
+
+Agora, removendo a linha 2.
+
+```{r}
+matrix <- matrix[-2,]
+matrix
+```
+
+## Dataframe
+
+Nessa seção, iremos manipular *data.frames*. Vamos recapitular a @tbl-students-table, que importamos no @sec-importando.
+
+```{r}
+estudantes <- read_csv("dados/estudantes.csv")
+estudantes
+```
+
+### Sem pacotes externos
+
+Muito do que vimos com relação à matrizes se aplica aos dataframes. Com exceção do exercício imaginário do dataframe como um vetor-coluna, as tarefas de substituição e alteração podem ser realizadas da mesma forma.
+
+```{r}
+estudantes[2, 2] <- "Maurício"
+estudantes
+```
+
+```{r}
+estudantes[c(5,2), c(5,6)] <- list(c(25, 23), c(70,68))
+estudantes
+```
+
+```{r}
+estudantes[estudantes == "Carne"] <- "Carne Vermelha"
+estudantes
+```
+
+```{r}
+estudantes$PlanoDeRefeição[estudantes$Nome %in% c("Jorge", "Maurício")] <- "Regime Forte" 
+estudantes
+```
+
+```{r}
+estudantes[1, 5] <- estudantes[1, 5] * 2
+estudantes
+```
+
+Para adicionar um novo valor, basta refenciar sua posição. Perceba que, caso não haja observações suficientes, o R automaticamente completará o restante com ´NA\`.
+
+```{r}
+estudantes[1, 7] <- 50
+estudantes
+```
+
+Para remover uma coluna, escreva seu índice entre os colchetes precedido do sinal de `-`. Para remover uma linha, realize o mesmo procedimento, apenas adicionando uma vírgula ao final.
+
+```{r}
+estudantes <- estudantes[-7]
+estudantes <- estudantes[-2,]
+
+estudantes
+```
+
+### dplyr
+
+A depender do nível de complexidade da tarefa que desejamos executar, as funções básicas não serão adequadas (seja por não existir uma função que faça aquele procedimento ou pela dificuldade de implementação/legibilidade do código). Nessa subseção, aprenderemos três funções do pacote `dplyr` que serão tornarão o processo de mainupalação mais rápido, fácil e legível.
+
+::: callout-note
+## Pipe!
+
+Na maioria dos casos, iremos utilizar funções do pacote `dplyr` em sequência, isto é, utilizando as transformações anteriores como input para funções seguintes. Por esse motivo, se torna comum o uso do operador Pipe `%>%`. Não se assuste.
+:::
+
+Vamos retornar com o dataframe `estudantes` inicial. Não iremos salvar os resultados para facilitar a demonstração -- mas lembre-se, caso você queira que seu dataframe permenaça com as modificações, é necessário atribuí-lo à novo objeto (ou a um objeto com mesmo nome do antigo, substiutindo-o na memória).
+
+```{r,echo=FALSE}
+estudantes <- read_csv("dados/estudantes.csv")
+```
+
+#### select {.unnumbered}
+
+Imagine que você queira selecionar apenas as colunas "Nome", "IDADE" e "Peso". Para executar essa tarefa, podemos utilizar a função `select`.
+
+```{r}
+estudantes %>% 
+    select(Nome, IDADE, peso)
+```
+
+#### mutate {.unnumbered}
+
+Agora, imagine que você deseja alterar a coluna 'peso', somando mais 2 para cada observação. Você pode utilizar a função `mutate`.
+
+```{r}
+estudantes %>% 
+  mutate(peso = peso + 2)
+```
+
+#### filter {.unnumbered}
+
+Por fim, vamos supor que você queira filtrar somente as pessoas maiores de 20 anos. Para essa tarefa, podemos utilizar a função `filter`.
+
+```{r}
+estudantes %>% 
+  filter(IDADE > 20)
+```
+
+
+::: {.callout-note}
+## Utilizando as funções de forma conjunta!
+
+Se resolvermos utilizar todas essas funções ao mesmo tempo, teremos:
+
+```{r}
+estudantes %>% 
+  select(Nome, IDADE, peso) %>%
+  mutate(peso = peso + 2) %>% 
+  filter(IDADE > 20)
+```
+:::

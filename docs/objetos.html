@@ -354,9 +354,9 @@ Tabela&nbsp;5.1: Tipos mais comuns de dados
 <div class="cell-output-display">
 <table class="do-not-create-environment cell table table-sm table-striped small">
 <colgroup>
-<col style="width: 19%">
-<col style="width: 61%">
-<col style="width: 19%">
+<col style="width: 18%">
+<col style="width: 57%">
+<col style="width: 24%">
 </colgroup>
 <thead>
 <tr class="header">
@@ -379,7 +379,7 @@ Tabela&nbsp;5.1: Tipos mais comuns de dados
 <tr class="odd">
 <td style="text-align: center;">Lógico</td>
 <td style="text-align: center;">valores verdade do tipo lógico (valores booleanos)</td>
-<td style="text-align: center;">TRUE, FALSE, NA</td>
+<td style="text-align: center;">TRUE, FALSE, NA lógico</td>
 </tr>
 <tr class="even">
 <td style="text-align: center;">Tempo</td>
@@ -440,7 +440,7 @@ Tabela&nbsp;5.2: Formas pelas quais os dados podem ser organizados
 </div>
 </div>
 <p>Um escalar é um elemento único, que pode ser de qualquer tipo. Ou seja, a representação elementar de um dado se dá através de um escalar! Por exemplo, o tipo sanguíneo de determinada pessoa, representado pelos caracteres “AB”, é um escalar do tipo texto. Você pode pensar no escalar como um dado organizado em 1 linha e 1 coluna.</p>
-<p>Por sua vez, dados retangulares são àqueles cuja organização ocorre em <span class="math inline">\(i\)</span> linhas e <span class="math inline">\(j\)</span> colunas, tal que <span class="math inline">\(i,j \in \mathbb{N}\)</span> e <span class="math inline">\(i &gt; 1\)</span> ou <span class="math inline">\(j &gt; 1\)</span>. As formas retangulares mais comuns são <em>vetores</em>, <em>matrizes</em> e <em>tabelas de dados</em>. Uma matriz é uma forma de organização de dados <em>númericos</em> em em <span class="math inline">\(i\)</span> linhas e <span class="math inline">\(j\)</span> colunas. Quando uma matriz possui <span class="math inline">\(i\)</span> linhas e <span class="math inline">\(1\)</span> coluna <em>ou</em> <span class="math inline">\(1\)</span> linha e <span class="math inline">\(j\)</span> colunas, chamamos de vetor-coluna e vetor-linha, respectivamente; em muitos casos, chamamos apenas de <em>vetor</em>. Assim, o vetor é um caso especial de matriz unidimensional. As tabelas de dados, por outro lado, possuem <span class="math inline">\(i\)</span> linhas e <span class="math inline">\(j\)</span> colunas, tal que <span class="math inline">\(i &gt; 1\)</span> e <span class="math inline">\(j &gt; 1\)</span>. Além disso, aceitam todos os tipos de dado – por exemplo, númericos, de textos ou lógicos – em qualquer que seja a combinação de linha e coluna.</p>
+<p>Por sua vez, dados retangulares são àqueles cuja organização ocorre em <span class="math inline">\(i\)</span> linhas e <span class="math inline">\(j\)</span> colunas, tal que <span class="math inline">\(i,j \in \mathbb{N}\)</span> e <span class="math inline">\(i &gt; 1\)</span> ou <span class="math inline">\(j &gt; 1\)</span>. As formas retangulares mais comuns são <em>vetores</em>, <em>matrizes</em> e <em>tabelas de dados</em>. Uma matriz é uma forma de organização de dados <em>númericos</em> em em <span class="math inline">\(i\)</span> linhas e <span class="math inline">\(j\)</span> colunas. Quando uma matriz possui <span class="math inline">\(i\)</span> linhas e <span class="math inline">\(1\)</span> coluna <em>ou</em> <span class="math inline">\(1\)</span> linha e <span class="math inline">\(j\)</span> colunas, chamamos de vetor-coluna e vetor-linha, respectivamente; na prática, chamamos ambos apenas de <em>vetor</em>. Assim, o vetor é um caso especial de matriz unidimensional. As tabelas de dados, por outro lado, possuem <span class="math inline">\(i\)</span> linhas e <span class="math inline">\(j\)</span> colunas, tal que <span class="math inline">\(i &gt; 1\)</span> e <span class="math inline">\(j &gt; 1\)</span>. Além disso, aceitam todos os tipos de dado – por exemplo, númericos, de textos ou lógicos – em qualquer que seja a combinação de linha e coluna.</p>
 <p>Por sua vez, dados não-retangulares se referem a toda organização de dados que não seja feita em linhas e colunas relacionadas entre si. A forma mais comum é a lista. Observe um exemplo abaixo: cada característica pode ser entendida como um elemento de uma lista. Apesar de pertencerem a mesma estrutura, os elementos não se comunicam entre si.</p>
 <div class="cell">
 <div class="cell-output-display">
@@ -620,8 +620,8 @@ Tabela&nbsp;5.3
 </section>
 <section id="estruturas-de-dados-no-r" class="level2" data-number="5.2">
 <h2 data-number="5.2" class="anchored" data-anchor-id="estruturas-de-dados-no-r"><span class="header-section-number">5.2</span> Estruturas de Dados no R</h2>
-<p>Na seção anterior, vimos os conceitos de <em>tipo</em> e <em>forma</em>. Tenha em mente que são duas definições que existem independentemente de qualquer linguagem de programação – elas versam sobre <em>dados</em> de forma geral.</p>
-<p>Por outro lado, agora veremos o conceito e alguns exemplos de <em>estrutura de dados</em> para o R. <strong>A estrutura de dados é a forma pela qual o R classificará um objeto em relação ao <em>tipo</em> e a <em>forma</em> dos dados que contém.</strong> Existe uma estrutura de dados para cada combinação de tipo e forma? <strong>Não.</strong> Compreender as principais estruturas disponíveis no R requer vê-las como uma combinação de</p>
+<p>Na seção anterior, vimos os conceitos de <em>tipo</em> e <em>forma</em>. Tenha em mente que são duas definições que existem independentemente de qualquer linguagem de programação – elas versam sobre valores e dados de forma geral.</p>
+<p>Por outro lado, agora veremos o conceito e alguns exemplos de <em>estrutura de dados</em> <u>para o R</u>. <strong>A estrutura de dados é a forma pela qual o R classificará um objeto em relação ao <em>tipo</em> e a <em>forma</em> dos dados que contém.</strong> Existe uma estrutura de dados para cada combinação de tipo e forma? <strong>Não.</strong> Compreender as principais estruturas disponíveis no R requer vê-las como uma combinação de</p>
 <ol type="a">
 <li>Determinado formato de dados</li>
 <li>Número de tipos de dados (se é único ou possui vários)</li>
@@ -694,12 +694,26 @@ Tabela&nbsp;5.3
 <pre><code>[1]  5  8 12</code></pre>
 </div>
 </div>
-<p><strong>Se você tentar criar um vetor contendo dois tipos de dados diferentes, ele converterá todos os dados para o tipo texto.</strong> A única exceção é com relação a entradas do tipo lógico <code>NA</code> <em>(Not Available)</em>, que representam a ausência de determinado dado.</p>
+<p><strong>Se você tentar criar um vetor contendo dois tipos de dados diferentes, ele converterá todos os dados para o tipo texto.</strong> No exemplo abaixo, o vetor <code>z</code> é armazenado como vetor do tipo texto, mesmo que o criemos contendo inicialmente o número 5 e o tipo lógico <code>NA</code> <em>(Not Available)</em>.</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb11"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a>z <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">5</span>, <span class="st">"texto"</span>, <span class="cn">TRUE</span>, <span class="cn">NA</span>)</span>
 <span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a>z</span></code><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] "5"     "texto" "TRUE"  NA     </code></pre>
+</div>
+</div>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+NA (Not Avaiable)
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Em determinadas situações, não teremos dados para algumas observações. Imagine, por exemplo, uma pesquisa domiciliar: nem todas as pessoas podem responder as perguntar feitas pelo avaliador. Ao mesmo tempo, não seria adequado descartar o restante das informações coletadas. Como, então, indicar que determinado dado não existe?</p>
+<p>No R, utilizaremos o valor <code>NA</code> para representar dados faltantes. O tipo padrão de <code>NA</code> é lógico, a menos que seja forçado a algum outro tipo, como no caso do vetor do exemplo anterior, onde se tornou do tipo texto (mesmo que na saída não esteja cercado por aspas). Existem vários tipos de valores <code>NA</code>!</p>
 </div>
 </div>
 <p>É inegável que, a partir deste ponto, as estruturas começam a ficar mais interessantes. Lembre-se que o vetor tem uma dimensão e pode ter muitas informações armazenadas. É natural que, em determinadas situações, desejemos acessar apenas valores específicos dentre os que constam nele.</p>

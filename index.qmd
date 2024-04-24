@@ -34,11 +34,11 @@ Além disso, o material não te dará proficiência em R. O que queremos dizer c
 
 ## Como o material está organizado
 
-O material está organizado em sete capítulos: o primeiro, que te mostra a motivação para programar, além de outros seis que buscam, em primeiro lugar, te guiar na instalação do R e RStudio e, na sequência, ensinar comandos e conceitos básicos que serão necessários ao longo dos cursos. Com intuito de facilitar o aprendizado, cada capítulo foi repartido em um certo número de seções (e subseções, quando necessário).
+O material está organizado em oito capítulos: o primeiro, que te mostra a motivação para programar, além de outros sete que buscam, em primeiro lugar, te guiar na instalação do R e RStudio e, na sequência, ensinar comandos e conceitos básicos que serão necessários ao longo dos cursos. Com intuito de facilitar o aprendizado, cada capítulo foi repartido em um certo número de seções (e subseções, quando necessário).
 
 A lista de capítulos pode ser observada no menu à *esquerda*. Por sua vez, a lista de seções do capítulo em que você estiver pode ser observada no menu à *direita*. Perceba que, para ser direcionado a um determinado capítulo/seção, basta clicar em seu nome.
 
-![](images/clipboard-250739170.png){fig-align="center" width="541"}
+![](images/clipboard-439693192.png){fig-align="center" width="80%"}
 
 *"Caramba, queria tanto acessar uma parte específica do material que não lembro muito bem onde está... E agora?"* Sem problemas: você pode pesquisar partes do texto ou palavras-chave no campo em branco logo acima do Prefácio!
 

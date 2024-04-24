@@ -421,10 +421,10 @@ Tabela&nbsp;4.2: Operadores lógicos do R
 <div class="cell-output-display">
 <table class="do-not-create-environment cell table table-sm table-striped small">
 <colgroup>
-<col style="width: 21%">
-<col style="width: 10%">
-<col style="width: 55%">
-<col style="width: 11%">
+<col style="width: 16%">
+<col style="width: 8%">
+<col style="width: 42%">
+<col style="width: 33%">
 </colgroup>
 <thead>
 <tr class="header">
@@ -472,12 +472,18 @@ Tabela&nbsp;4.2: Operadores lógicos do R
 <td style="text-align: center;">TRUE</td>
 </tr>
 <tr class="odd">
+<td style="text-align: center;">Não x</td>
+<td style="text-align: center;">!</td>
+<td style="text-align: center;">x &lt;- c(1, 4, NA, 8) <br> !x</td>
+<td style="text-align: center;">Todos valores que não <br> 1, 4, NA e 8</td>
+</tr>
+<tr class="even">
 <td style="text-align: center;">x <strong>e</strong> y</td>
 <td style="text-align: center;">&amp;</td>
 <td style="text-align: center;">x &lt;- c(1, 4, NA, 8) <br> x[!is.na(x) &amp; x &gt; 5]</td>
 <td style="text-align: center;">8</td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td style="text-align: center;">x <strong>ou</strong> y</td>
 <td style="text-align: center;">|</td>
 <td style="text-align: center;">x &lt;- c(1, 4, NA, 8) <br> x[!is.na(x) | x &gt; 5]</td>
@@ -490,6 +496,7 @@ Tabela&nbsp;4.2: Operadores lógicos do R
 </figure>
 </div>
 </div>
+<p>Ao longo do material, explicaremos melhor esses oepradores.</p>
 </section>
 <section id="possíveis-complicações" class="level2" data-number="4.3">
 <h2 data-number="4.3" class="anchored" data-anchor-id="possíveis-complicações"><span class="header-section-number">4.3</span> Possíveis complicações</h2>

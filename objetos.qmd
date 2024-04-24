@@ -36,7 +36,7 @@ data.frame(tipo = c("Númerico",
            
            exemplo = c("1, 3.2, 0.89", 
                        "\"Ana jogou bola\"",
-                       "TRUE, FALSE, NA", 
+                       "TRUE, FALSE, NA lógico", 
                        "14/04/1999")) |> 
   
   knitr::kable(align = "c", 
@@ -73,7 +73,7 @@ data.frame(formato = c("Escalar",
 
 Um escalar é um elemento único, que pode ser de qualquer tipo. Ou seja, a representação elementar de um dado se dá através de um escalar! Por exemplo, o tipo sanguíneo de determinada pessoa, representado pelos caracteres "AB", é um escalar do tipo texto. Você pode pensar no escalar como um dado organizado em 1 linha e 1 coluna.
 
-Por sua vez, dados retangulares são àqueles cuja organização ocorre em $i$ linhas e $j$ colunas, tal que $i,j \in \mathbb{N}$ e $i > 1$ ou $j > 1$. As formas retangulares mais comuns são *vetores*, *matrizes* e *tabelas de dados*. Uma matriz é uma forma de organização de dados *númericos* em em $i$ linhas e $j$ colunas. Quando uma matriz possui $i$ linhas e $1$ coluna *ou* $1$ linha e $j$ colunas, chamamos de vetor-coluna e vetor-linha, respectivamente; em muitos casos, chamamos apenas de *vetor*. Assim, o vetor é um caso especial de matriz unidimensional. As tabelas de dados, por outro lado, possuem $i$ linhas e $j$ colunas, tal que $i > 1$ e $j > 1$. Além disso, aceitam todos os tipos de dado -- por exemplo, númericos, de textos ou lógicos -- em qualquer que seja a combinação de linha e coluna.
+Por sua vez, dados retangulares são àqueles cuja organização ocorre em $i$ linhas e $j$ colunas, tal que $i,j \in \mathbb{N}$ e $i > 1$ ou $j > 1$. As formas retangulares mais comuns são *vetores*, *matrizes* e *tabelas de dados*. Uma matriz é uma forma de organização de dados *númericos* em em $i$ linhas e $j$ colunas. Quando uma matriz possui $i$ linhas e $1$ coluna *ou* $1$ linha e $j$ colunas, chamamos de vetor-coluna e vetor-linha, respectivamente; na prática, chamamos ambos apenas de *vetor*. Assim, o vetor é um caso especial de matriz unidimensional. As tabelas de dados, por outro lado, possuem $i$ linhas e $j$ colunas, tal que $i > 1$ e $j > 1$. Além disso, aceitam todos os tipos de dado -- por exemplo, númericos, de textos ou lógicos -- em qualquer que seja a combinação de linha e coluna.
 
 Por sua vez, dados não-retangulares se referem a toda organização de dados que não seja feita em linhas e colunas relacionadas entre si. A forma mais comum é a lista. Observe um exemplo abaixo: cada característica pode ser entendida como um elemento de uma lista. Apesar de pertencerem a mesma estrutura, os elementos não se comunicam entre si.
 
@@ -113,9 +113,9 @@ knitr::kable(col.names = c("Nome", "Gênero", "Idade", "Altura (cm)", "Peso (kg)
 
 ## Estruturas de Dados no R
 
-Na seção anterior, vimos os conceitos de *tipo* e *forma*. Tenha em mente que são duas definições que existem independentemente de qualquer linguagem de programação – elas versam sobre *dados* de forma geral.
+Na seção anterior, vimos os conceitos de *tipo* e *forma*. Tenha em mente que são duas definições que existem independentemente de qualquer linguagem de programação – elas versam sobre valores e dados de forma geral.
 
-Por outro lado, agora veremos o conceito e alguns exemplos de *estrutura de dados* para o R. **A estrutura de dados é a forma pela qual o R classificará um objeto em relação ao *tipo* e a *forma* dos dados que contém.** Existe uma estrutura de dados para cada combinação de tipo e forma? **Não.** Compreender as principais estruturas disponíveis no R requer vê-las como uma combinação de
+Por outro lado, agora veremos o conceito e alguns exemplos de *estrutura de dados* [para o R]{.underline}. **A estrutura de dados é a forma pela qual o R classificará um objeto em relação ao *tipo* e a *forma* dos dados que contém.** Existe uma estrutura de dados para cada combinação de tipo e forma? **Não.** Compreender as principais estruturas disponíveis no R requer vê-las como uma combinação de
 
 (a) Determinado formato de dados
 (b) Número de tipos de dados (se é único ou possui vários)
@@ -192,12 +192,20 @@ z <- c(5, 8, 12)
 z
 ```
 
-**Se você tentar criar um vetor contendo dois tipos de dados diferentes, ele converterá todos os dados para o tipo texto.** A única exceção é com relação a entradas do tipo lógico `NA` *(Not Available)*, que representam a ausência de determinado dado.
+**Se você tentar criar um vetor contendo dois tipos de dados diferentes, ele converterá todos os dados para o tipo texto.** No exemplo abaixo, o vetor `z` é armazenado como vetor do tipo texto, mesmo que o criemos contendo inicialmente o número 5 e o tipo lógico `NA` *(Not Available)*.
 
 ```{r}
 z <- c(5, "texto", TRUE, NA)
 z
 ```
+
+::: {.callout-note}
+## NA (Not Avaiable)
+
+Em determinadas situações, não teremos dados para algumas observações. Imagine, por exemplo, uma pesquisa domiciliar: nem todas as pessoas podem responder as perguntar feitas pelo avaliador. Ao mesmo tempo, não seria adequado descartar o restante das informações coletadas. Como, então, indicar que determinado dado não existe? 
+
+No R, utilizaremos o valor `NA` para representar dados faltantes. O tipo padrão de `NA` é lógico, a menos que seja forçado a algum outro tipo, como no caso do vetor do exemplo anterior, onde se tornou do tipo texto (mesmo que na saída não esteja cercado por aspas). Existem vários tipos de valores `NA`!
+:::
 
 É inegável que, a partir deste ponto, as estruturas começam a ficar mais interessantes. Lembre-se que o vetor tem uma dimensão e pode ter muitas informações armazenadas. É natural que, em determinadas situações, desejemos acessar apenas valores específicos dentre os que constam nele.
 

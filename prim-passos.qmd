@@ -62,12 +62,14 @@ Abaixo, introduzimos a @tbl-ope-log com outros operadores lógicos da linguagem.
 #| echo: false
 #| tbl-cap: Operadores lógicos do R
 
-data.frame(comparacao = c("Maior que", "Maior ou igual que", "Menor que", "Menor ou igual que", "Igual à", "Diferente de", "x **e** y", "x **ou** y"),
-           operador = c(">", ">=", "<", "<=", "==", "!=", "&", "|"),
-           exemplo = c("2 > 1", "2 >= 2", "2 < 3", "5 <= 3", "4 == 4", "5 != 3", "x <- c(1, 4, NA, 8) <br> x[!is.na(x) & x > 5]", "x <- c(1, 4, NA, 8) <br> x[!is.na(x) | x > 5]"),
-           resultado = c(2 > 1, 2 >= 2, 2 < 3, 5 <= 3, 4 == 4, 5 != 3, 8, "1, 4, 8")) |>  
+data.frame(comparacao = c("Maior que", "Maior ou igual que", "Menor que", "Menor ou igual que", "Igual à", "Diferente de","Não x", "x **e** y", "x **ou** y"),
+           operador = c(">", ">=", "<", "<=", "==", "!=", "!", "&", "|"),
+           exemplo = c("2 > 1", "2 >= 2", "2 < 3", "5 <= 3", "4 == 4", "5 != 3", "x <- c(1, 4, NA, 8) <br> !x", "x <- c(1, 4, NA, 8) <br> x[!is.na(x) & x > 5]", "x <- c(1, 4, NA, 8) <br> x[!is.na(x) | x > 5]"),
+           resultado = c(2 > 1, 2 >= 2, 2 < 3, 5 <= 3, 4 == 4, 5 != 3, "Todos valores que não <br> 1, 4, NA e 8", 8, "1, 4, 8")) |>  
   knitr::kable(align = "c", col.names = c("Operação", "Operador", "Exemplo", "Resultado"))
 ```
+
+Ao longo do material, explicaremos melhor esses oepradores.
 
 ## Possíveis complicações
 
